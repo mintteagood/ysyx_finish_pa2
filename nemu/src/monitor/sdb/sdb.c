@@ -37,6 +37,8 @@ static int cmd_q(char *args) {
   return -1;
 }
 
+static int cmd_si(char *args);
+
 static int cmd_help(char *args);
 
 static struct {
@@ -47,6 +49,7 @@ static struct {
   { "help", "Display informations about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
+  { "si", "Excecute NEMU", cmd_si },
 
   /* TODO: Add more commands */
 
@@ -77,6 +80,24 @@ static int cmd_help(char *args) {
   return 0;
 }
 
+static int cmd_si(char *args) {
+  /* extract the first argument */
+  char *arg = strtok(NULL, " ");
+  
+  if (arg == NULL) {
+    cpu_exec(1);
+    return 0;
+  }
+  else {
+    cpu_exec(*arg);
+    return 0;
+    }
+  return 0;
+}
+
+
+
+
 void sdb_set_batch_mode() {
   is_batch_mode = true;
 }
@@ -86,7 +107,6 @@ void sdb_mainloop() {
     cmd_c(NULL);
     return;
   }
-
   for (char *str; (str = rl_gets()) != NULL; ) {
     char *str_end = str + strlen(str);
 
