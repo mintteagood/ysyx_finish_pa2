@@ -117,7 +117,8 @@ static int cmd_info(char *args) {
 static int cmd_x(char *args) {
   /* extract the first argument */
   char *arg = strtok(NULL, " ");
-  printf("return'%d'\n", *arg);
+  printf("return'%s'\n", arg);
+    printf("return'%d'\n", *arg);
   return 0;
 }
 
