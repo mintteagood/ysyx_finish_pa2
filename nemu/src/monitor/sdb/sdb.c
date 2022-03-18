@@ -121,9 +121,9 @@ static int cmd_x(char *args) {
   char *arg2 = strtok(arg1, "x");
   arg2 = strtok(NULL, "x");
   int arg_l=atoi(arg);
-  
+  int arg2_l=atoi(arg2);
   printf("return'%d'\n", arg_l);
-  printf("return'%s'\n", arg2);
+  printf("return'%d'\n", arg2_l);
 	
   return 0;
 }
