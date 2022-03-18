@@ -123,6 +123,7 @@ static int cmd_x(char *args) {
   int arg_l=atoi(arg);
   printf("return'%d'\n", arg_l);
   printf("return'%s'\n", arg2);
+  printf("return'%p'\n", arg2);
   return 0;
 }
 
