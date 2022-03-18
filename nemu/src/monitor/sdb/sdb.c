@@ -124,7 +124,7 @@ static int cmd_x(char *args) {
   int arg2_l=atoi(arg2);
   printf("return'%d'\n", arg_l);
   printf("return'%d'\n", arg2_l);
-	
+  printf("return'%d'\n", *((char *)arg1));	
   return 0;
 }
 
