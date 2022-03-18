@@ -120,7 +120,7 @@ static int cmd_x(char *args) {
   char *arg1 = strtok(NULL, " ");
   int arg_l=atoi(arg);
   printf("return'%d'\n", arg_l);
-  printf("return'%s'\n", arg1);
+  printf("return'%p'\n", arg1);
   return 0;
 }
 
