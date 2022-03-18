@@ -118,7 +118,8 @@ static int cmd_x(char *args) {
   /* extract the first argument */
   char *arg = strtok(NULL, " ");
   char *arg1 = strtok(NULL, " ");
-  char *arg2 = strtok(arg1, "0x");
+  char *arg2 = strtok(arg1, "x");
+  arg2 = strtok(NULL, "x");
   int arg_l=atoi(arg);
   
   printf("return'%d'\n", arg_l);
