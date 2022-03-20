@@ -93,8 +93,10 @@ static int cmd_si(char *args) {
     cpu_exec(1);
   }
   else {
-    cpu_exec(*arg);
-    printf("%d\n",*arg);
+    int N = atoi(arg);
+    cpu_exec(N);
+    
+    printf("%d\n",N);
     }
   return 0;
 }
