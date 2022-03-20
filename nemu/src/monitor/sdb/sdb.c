@@ -121,10 +121,16 @@ static int cmd_x(char *args) {
   char *arg2 = strtok(arg1, "x");
   arg2 = strtok(NULL, "x");
   int arg_l=atoi(arg);
+  /*int arg2_p=atoi(arg2); */
+
+  int i;
+  for (i = 0; i < arg_l-1; i ++) {
+     arg2=arg2 + i;
+      printf("return'%p'\n", arg2);
+    }
   
-  printf("return'%d'\n", arg_l);
-  printf("return'%s'\n", arg2);
-  printf("return'%d'\n", *arg2);
+ 
+  
   return 0;
 }
 
