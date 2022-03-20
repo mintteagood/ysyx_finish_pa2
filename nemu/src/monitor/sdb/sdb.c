@@ -95,8 +95,6 @@ static int cmd_si(char *args) {
   else {
     int N = atoi(arg);
     cpu_exec(N);
-    
-    printf("%d\n",N);
     }
   return 0;
 }
@@ -104,7 +102,7 @@ static int cmd_si(char *args) {
 static int cmd_info(char *args) {
   /* extract the first argument */
   char *arg = strtok(NULL, " ");
-  
+  printf("%s\n",arg);
   if (arg == NULL) {
   }
   else {
