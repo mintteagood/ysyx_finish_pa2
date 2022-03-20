@@ -92,11 +92,9 @@ static int cmd_si(char *args) {
   
   if (arg == NULL) {
     cpu_exec(1);
-    return 0;
   }
   else {
     cpu_exec(*arg);
-    return 0;
     }
   return 0;
 }
