@@ -102,7 +102,6 @@ static int cmd_si(char *args) {
 static int cmd_info(char *args) {
   /* extract the first argument */
   char *arg = strtok(NULL, " ");
-  printf("%s\n",arg);
   if (arg == NULL) {
   }
   else {
