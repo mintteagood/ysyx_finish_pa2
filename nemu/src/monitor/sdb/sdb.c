@@ -109,7 +109,7 @@ static int cmd_info(char *args) {
   }
   else {
     if (*arg == 'r')
-       isa_reg_display();
+     isa_reg_display();
     }
   return 0;
 }
