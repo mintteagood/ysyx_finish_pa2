@@ -3,6 +3,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include "sdb.h"
+#include <memory/paddr.h>
 
 static int is_batch_mode = false;
 
@@ -117,19 +118,14 @@ static int cmd_info(char *args) {
 static int cmd_x(char *args) {
   /* extract the first argument */
   char *arg = strtok(NULL, " ");
-  char *arg1 = strtok(NULL, " ");
-  char *arg2 = strtok(arg1, "x");
-  arg2 = strtok(NULL, "x");
-  int arg_l=atoi(arg);
-  /*int arg2_p=atoi(arg2); */
-  printf("return'%d'\n", arg_l);
-   printf("return'%p'\n", arg2);
-
-  /*int i;
-   for (i = 0; i < arg_l-1; i ++) {
-     arg2=arg2 + i;
-      printf("return'%p'\n", arg2);
-    }  */
+  int arg_l = atoi(arg);
+  arg = strtok(NULL, " ");
+  word_t addr = strtol(arg,NULL,16);
+  for (int i=0;i<arg_l;i++){
+  	printf("\x1b[94m0x%lx\x1b[0m: 0x%lx \n",addr,paddr_read(addr, 4) );
+  	/*printf("%lx\n",paddr_read(addr, 4));*/
+  	addr +=4;
+  }
   
  
   
