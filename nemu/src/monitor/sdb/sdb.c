@@ -94,6 +94,7 @@ static int cmd_si(char *args) {
   }
   else {
     cpu_exec(*arg);
+    printf("%d\n",*arg);
     }
   return 0;
 }
