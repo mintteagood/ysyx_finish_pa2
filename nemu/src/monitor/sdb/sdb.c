@@ -89,12 +89,12 @@ static int cmd_help(char *args) {
 static int cmd_si(char *args) {
   /* extract the first argument */
   char *arg = strtok(NULL, " ");
-  
+  int n = atoi(arg);
   if (arg == NULL) {
     cpu_exec(1);
   }
   else {
-    cpu_exec(*arg);
+    cpu_exec(n);
     }
   return 0;
 }
