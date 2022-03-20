@@ -106,7 +106,7 @@ static int cmd_info(char *args) {
   if (arg == NULL) {
   }
   else {
-    if (*arg == 'r')
+    if (strcmp(arg,"r") == 0)
      isa_reg_display();
     }
   return 0;
