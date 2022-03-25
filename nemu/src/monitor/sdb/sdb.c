@@ -119,18 +119,11 @@ static int cmd_x(char *args) {
   arg = strtok(NULL, " ");
   word_t addr = strtol(arg,NULL,16);
   for (int i=0;i<arg_l;i++){
-  	/*printf("\x1b[94m0x%lx\x1b[0m: 0x%lx \n",addr,paddr_read(addr, 4) );*/
   	printf("%ld\n",paddr_read(addr, 4));
   	addr +=4;
   }
-  
- 
-  
   return 0;
 }
-
-
-
 
 
 
