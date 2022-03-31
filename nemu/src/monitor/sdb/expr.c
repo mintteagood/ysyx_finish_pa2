@@ -139,5 +139,73 @@ word_t expr(char *e, bool *success) {
   /* TODO: Insert codes to evaluate the expression. */
 
 
+bool check_parentheses(Token *p,Token *q){
+	int count = 0;
+	int sign = 0;
+
+	for (Token *iter_p=p;iter_p<q;iter_p++) {
+		if (iter_p->type=='(')
+			count++;
+		else if (iter_p->type==')')
+			count--;
+		if (count==0)
+			sign=1;
+	}
+	if (q->type==')')
+		count--;
+	if (sign==0 && count==0 && (p->type=='(' && q->type==')'))
+		return true;
+	return false;
+}
+   
+Token* pos_mop(Token *p,Token *q){
+	int is_inP=0;
+    int sign=0; 
+	Token *pos_mod=NULL;
+
+	for (Token *iter_p=p;iter_p<=q;iter_p++) {
+		if (iter_p->type=='(') {
+			is_inP++;
+			continue;
+		}
+		if (iter_p->type==')') {
+			is_inP--;
+			continue;
+		}
+		if (is_inP!=0)continue;
+		
+		if (iter_p->type!='+' && iter_p->type!='-' 
+		   && iter_p->type!='*' && iter_p->type!='/')
+			continue;
+        if (sign<=1 && (iter_p->type=='+' || iter_p->type=='-')){
+			pos_mod=iter_p;
+			sign=1;
+		}
+		else if (sign<=0 && (iter_p->type=='*' || iter_p->type=='/'))
+			pos_mod=iter_p;
+	}
+
+	return pos_mod;
+}
+
+int eval(Token *p,Token *q){
+    if (p == q) 
+        return (int)atoi(p->str);	
+  	else if (check_parentheses(p, q ) == true)
+    	return eval(p + 1, q - 1);
+  	else {
+		int val1=1,val2;
+		Token *op = pos_mop(p, q);
+		val1 = eval(p, op - 1);
+		val2 = eval(op + 1, q);
+		switch (op->type) {
+			case '+': return val1 + val2;
+			case '-': return val1 - val2;
+			case '*': return val1 * val2;
+			case '/': return val1 / val2;
+    	}
+	}
+	return 0;
+}
 
 
