@@ -44,6 +44,8 @@ static int cmd_info(char *args);
 
 static int cmd_x(char *args);
 
+static int cmd_biaodashi(char *args);
+
 static int cmd_help(char *args);
 
 static struct {
@@ -57,6 +59,7 @@ static struct {
   { "si", "Excecute NEMU", cmd_si },
   { "info", "Print", cmd_info },
   { "x", "Saomiao", cmd_x },
+  {"biaodashi","Qiuzhi",cmd_biaodashi}
   /* TODO: Add more commands */
 
 };
@@ -124,7 +127,13 @@ static int cmd_x(char *args) {
   }
   return 0;
 }
+bool *p;
+static int cmd_biaodashi(char *args){
 
+printf("%ld",expr(args,p));
+
+return 0 ;
+}
 
 
 

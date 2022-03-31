@@ -131,8 +131,8 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
   else{
-  printf("%s",tokens[nr_token].str);
-  return 0;
+  
+  return *(tokens[nr_token].str);
   }
   }
 
