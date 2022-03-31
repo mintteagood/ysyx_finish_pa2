@@ -97,7 +97,7 @@ static bool make_token(char *e) {
 	       {
 		tokens[nr_token].type = rules[i].token_type;
 		strncpy(tokens[nr_token].str,substr_start,substr_len);
-		printf("%s",tokens[nr_token].str);
+		
 		tokens[nr_token++].str[substr_len] = '\0';
 		
 		break;
@@ -130,7 +130,10 @@ word_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
+  else{
+  printf("%s",tokens[nr_token].str);
   return 0;
+  }
   }
 
   /* TODO: Insert codes to evaluate the expression. */
