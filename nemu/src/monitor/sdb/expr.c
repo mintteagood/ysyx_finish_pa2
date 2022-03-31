@@ -97,7 +97,9 @@ static bool make_token(char *e) {
 	       {
 		tokens[nr_token].type = rules[i].token_type;
 		strncpy(tokens[nr_token].str,substr_start,substr_len);
+		printf("%s",tokens[nr_token].str);
 		tokens[nr_token++].str[substr_len] = '\0';
+		
 		break;
 		}
 		case TK_NOTYPE:
@@ -118,10 +120,10 @@ static bool make_token(char *e) {
   return true;
 }
 
-int main(){
-	printf("%s",tokens->str);
 
-}
+	
+
+
 
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {
