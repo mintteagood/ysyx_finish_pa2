@@ -208,7 +208,7 @@ word_t expr(char *e, bool *success) {
   }
    else{
    Token *p = &tokens[0];
-   Token *q = &tokens[31];
+   Token *q = &tokens[nr_token];
    return  eval(p,q);
   }
   }
