@@ -199,7 +199,7 @@ int eval(Token *p,Token *q){
 
 
 
-Token *p=NULL;
+Token *p = NULL;
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {
     *success = false;
