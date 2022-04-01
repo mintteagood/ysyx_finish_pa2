@@ -206,7 +206,7 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-   return  *(tokens->str);
+   return  eval(tokens,tokens);
   }
   }
 
