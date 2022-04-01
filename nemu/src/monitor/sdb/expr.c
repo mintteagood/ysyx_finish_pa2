@@ -206,7 +206,7 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-   return  tokens->type;
+   return  *(tokens->str);
   }
   }
 
