@@ -125,18 +125,7 @@ static bool make_token(char *e) {
 
 
 
-word_t expr(char *e, bool *success) {
-  if (!make_token(e)) {
-    *success = false;
-    return 0;
-  }
-  else{
-  
-  return *(tokens[nr_token].str);
-  }
-  }
 
-  /* TODO: Insert codes to evaluate the expression. */
 
 
 bool check_parentheses(Token *p,Token *q){
@@ -208,4 +197,18 @@ int eval(Token *p,Token *q){
 	return 0;
 }
 
+
+
+
+word_t expr(char *e, bool *success) {
+  if (!make_token(e)) {
+    *success = false;
+    return 0;
+  }
+   else{
+   return eval(tokens,tokens);
+  }
+  }
+
+  /* TODO: Insert codes to evaluate the expression. */
 
