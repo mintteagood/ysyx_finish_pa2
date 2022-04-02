@@ -78,9 +78,7 @@ static bool make_token(char *e) {
 
         Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
             i, rules[i].regex, position, substr_len, substr_len, substr_start);
-
         position += substr_len;
-
         /* TODO: Now a new token is recognized with rules[i]. Add codes
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
@@ -118,6 +116,10 @@ static bool make_token(char *e) {
 
   return true;
 }
+
+
+
+
 
 
 	
@@ -206,12 +208,12 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-  /* Token *p = NULL;
+   Token *p = NULL;
    p = tokens;
    Token *q = NULL;
-   q = tokens+NR_REGEX;
-   return  eval(p,q);*/
-   return printf("%d",NR_REGEX);
+   q = tokens+2;
+   return  eval(p,q);
+ /*  return printf("%d",position);*/
    
   }
   }
