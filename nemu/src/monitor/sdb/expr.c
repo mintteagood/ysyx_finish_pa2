@@ -113,7 +113,7 @@ static bool make_token(char *e) {
       return false;
     }
   }
-
+	printf("%d",nr_token);
   return true;
 }
 	
