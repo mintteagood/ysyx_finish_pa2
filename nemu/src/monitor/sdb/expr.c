@@ -206,8 +206,10 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-   Token *p = tokens;
-   Token *q = tokens+NR_REGEX;
+   Token *p = NULL;
+   p = tokens;
+   Token *q = NULL;
+   q = tokens+NR_REGEX;
    return  eval(p,q);
   }
   }
