@@ -210,6 +210,7 @@ word_t expr(char *e, bool *success) {
    p = tokens;
    Token *q = NULL;
    q = tokens+NR_REGEX;
+   printf("%d",NR_REGEX);
    return  eval(p,q);
   }
   }
