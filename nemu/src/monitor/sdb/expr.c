@@ -114,7 +114,6 @@ static bool make_token(char *e) {
     }
   }
 	cal=nr_token;
-	printf("%d",cal);
   return true;
 }
 	
