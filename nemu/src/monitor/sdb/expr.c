@@ -206,12 +206,13 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-   Token *p = NULL;
+  /* Token *p = NULL;
    p = tokens;
    Token *q = NULL;
    q = tokens+NR_REGEX;
-   printf("%d",NR_REGEX);
-   return  eval(p,q);
+   return  eval(p,q);*/
+   return printf("%d",NR_REGEX);
+   
   }
   }
 
