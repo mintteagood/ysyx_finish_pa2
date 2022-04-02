@@ -97,7 +97,6 @@ static bool make_token(char *e) {
 	       {
 		tokens[nr_token].type = rules[i].token_type;
 		strncpy(tokens[nr_token].str,substr_start,substr_len);
-		
 		tokens[nr_token++].str[substr_len] = '\0';
 		
 		break;
@@ -207,8 +206,8 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-   Token *p = &tokens[0];
-   Token *q = &tokens[NR_REGEX];
+   Token *p = tokens;
+   Token *q = tokens+NR_REGEX;
    return  eval(p,q);
   }
   }
