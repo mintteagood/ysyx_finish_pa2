@@ -61,7 +61,7 @@ typedef struct token {
 
 static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
-
+int cal;
 static bool make_token(char *e) {
   int position = 0;
   int i;
@@ -96,7 +96,7 @@ static bool make_token(char *e) {
 		tokens[nr_token].type = rules[i].token_type;
 		strncpy(tokens[nr_token].str,substr_start,substr_len);
 		tokens[nr_token++].str[substr_len] = '\0';
-		printf("%d",nr_token);
+		
 		break;
 		}
 		case TK_NOTYPE:
@@ -107,7 +107,7 @@ static bool make_token(char *e) {
         break;
       }
     }
-
+	printf("%d",nr_token);
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
@@ -116,12 +116,6 @@ static bool make_token(char *e) {
 
   return true;
 }
-
-
-
-
-
-
 	
 
 
