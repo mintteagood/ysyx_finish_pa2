@@ -205,7 +205,7 @@ word_t expr(char *e, bool *success) {
    Token *p = NULL;
    p = tokens;
    Token *q = NULL;
-   q = tokens+4;
+   q = tokens+cal-1;
    return  eval(p,q);
  /*  return printf("%d",position);*/
    
