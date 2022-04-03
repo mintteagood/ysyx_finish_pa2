@@ -18,7 +18,7 @@ word_t shibie(const char *s, bool *success){
    for(int i=0;i<32;i++){
 	if(*s==*regs[i])
 	*success = true;
-	printf("xianshiregsi%d and i=%d",*regs[i],i);
+	printf("regsi=%d and i=%d and *s=%d",*regs[i],i,*s);
 	return i;
 	}
 
@@ -30,6 +30,6 @@ return 0;
 word_t isa_reg_str2val(const char *s, bool *success) {
    /*char *pin =strtok(s, "$");*/
  	int j =shibie(s,success);
-  	return printf("jicunqi%d and %ldjieshu",*s,cpu.gpr[j]);
+  	return printf("*s=%d and cpu=%ldjieshu",*s,cpu.gpr[j]);
   	
 }
