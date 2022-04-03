@@ -185,7 +185,8 @@ int eval(Token *p,Token *q){
 		return isa_reg_str2val(p->str, success);
 		return 0;
 			}
-     else if (p == q) 
+	else{
+      if (p == q) 
         return (int)atoi(p->str);	
   	else if (check_parentheses(p, q ) == true)
     	return eval(p + 1, q - 1);
@@ -206,6 +207,7 @@ int eval(Token *p,Token *q){
     		}
 	}
 	return 0;
+	}
 	
 }
 
