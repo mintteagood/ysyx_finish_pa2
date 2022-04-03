@@ -164,6 +164,7 @@ Token* pos_mop(Token *p,Token *q){
 		if(iter_p->type== TK_REG){
 			
 			pos_mod=iter_p;
+			printf("jixu");
 			break;
 			}
 		if (iter_p->type!='+' && iter_p->type!='-' 
@@ -196,7 +197,7 @@ int eval(Token *p,Token *q){
 			case '*': return val1 * val2;
 			case '/': return val1 / val2;
 			/*case TK_REG: return isa_reg_str2val((tokens+cal-1)->str, success);*/
-			case TK_REG: return 12;
+			case TK_REG: return isa_reg_str2val((tokens+cal-1)->str, success);
     	}
 	}
 	return 0;
