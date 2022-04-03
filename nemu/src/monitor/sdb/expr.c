@@ -180,7 +180,7 @@ bool *success;
 int eval(Token *p,Token *q){
 	if(p->type== TK_REG){
 			
-			
+			printf("isahanshupro");
 			return isa_reg_str2val((tokens+cal-1)->str, success);
 			}
     if (p == q) 
