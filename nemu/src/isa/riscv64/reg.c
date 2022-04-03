@@ -21,10 +21,11 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   	/*return cpu.gpr[i];*/
   	return printf("jicunqi%s",regs[i]);
   	*success = true;
+  	return 0;
   	}
   	else{ 
   	/*return printf("jicunqiku%sand zhen ",regs[i]);*/
-  	return 1;
+  	return 0;
   	}
   }
   return 0;
