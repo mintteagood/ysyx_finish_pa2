@@ -25,7 +25,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   	}
   	else{ 
   	return printf("jicunqiku%sand zhen %s",regs[i],s);
-  	return 0;
+  	
   	}
   }
   return 0;
