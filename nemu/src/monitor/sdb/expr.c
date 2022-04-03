@@ -31,7 +31,7 @@ static struct rule {
   {"([1-9][0-9]{1,31})|[0-9]",TK_NUM},
   {"==", TK_EQ},        // equal
   {"0[xX][0-9a-fA-F]+",TK_HEX},
-  {"(\\$[0a-zA-Z]+)|([xX][0-9]+)|[a-zA-Z][1-9][0-9]+|[a-zA-Z][0-9]+",TK_REG},
+  {"(\\$",TK_REG},
   
 };
 
@@ -111,7 +111,7 @@ static bool make_token(char *e) {
         break;
       }
     }
-	/*printf("%d",nr_token);*/
+	printf("%d",nr_token);
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
@@ -178,12 +178,12 @@ Token* pos_mop(Token *p,Token *q){
 }
 bool *success;
 int eval(Token *p,Token *q){
-	if(p->type== TK_REG){
+	/*if(p->type== TK_REG){
 	 char sh[128];
 		sprintf(sh,"%d",p->type);
 		printf("%s",sh);
-		/*return isa_reg_str2val(sh, success);*/
-			}
+		return isa_reg_str2val(sh, success);
+			}*/
     if (p == q) 
         return (int)atoi(p->str);	
   	else if (check_parentheses(p, q ) == true)
