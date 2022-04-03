@@ -22,7 +22,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   	return printf("jicunqi%s",regs[i]);
   	*success = true;
   	}
-  	return printf("jicunqi2%s%s",regs[0],s);
+  	return 0;
   }
   return 0;
 }
