@@ -165,7 +165,7 @@ Token* pos_mop(Token *p,Token *q){
 			
 			pos_mod=iter_p;
 			printf("jixu");
-			break;
+			continue;
 			}
 		if (iter_p->type!='+' && iter_p->type!='-' 
 		   && iter_p->type!='*' && iter_p->type!='/')
