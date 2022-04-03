@@ -179,10 +179,10 @@ Token* pos_mop(Token *p,Token *q){
 bool *success;
 int eval(Token *p,Token *q){
 	if(p->type== TK_REG){
-	 char sh[128];
+	 char* sh;
 		sprintf(sh,"%d",p->type);
 		printf("%s",sh);
-		return isa_reg_str2val(sh, success);
+		/*return isa_reg_str2val(sh, success);*/
 			}
     if (p == q) 
         return (int)atoi(p->str);	
