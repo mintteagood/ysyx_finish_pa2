@@ -111,7 +111,7 @@ static bool make_token(char *e) {
         break;
       }
     }
-	printf("token_zhi%s",tokens[nr_token-1].str);
+	printf("token_zhi=%s",tokens[nr_token-1].str);
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
@@ -181,7 +181,7 @@ int eval(Token *p,Token *q){
 	if(p->type== TK_REG){
 	 	char sh[128];
 		sprintf(sh,"%d",p->type);
-		printf("zhixiang%s",p->str);
+		printf(" zhixiang%s",p->str);
 		return isa_reg_str2val(p->str, success);
 		
 			}
