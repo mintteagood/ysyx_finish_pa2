@@ -31,7 +31,7 @@ static struct rule {
   {"([1-9][0-9]{1,31})|[0-9]",TK_NUM},
   {"==", TK_EQ},        // equal
   {"0[xX][0-9a-fA-F]+",TK_HEX},
-  {"\\$",TK_REG},
+  {"(\\$[0a-zA-Z]+)|([a-zA-Z][0-9]+)",TK_REG},
   
 };
 
@@ -111,7 +111,7 @@ static bool make_token(char *e) {
         break;
       }
     }
-	
+	printf("%s",tokens[nr_token].str);
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
