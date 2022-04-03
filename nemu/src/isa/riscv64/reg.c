@@ -23,5 +23,5 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   	*success = true;
   	}
   }
-  return 3;
+  return 0;
 }
