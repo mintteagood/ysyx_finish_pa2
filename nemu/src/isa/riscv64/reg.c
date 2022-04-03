@@ -23,7 +23,7 @@ int i=0;
 	
 	}
 
-return i-2;
+return i;
 }
 
 
@@ -31,6 +31,6 @@ return i-2;
 word_t isa_reg_str2val(const char *s, bool *success) {
    /*char *pin =strtok(s, "$");*/
  	int j =shibie(s,success);
-  	return j+1;
+  	return j;
   	
 }
