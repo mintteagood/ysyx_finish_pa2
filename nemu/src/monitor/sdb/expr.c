@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 enum {
-  TK_NOTYPE = 256, TK_EQ,TK_NUM,TK_HEX,TK_REG,
+  TK_NOTYPE = 256, TK_EQ,TK_NUM,TK_HEX,TK_REG,DEREF,
   /* TODO: Add more token types */
 
 };
@@ -78,7 +78,7 @@ static bool make_token(char *e) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
-
+		
         Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
             i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
@@ -86,7 +86,7 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-
+	
         switch (rules[i].token_type) {
         	case '+':
 		case '-':
@@ -109,6 +109,10 @@ static bool make_token(char *e) {
         }
 
         break;
+        if (tokens[i].type == '*' && (i == 0 || (tokens[i - 1].type =='*'))){
+        	tokens[i].type = DEREF;
+        }
+        
       }
     }
 	printf("token_zhi=%s",tokens[nr_token-1].str);
@@ -185,6 +189,10 @@ int eval(Token *p,Token *q){
 		return isa_reg_str2val(p->str, success);
 		
 			}
+	else if(p->type== DEREF){
+		return printf(" zhixiang%s",p->str);
+	
+			}
 	else{
       if (p == q) 
         return (int)atoi(p->str);	
@@ -221,6 +229,7 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
+   
    Token *p = NULL;
    p = tokens;
    Token *q = NULL;
