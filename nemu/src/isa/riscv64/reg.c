@@ -14,8 +14,11 @@ void isa_reg_display() {
   }
 }
 
-word_t shibie(const char *s, bool *success){
-int i=0;
+
+
+word_t isa_reg_str2val(const char *s, bool *success) {
+   /*char *pin =strtok(s, "$");*/
+ 	int i=0;
 
    for(i=0;i<32;i++){
 	if(*s==*regs[i])
@@ -25,13 +28,4 @@ int i=0;
 	}
 
 return i;
-}
-
-
-
-word_t isa_reg_str2val(const char *s, bool *success) {
-   /*char *pin =strtok(s, "$");*/
- 	int j =shibie(s,success);
-  	return j;
-  	
 }
