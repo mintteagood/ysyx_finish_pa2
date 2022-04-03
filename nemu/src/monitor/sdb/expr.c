@@ -179,9 +179,10 @@ Token* pos_mop(Token *p,Token *q){
 bool *success;
 int eval(Token *p,Token *q){
 	if(p->type== TK_REG){
-			
-			printf("isahanshupro");
-			return isa_reg_str2val((tokens+cal-1)->str, success);
+	 char *sh= NULL;
+		sprintf(sh,"%d",p->type);
+		
+		return isa_reg_str2val(sh, success);
 			}
     if (p == q) 
         return (int)atoi(p->str);	
