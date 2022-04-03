@@ -19,15 +19,12 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   for (int i=0;i<32;i++){
   	if(*s==*regs[i]){
   	/*return cpu.gpr[i];*/
-  	return printf("jicunqi%d and %d",*s,*regs[i]);
-  	*success = true;
-  	
-  	}
-  	else{ 
+  		return printf("jicunqi%d and %d",*s,*regs[i]);
+  		*success = true;
+  		}
+  	else{
   	return printf("jicunqiku%sand zhen %s",regs[i],s);
-  	
-  	
-  	}
-  }
-  return 0;
+  	*success = false;}
+}
+return 0;
 }
