@@ -161,12 +161,7 @@ Token* pos_mop(Token *p,Token *q){
 			continue;
 		}
 		if (is_inP!=0)continue;
-		if(iter_p->type== TK_REG){
-			
-			pos_mod=iter_p;
-			printf("jixu");
-			continue;
-			}
+		
 		if (iter_p->type!='+' && iter_p->type!='-' 
 		   && iter_p->type!='*' && iter_p->type!='/')
 			continue;
@@ -176,7 +171,6 @@ Token* pos_mop(Token *p,Token *q){
 		}
 		else if (sign<=0 && (iter_p->type=='*' || iter_p->type=='/')){
 			pos_mod=iter_p;
-			printf("jixu");
 			}
 	}
 
@@ -190,6 +184,12 @@ int eval(Token *p,Token *q){
     	return eval(p + 1, q - 1);
   	else {
 		int val1=1,val2;
+		if(p->type== TK_REG){
+			
+			
+			return isa_reg_str2val((tokens+cal-1)->str, success);
+			}
+		if(p->type != TK_REG){
 		Token *op = pos_mop(p, q);
 		val1 = eval(p, op - 1);
 		val2 = eval(op + 1, q);
@@ -199,8 +199,9 @@ int eval(Token *p,Token *q){
 			case '*': return val1 * val2;
 			case '/': return val1 / val2;
 			/*case TK_REG: return isa_reg_str2val((tokens+cal-1)->str, success);*/
-			case TK_REG: return isa_reg_str2val((tokens+cal-1)->str, success);
-    	}
+			}
+			
+    		}
 	}
 	return 0;
 }
