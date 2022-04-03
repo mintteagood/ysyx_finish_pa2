@@ -199,7 +199,7 @@ int eval(Token *p,Token *q){
 			case TK_REG: return isa_reg_str2val((tokens+cal-1)->str, success);
     	}
 	}
-	return 1;
+	return 0;
 }
 
 
