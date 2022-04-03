@@ -178,19 +178,18 @@ Token* pos_mop(Token *p,Token *q){
 }
 bool *success;
 int eval(Token *p,Token *q){
-	/*if(p->type== TK_REG){
-	 char sh[128];
+	if(p->type== TK_REG){
+	 	char sh[128];
 		sprintf(sh,"%d",p->type);
 		printf("zhixiang%s",p->str);
 		return isa_reg_str2val(p->str, success);
-			}*/
-     if (p == q) 
+			}
+     else if (p == q) 
         return (int)atoi(p->str);	
   	else if (check_parentheses(p, q ) == true)
     	return eval(p + 1, q - 1);
   	else {
 		int val1=1,val2;
-		
 		if(p->type != TK_REG){
 		Token *op = pos_mop(p, q);
 		val1 = eval(p, op - 1);
@@ -200,12 +199,13 @@ int eval(Token *p,Token *q){
 			case '-': return val1 - val2;
 			case '*': return val1 * val2;
 			case '/': return val1 / val2;
-			case TK_REG: return isa_reg_str2val(p->str, success);
+			
 			}
 			
     		}
 	}
 	return 0;
+	
 }
 
 
