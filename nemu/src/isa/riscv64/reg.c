@@ -30,6 +30,6 @@ return 0;
 word_t isa_reg_str2val(const char *s, bool *success) {
    /*char *pin =strtok(s, "$");*/
  	int j =shibie(s,success);
-  	return printf("*s=%d and cpu=%ldjieshu",*s,cpu.gpr[j]);
+  	return j;
   	
 }
