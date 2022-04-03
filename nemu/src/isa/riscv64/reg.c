@@ -27,5 +27,5 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	
 	}
 
-return i;
+return 0;
 }
