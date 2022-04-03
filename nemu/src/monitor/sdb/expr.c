@@ -186,8 +186,8 @@ int eval(Token *p,Token *q){
 		int val1=1,val2;
 		if(p->type== TK_REG){
 			
-			printf("jixu");
-			return isa_reg_str2val((tokens+cal-1)->str, success);
+			
+			return printf("jixu");;
 			}
 		if(p->type != TK_REG){
 		Token *op = pos_mop(p, q);
