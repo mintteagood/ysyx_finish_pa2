@@ -111,7 +111,7 @@ static bool make_token(char *e) {
         break;
       }
     }
-	printf("%s",tokens[nr_token-1].str);
+	printf("token_zhi%s",tokens[nr_token-1].str);
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
