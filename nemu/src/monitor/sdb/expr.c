@@ -181,7 +181,7 @@ int eval(Token *p,Token *q){
 	if(p->type== TK_REG){
 			
 			
-			return printf("jixu");;
+			return isa_reg_str2val((tokens+cal-1)->str, success);
 			}
     if (p == q) 
         return (int)atoi(p->str);	
