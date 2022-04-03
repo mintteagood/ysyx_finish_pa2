@@ -14,17 +14,21 @@ void isa_reg_display() {
   }
 }
 
-word_t isa_reg_str2val(const char *s, bool *success) {
-   /*char *pin =strtok(s, "$");*/
-  int j=0;
-  	if(*s==*regs[j]){
-  	/*return cpu.gpr[i];*/
-  		return printf("jicunqi%d and %ldjieshu",*s,cpu.gpr[j]);
-  		*success = true;
-  		}
-  	else{
-  	j++;
-  	*success = false;}
+word_t shibie(const char *s, bool *success){
+   for(int i=0;i<32;i++){
+	if(*s==*regs[i])
+	*success = true;
+	return i;
+	}
 
 return 0;
+}
+
+
+
+word_t isa_reg_str2val(const char *s, bool *success) {
+   /*char *pin =strtok(s, "$");*/
+ 	int j =shibie(s,success);
+  	return printf("jicunqi%d and %ldjieshu",*s,cpu.gpr[j]);
+  	
 }
