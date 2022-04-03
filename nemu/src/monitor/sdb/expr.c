@@ -184,7 +184,7 @@ int eval(Token *p,Token *q){
 		printf("zhixiang%s",p->str);
 		return isa_reg_str2val(p->str, success);
 			}
-    if (p == q) 
+    else if (p == q) 
         return (int)atoi(p->str);	
   	else if (check_parentheses(p, q ) == true)
     	return eval(p + 1, q - 1);
