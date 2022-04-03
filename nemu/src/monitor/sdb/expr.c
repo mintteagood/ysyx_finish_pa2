@@ -183,7 +183,7 @@ int eval(Token *p,Token *q){
 		sprintf(sh,"%d",p->type);
 		printf("zhixiang%s",p->str);
 		return isa_reg_str2val(p->str, success);
-		return 0;
+		
 			}
 	else{
       if (p == q) 

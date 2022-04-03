@@ -16,14 +16,14 @@ void isa_reg_display() {
 
 word_t isa_reg_str2val(const char *s, bool *success) {
    /*char *pin =strtok(s, "$");*/
-  for (int i=0;i<32;i++){
-  	if(*s==*regs[i]){
+  for (int j=0;j<32;j++){
+  	if(*s==*regs[j]){
   	/*return cpu.gpr[i];*/
-  		return printf("jicunqi%d and %d",*s,*regs[i]);
+  		return printf("jicunqi%d and %d",*s,*regs[j]);
   		*success = true;
   		}
   	else{
-  	return printf("jicunqiku%sand zhen %s",regs[i],s);
+  	return printf("jicunqiku%sand zhen %s",regs[j],s);
   	*success = false;}
 }
 return 0;
