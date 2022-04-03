@@ -174,8 +174,10 @@ Token* pos_mop(Token *p,Token *q){
 			pos_mod=iter_p;
 			sign=1;
 		}
-		else if (sign<=0 && (iter_p->type=='*' || iter_p->type=='/'))
+		else if (sign<=0 && (iter_p->type=='*' || iter_p->type=='/')){
 			pos_mod=iter_p;
+			printf("jixu");
+			}
 	}
 
 	return pos_mod;
