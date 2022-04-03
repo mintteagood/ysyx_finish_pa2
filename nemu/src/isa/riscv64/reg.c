@@ -20,10 +20,10 @@ int i=0;
 	if(*s==*regs[i])
 	
 	printf("\nregsi=%d and i=%d and s=%d",*regs[i],i,*s);
-	
+	return i;
 	}
 
-return i;
+return 0;
 }
 
 
