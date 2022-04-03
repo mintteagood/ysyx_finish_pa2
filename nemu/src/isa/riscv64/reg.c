@@ -19,7 +19,7 @@ int i=0;
    for(i=0;i<32;i++){
 	if(*s==*regs[i])
 	
-	printf("regsi=%d and i=%d and s=%d",*regs[i],i,*s);
+	printf("\nregsi=%d and i=%d and s=%d",*regs[i],i,*s);
 	
 	}
 
