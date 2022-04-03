@@ -196,10 +196,10 @@ int eval(Token *p,Token *q){
 			case '*': return val1 * val2;
 			case '/': return val1 / val2;
 			/*case TK_REG: return isa_reg_str2val((tokens+cal-1)->str, success);*/
-			case TK_REG: return 3;
+			case TK_REG: return isa_reg_str2val((tokens+cal-1)->str, success);
     	}
 	}
-	return 0;
+	return 1;
 }
 
 
