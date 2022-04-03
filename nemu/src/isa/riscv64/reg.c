@@ -20,7 +20,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   	if(s!=regs[i]){
   	/*return cpu.gpr[i];*/
   	return printf("jicunqi%s",regs[i]);
-  	printf("%s",s);
+  	return printf("%s",s);
   	*success = true;
   	return 0;
   	}
