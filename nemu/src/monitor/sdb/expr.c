@@ -7,8 +7,7 @@
 #include <stdlib.h>
 
 enum {
-  TK_NOTYPE = 256, TK_EQ,TK_NUM,
-
+  TK_NOTYPE = 256, TK_EQ,TK_NUM,TK_HEX,TK_REG,
   /* TODO: Add more token types */
 
 };
@@ -31,6 +30,9 @@ static struct rule {
   {"\\)",')'} ,         //right parenthesis 
   {"([1-9][0-9]{1,31})|[0-9]",TK_NUM},
   {"==", TK_EQ},        // equal
+  {"0[xX][0-9a-fA-F]+",TK_HEX},
+  {"(\\$[0a-zA-Z]+)|[xX][0-9]+",TK_REG},
+  
 };
 
 #define NR_REGEX ARRLEN(rules)
@@ -62,6 +64,7 @@ typedef struct token {
 static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 int cal;
+word_t isa_reg_str2val(const char *s, bool *success);
 static bool make_token(char *e) {
   int position = 0;
   int i;
@@ -92,6 +95,7 @@ static bool make_token(char *e) {
 		case '(':
 		case ')':
 		case TK_NUM:
+		case TK_REG:
 	       {
 		tokens[nr_token].type = rules[i].token_type;
 		strncpy(tokens[nr_token].str,substr_start,substr_len);
@@ -145,6 +149,7 @@ Token* pos_mop(Token *p,Token *q){
 	int is_inP=0;
     int sign=0; 
 	Token *pos_mod=NULL;
+	
 
 	for (Token *iter_p=p;iter_p<=q;iter_p++) {
 		if (iter_p->type=='(') {
@@ -156,7 +161,11 @@ Token* pos_mop(Token *p,Token *q){
 			continue;
 		}
 		if (is_inP!=0)continue;
-		
+		if(iter_p->type== TK_REG){
+			
+			pos_mod=iter_p;
+			break;
+			}
 		if (iter_p->type!='+' && iter_p->type!='-' 
 		   && iter_p->type!='*' && iter_p->type!='/')
 			continue;
@@ -170,7 +179,7 @@ Token* pos_mop(Token *p,Token *q){
 
 	return pos_mod;
 }
-
+bool *success;
 int eval(Token *p,Token *q){
     if (p == q) 
         return (int)atoi(p->str);	
@@ -186,6 +195,7 @@ int eval(Token *p,Token *q){
 			case '-': return val1 - val2;
 			case '*': return val1 * val2;
 			case '/': return val1 / val2;
+			case TK_REG:return isa_reg_str2val((tokens+cal-1)->str, success);
     	}
 	}
 	return 0;
