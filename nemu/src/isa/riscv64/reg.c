@@ -16,7 +16,7 @@ void isa_reg_display() {
 
 word_t shibie(const char *s, bool *success){
    for(int i=0;i<32;i++){
-	if(*s==*regs[i])
+	if(s==regs[i])
 	*success = true;
 	printf("regsi=%s and i=%d and s=%s",regs[i],i,s);
 	return i;
