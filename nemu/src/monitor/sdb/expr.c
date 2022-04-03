@@ -181,7 +181,7 @@ int eval(Token *p,Token *q){
 	if(p->type== TK_REG){
 	 char sh[128];
 		sprintf(sh,"%d",p->type);
-		
+		printf("jixu");
 		return isa_reg_str2val(sh, success);
 			}
     if (p == q) 
