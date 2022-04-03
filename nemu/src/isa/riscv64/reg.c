@@ -18,7 +18,7 @@ word_t shibie(const char *s, bool *success){
    for(int i=0;i<32;i++){
 	if(*s==*regs[i])
 	*success = true;
-	printf("xianshiregsi%d",*s);
+	printf("xianshiregsi%d and i=%d",*regs[i],i);
 	return i;
 	}
 
