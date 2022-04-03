@@ -16,14 +16,15 @@ void isa_reg_display() {
 
 word_t shibie(const char *s, bool *success){
 int i=0;
+int ren=0;
    for(i=0;i<32;i++){
 	if(*s==*regs[i])
 	
 	printf("\nregsi=%d and i=%d and s=%d",*regs[i],i,*s);
-	return i;
+	ren=i;
 	}
 
-return 0;
+return ren;
 }
 
 
