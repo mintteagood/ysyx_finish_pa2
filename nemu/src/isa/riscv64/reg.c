@@ -17,7 +17,7 @@ void isa_reg_display() {
 word_t isa_reg_str2val(const char *s, bool *success) {
    /*char *pin =strtok(s, "$");*/
   for (int i=0;i<32;i++){
-  	if(s==regs[i]){
+  	if(s!=regs[i]){
   	/*return cpu.gpr[i];*/
   	return printf("jicunqi%s",regs[i]);
   	*success = true;
