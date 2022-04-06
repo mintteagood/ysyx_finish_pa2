@@ -192,7 +192,7 @@ int eval(Token *p,Token *q){
 		
 			}
 	else if(p->type== DEREF){
-		return *(p->str);	
+		return printf("zhizhen%s",p->str);	
 		}
 	else{
       if (p == q) 
