@@ -124,7 +124,7 @@ static bool make_token(char *e) {
     }
     }
   }
-  printf("token_zhi=%s",tokens[nr_token-1].str);
+  printf("token_type=%d",tokens[nr_token-1].type);
 	cal=nr_token;
   return true;
 }
