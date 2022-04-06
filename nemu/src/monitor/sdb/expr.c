@@ -190,9 +190,8 @@ int eval(Token *p,Token *q){
 		
 			}
 	else if(p->type== DEREF){
-		return printf(" zhixiang%s",p->str);
-	
-			}
+		return *(p->str);	
+		}
 	else{
       if (p == q) 
         return (int)atoi(p->str);	
