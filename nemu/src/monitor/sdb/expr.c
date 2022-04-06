@@ -77,9 +77,7 @@ static bool make_token(char *e) {
     /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
-      if (tokens[i].type == '*' && (i == 0 || (tokens[i - 1].type =='*'))){
-        	tokens[i].type = DEREF;
-        }
+      
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 		
@@ -112,15 +110,18 @@ static bool make_token(char *e) {
 			break;
           	default: TODO();
         }
-
+	if (tokens[i].type == '*' && (i == 0 || (tokens[i - 1].type =='*'))){
+        	tokens[i].type = DEREF;
+       		 }	
        
         
-      }
+      
     }
 	printf("token_zhi=%s",tokens[nr_token-1].str);
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
+    }
     }
   }
 	cal=nr_token;
