@@ -110,10 +110,7 @@ static bool make_token(char *e) {
 			break;
           	default: TODO();
         }
-	if (tokens[i].type == '*' && (i == 0 || (tokens[i - 1].type =='*'))){
-        	tokens[i].type = DEREF;
-        	printf("shibie deref");
-       		 }
+	
     }
 	
     if (i == NR_REGEX) {
@@ -158,6 +155,7 @@ Token* pos_mop(Token *p,Token *q){
 	
 
 	for (Token *iter_p=p;iter_p<=q;iter_p++) {
+	
 		if (iter_p->type=='(') {
 			is_inP++;
 			continue;
@@ -231,7 +229,11 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-   
+   for (int i = 0; i < nr_token; i ++) {
+  if (tokens[i].type == '*' && (i == 0 || tokens[i - 1].type == '*') ) {
+    tokens[i].type = DEREF;
+  }
+}
    Token *p = NULL;
    p = tokens;
    Token *q = NULL;
