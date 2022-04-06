@@ -179,6 +179,7 @@ Token* pos_mop(Token *p,Token *q){
 		}
 		else if (sign<=0 && (iter_p->type=='*' || iter_p->type=='/')){
 			pos_mod=iter_p;
+			printf("/nzhuyunsuanfu %d",pos_mod->type);
 			}
 	}
 
