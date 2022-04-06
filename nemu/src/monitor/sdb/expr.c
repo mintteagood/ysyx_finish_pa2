@@ -30,7 +30,7 @@ static struct rule {
   {"\\)",')'} ,         //right parenthesis 
   {"([1-9][0-9]{1,31})|[0-9]",TK_NUM},
   {"==", TK_EQ},        // equal
-  {"[0xX][0-9a-fA-F]+",TK_HEX},
+  {"0[xX][0-9a-fA-F]+",TK_HEX},
   {"(\\$[0a-zA-Z]+)|([a-zA-Z][0-9]+)|([a-zA-Z][a-zA-Z]+)",TK_REG},
   
 };
