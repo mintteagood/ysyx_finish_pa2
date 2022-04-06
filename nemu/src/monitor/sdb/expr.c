@@ -28,9 +28,10 @@ static struct rule {
   {"/",'/'},            //divide
   {"\\(",'('} ,         //left parenthesis    
   {"\\)",')'} ,         //right parenthesis 
+  {"(0x[0-9a-fA-F]+)",TK_HEX},
   {"([1-9][0-9]{1,31})|[0-9]",TK_NUM},
   {"==", TK_EQ},        // equal
-  {"(0x[0-9a-fA-F]+)",TK_HEX},
+  
   {"(\\$[0a-zA-Z]+)|([a-zA-Z][0-9]+)|([a-zA-Z][a-zA-Z]+)",TK_REG},
   
 };
