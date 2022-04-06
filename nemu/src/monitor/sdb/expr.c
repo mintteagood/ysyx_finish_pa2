@@ -112,10 +112,8 @@ static bool make_token(char *e) {
         }
 	if (tokens[i].type == '*' && (i == 0 || (tokens[i - 1].type =='*'))){
         	tokens[i].type = DEREF;
-       		 }	
-       
-        
-      
+        	printf("shibie deref");
+       		 }
     }
 	
     if (i == NR_REGEX) {
@@ -124,7 +122,7 @@ static bool make_token(char *e) {
     }
     }
   }
-  printf("token_type=%d",tokens[nr_token-1].type);
+  printf("token_str=%s",tokens[nr_token-1].str);
 	cal=nr_token;
   return true;
 }
