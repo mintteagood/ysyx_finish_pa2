@@ -46,6 +46,8 @@ static int cmd_x(char *args);
 
 static int cmd_biaodashi(char *args);
 
+static int cmd_w(char *args);
+
 static int cmd_help(char *args);
 
 static struct {
@@ -59,7 +61,8 @@ static struct {
   { "si", "Excecute NEMU", cmd_si },
   { "info", "Print", cmd_info },
   { "x", "Saomiao", cmd_x },
-  {"biaodashi","Qiuzhi",cmd_biaodashi}
+  {"biaodashi","Qiuzhi",cmd_biaodashi},
+  {"w","jianshi",cmd_w},
   /* TODO: Add more commands */
 
 };
@@ -129,13 +132,17 @@ static int cmd_x(char *args) {
 }
 bool *p;
 static int cmd_biaodashi(char *args){
-/*expr(args,p)*/;
 printf("%ld",expr(args,p));
-
 return 0 ;
 }
 
-
+static int cmd_w(char *args){
+char value=expr(args,p);
+char* w_v = &value;
+int w_v2= atoi(w_v);
+new_wp(args , w_v2);
+return 0 ;
+}
 
 
 void sdb_set_batch_mode() {
