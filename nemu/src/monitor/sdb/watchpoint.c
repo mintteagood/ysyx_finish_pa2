@@ -15,17 +15,17 @@ bool su =true;
 /*static WP wp_pool[NR_WP] = {};*/
 static WP *head = NULL, *free_ = NULL;
 void init_wp_pool(){
-  head->NO = 0;
+ /* head->NO = 0;
   head->next = NULL;
   head->value = 0;
   head->expr = NULL;
-  head->isused = false;
+  head->isused = false;*/
   
   free_ ->NO = 1;
-  free_ ->next = NULL;
+/*  free_ ->next = NULL;
   free_ ->value = 0;
   free_ ->expr = NULL;
-  free_ ->isused = false;
+  free_ ->isused = false;*/
   }
 
 WP *new_wp(char *str , int value){
