@@ -28,7 +28,7 @@ WP *new_wp(char *str , int value){
        init_wp_pool();
        su = false;
    }
-   if(free_ == NULL){
+   if(free_ != NULL){
        printf("Erro!free is null.\n");
        assert(0);
    }
