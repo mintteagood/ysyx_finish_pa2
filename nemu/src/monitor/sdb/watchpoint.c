@@ -21,8 +21,8 @@ void init_wp_pool(){
   head->expr = NULL;
   head->isused = false;*/
   
-  free_ ->NO = 1;
-/*  free_ ->next = NULL;
+/*  free_ ->NO = 1;
+  free_ ->next = NULL;
   free_ ->value = 0;
   free_ ->expr = NULL;
   free_ ->isused = false;*/
