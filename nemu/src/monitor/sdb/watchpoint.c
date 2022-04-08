@@ -15,20 +15,25 @@ bool su =true;
 /*static WP wp_pool[NR_WP] = {};*/
 static WP *head = NULL, *free_ = NULL;
 void init_wp_pool(){
- /* for (int i=0;i<33;i++){
-  wp_pool[i].NO = 0;
-  wp_pool[i].next = NULL;
-  wp_pool[i].value = 0;
-  wp_pool[i].expr = NULL;
-  wp_pool[i].isused = false;
-  }*/
-}
+  head->NO = 0;
+  head->next = NULL;
+  head->value = 0;
+  head->expr = NULL;
+  head->isused = false;
+  
+  free_ ->NO = 0;
+  free_ ->next = NULL;
+  free_ ->value = 0;
+  free_ ->expr = NULL;
+  free_ ->isused = false;
+  }
+
 WP *new_wp(char *str , int value){
    if(su == true){
        init_wp_pool();
        su = false;
    }
-   if(free_ != NULL){
+   if(free_ == NULL){
        printf("Erro!free is null.\n");
        assert(0);
    }
