@@ -14,10 +14,18 @@
 bool su =true;
 /*static WP wp_pool[NR_WP] = {};*/
 static WP *head = NULL, *free_ = NULL;
-
+void init_wp_pool(){
+ /* for (int i=0;i<33;i++){
+  wp_pool[i].NO = 0;
+  wp_pool[i].next = NULL;
+  wp_pool[i].value = 0;
+  wp_pool[i].expr = NULL;
+  wp_pool[i].isused = false;
+  }*/
+}
 WP *new_wp(char *str , int value){
    if(su == true){
-      /* init_wp_pool();*/
+       init_wp_pool();
        su = false;
    }
    if(free_ == NULL){
