@@ -241,6 +241,7 @@ word_t expr(char *e, bool *success) {
    p = tokens;
    Token *q = NULL;
    q = tokens+cal-1;
+   *success = true;
    return  eval(p,q);
   for (unsigned int i = 0; i < cal; i++){
   	for(int j=0;j<32;j++)
