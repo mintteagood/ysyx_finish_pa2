@@ -6,6 +6,8 @@
 #include <regex.h>
 #include <stdlib.h>
 
+#include <memory/paddr.h>
+
 enum {
   TK_NOTYPE = 256, TK_EQ,TK_NUM,TK_HEX,TK_REG,DEREF,
   /* TODO: Add more token types */
@@ -191,7 +193,8 @@ int eval(Token *p,Token *q){
 		
 			}
 	else if(p->type== DEREF){
-		return printf("zhizhen%s",p->str);	
+		return printf("zhizhenzhi %ld",paddr_read((int)atoi(p->str), 4));
+			
 		}
 	else{
       if (p == q) 
