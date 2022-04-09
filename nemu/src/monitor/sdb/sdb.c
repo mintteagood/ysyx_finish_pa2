@@ -48,6 +48,8 @@ static int cmd_biaodashi(char *args);
 
 static int cmd_w(char *args);
 
+static int cmd_d(char *args);
+
 static int cmd_help(char *args);
 
 static struct {
@@ -60,9 +62,10 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   { "si", "Excecute NEMU", cmd_si },
   { "info", "Print", cmd_info },
-  { "x", "Saomiao", cmd_x },
-  {"biaodashi","Qiuzhi",cmd_biaodashi},
-  {"w","jianshi",cmd_w},
+  { "x", "扫描", cmd_x },
+  {"biaodashi","表达式求值",cmd_biaodashi},
+  {"w","添加监视点",cmd_w},
+  {"d","删除监视点",cmd_d},
   /* TODO: Add more commands */
 
 };
@@ -138,13 +141,15 @@ return 0 ;
 
 static int cmd_w(char *args){
 WP* str=new_wp(args);
-/*char new_value = expr(str->exp,p);
-char* new_value2=&new_value;
-int new = atoi(new_value2);  */
 printf("监视点序号%d   表达式%s 值0x%08x\n",str->NO , str->exp, str->value);
 return 0 ;
 }
 
+static int cmd_d(char *args){
+int no = atoi(args);
+free_wp(no);
+return 0;
+}
 
 void sdb_set_batch_mode() {
   is_batch_mode = true;
