@@ -5,9 +5,110 @@
 typedef struct watchpoint {
   int NO;
   struct watchpoint *next;
-
-
+  char exp[32];
+  int value;
+ 
 } WP;
 
-void init_wp_pool(){};
+static WP wp_pool[NR_WP] = {};
+static WP *head = NULL, *free_ = NULL;
+
+void init_wp_pool(){
+   head = NULL;
+   free_->NO=0;
+   for(int i=0;i<32;i++){
+     wp_pool[i].NO=i;
+     if(i<31){
+     wp_pool[i].next=&wp_pool[i+1];
+       }
+    else
+     wp_pool[i].next=NULL;
+    
+    }	
+
+
+
+
+}
+
+WP* new_wp(char * exp){
+	assert(free_ != NULL);
+	WP *temp = free_;
+	free_ = free_->next;
+	temp->next = NULL;
+
+	bool success = false;
+	strcpy(temp->exp, exp);
+	temp->value = expr(temp->exp, &success);
+	assert(success);
+
+	if(head==NULL)
+		head = temp;
+	else{
+		WP *p = head;
+		while(p->next)
+			p = p->next;
+		p->next = temp;
+	}
+	return temp;
+}
+
+void free_wp(int no){
+   WP *p = head;
+   if(head == NULL){                                                                                                                                          
+       printf("监视点列表为空。 \n");
+       assert(0);
+   }
+   else if(p->NO == no){
+       head = head->next;
+       p->value = 0;
+       p->next = free_;
+       free_ = p;
+       printf("已经删除第%d个监视点。\n", no);
+      // free(p);
+       return;
+   }
+   else{
+       WP *q = head;
+       p = p ->next;
+       while(p!=NULL){
+           if (p->NO == no){
+               q->next = p->next;
+               p->value = 0;
+               p->next = free_;
+               free_ = p;
+               printf("已经删除第%d个监视点。\n", no);
+        //       free(p);free(q);
+               return;
+           }
+           else{
+               p = p -> next;
+               q = q -> next;
+       }
+   }
+   printf("不存在第%d个监视点。\n",no);
+   return;
+}
+}
+
+void print_wp(){
+    WP *p = head;
+    if(p ==NULL){
+        printf("监视点为空！\n");
+        return;
+    }
+    else{
+        while(p!=NULL){
+  
+            printf("%d   %s 0x%08x\n",p->NO , p->exp, p->value);
+            p=p->next;
+        }
+        return;
+    }
+    return;
+} 
+
+
+
+
 
