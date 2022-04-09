@@ -97,7 +97,7 @@ void print_wp(){
     else{
         while(p!=NULL){
   
-            printf("%d   %s 0x%08x\n",p->NO , p->exp, p->value);
+            printf("监视点序号%d   表达式%s 值0x%08x\n",p->NO , p->exp, p->value);
             p=p->next;
         }
         return;
