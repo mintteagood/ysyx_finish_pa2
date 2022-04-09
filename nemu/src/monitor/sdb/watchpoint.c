@@ -9,5 +9,5 @@ typedef struct watchpoint {
 
 } WP;
 
-
+void init_wp_pool(){};
 
