@@ -104,7 +104,22 @@ void print_wp(){
     }
     return;
 } 
-
+bool *expr_q;
+bool wp_check(){	
+   for(int i=0;i<free_->NO-1;i++){
+      
+     char new_ = expr(wp_pool[i].exp,expr_q);
+     char* new = &new_;
+     int new_value = atoi(new);
+      if(wp_pool[i].value==new_value){
+          wp_pool[i].value = new_value;
+          return 1;
+        }
+      else
+          return 0;
+   }
+   return 0;
+}
 
 
 
