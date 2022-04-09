@@ -10,13 +10,13 @@ typedef struct watchpoint {
  
 } WP;
 
-/*static WP wp_pool[NR_WP] = {};*/
+static WP wp_pool[NR_WP] = {};
 static WP *head = NULL, *free_ = NULL;
 
-void init_wp_pool(){};
-/*void init_wp_pool(){
+/*void init_wp_pool(){}; */
+void init_wp_pool(){
    head = NULL;
-   free_->NO=0;
+   free_= &wp_pool[0];
    for(int i=0;i<32;i++){
      wp_pool[i].NO=i;
      if(i<31){
@@ -26,7 +26,7 @@ void init_wp_pool(){};
      wp_pool[i].next=NULL;
     
     }	
-} */
+} 
 
 WP* new_wp(char * exp){
 	assert(free_ != NULL);
