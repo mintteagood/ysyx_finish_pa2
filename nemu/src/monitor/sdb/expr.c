@@ -179,7 +179,7 @@ word_t expr(char *e, bool *success) {
   	for(int j=0;j<32;j++)
               tokens[i] .str[j]= '\0' ;   }*/
    
-   return printf("%d",cal);
+   return printf("%d",tokens->type);
    
   }
   
