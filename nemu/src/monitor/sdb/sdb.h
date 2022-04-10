@@ -4,7 +4,7 @@
 #include <common.h>
 
 word_t expr(char *e, bool *success);
-typedef struct watchpoint {
+/*typedef struct watchpoint {
   int NO;
   struct watchpoint *next;
   char exp[32];
@@ -13,5 +13,5 @@ typedef struct watchpoint {
 } WP;
 WP* new_wp(char * exp);
 void free_wp(int no);
-void print_wp();
+void print_wp(); */
 #endif

@@ -116,8 +116,8 @@ static int cmd_info(char *args) {
   else {
     if (strcmp(arg,"r") == 0)
      isa_reg_display();
-    if (strcmp(arg,"w") == 0)
-     print_wp();
+    /*if (strcmp(arg,"w") == 0)
+     print_wp();*/
     }
   return 0;
 }
@@ -143,14 +143,14 @@ printf("%ld",expr(args,bds));
 }
 
 static int cmd_w(char *args){
-WP* str=new_wp(args);
-printf("监视点序号%d   表达式%s 值0x%08x\n",str->NO , str->exp, str->value);
+/*WP* str=new_wp(args);
+printf("监视点序号%d   表达式%s 值0x%08x\n",str->NO , str->exp, str->value);*/
 return 0 ;
 }
 
 static int cmd_d(char *args){
-int no = atoi(args);
-free_wp(no);
+/*int no = atoi(args);
+free_wp(no);*/
 return 0;
 }
 
