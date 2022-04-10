@@ -135,9 +135,9 @@ static int cmd_x(char *args) {
   }
   return 0;
 }
-bool *p;
+bool *bdashi;
 static int cmd_biaodashi(char *args){
-printf("%ld",expr(args,p));
+printf("%ld",expr(args,bdashi));
 return 0 ;
 }
 
