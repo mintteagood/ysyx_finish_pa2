@@ -4,7 +4,7 @@
 #include <readline/history.h>
 #include "sdb.h"
 #include <memory/paddr.h>
-
+#include <stdbool.h>
 static int is_batch_mode = false;
 
 void init_regex();
@@ -136,11 +136,10 @@ static int cmd_x(char *args) {
   return 0;
 }
 
-bool *bds;
 static int cmd_biaodashi(char *args) {
-
+bool *bds=0;
 printf("%ld",expr(args,bds));
-  return 0;
+  return *bds-1;
 }
 
 static int cmd_w(char *args){
