@@ -139,7 +139,7 @@ static int cmd_x(char *args) {
 static int cmd_biaodashi(char *args) {
 bool *bds=0;
 printf("%ld",expr(args,bds));
-  return *bds-1;
+  return 0;
 }
 
 static int cmd_w(char *args){
