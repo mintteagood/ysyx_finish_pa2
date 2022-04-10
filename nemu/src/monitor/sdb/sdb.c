@@ -67,7 +67,7 @@ static struct {
   { "si", "Excecute NEMU", cmd_si },
   { "info", "Print", cmd_info },
   { "x", "扫描", cmd_x },
-  {"q","表达式求值",cmd_biaodashi},
+  {"biaodashi","表达式求值",cmd_biaodashi},
   {"w","添加监视点",cmd_w},
   {"d","删除监视点",cmd_d},
   /* TODO: Add more commands */
