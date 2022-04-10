@@ -29,7 +29,7 @@ WP* new_wp(char * exp){
 	bool *success2 = false;
 	strcpy(temp->exp, exp);
 	temp->value = expr(temp->exp, success2);
-	printf("fanhuizhi %d",*success2);
+	
 	/*assert(*success2);*/
 
 	if(head==NULL)
