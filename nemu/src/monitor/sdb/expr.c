@@ -63,7 +63,7 @@ static bool make_token(char *e) {
                  Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
             i, rules[i].regex, position, substr_len, substr_len, substr_start);
                 position += substr_len;
-                printf("ok");
+             
                 switch (rules[i].token_type) {
 					case '+':
 					case '-':
@@ -168,18 +168,19 @@ word_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
-   else{
+ /*  else{
    Token *p = NULL;
    p = tokens;
    Token *q = NULL;
    q = tokens+cal-1;
    *success = true;
    return  eval(p,q);
-  /*for (unsigned int i = 0; i < cal; i++){
+  for (unsigned int i = 0; i < cal; i++){
   	for(int j=0;j<32;j++)
-              tokens[i] .str[j]= '\0' ;   }*/
+              tokens[i] .str[j]= '\0' ;   }
    
- /*  return printf("%d",position);*/
+   return printf("%d",position);
    
-  }
+  }*/
+  return 0;
   }
