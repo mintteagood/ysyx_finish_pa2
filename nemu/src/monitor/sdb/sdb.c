@@ -141,8 +141,8 @@ static int cmd_x(char *args) {
 }
 
 static int cmd_w(char *args){
-WP* str=new_wp(args);
-printf("监视点序号%d   表达式%s 值0x%08x\n",str->NO , str->exp, str->value);
+/*WP* str=new_wp(args);
+printf("监视点序号%d   表达式%s 值0x%08x\n",str->NO , str->exp, str->value);*/
 return 0 ;
 }
 
