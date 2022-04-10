@@ -24,10 +24,7 @@ run: run-env
 
 gdb: run-env
 	$(call git_commit, "gdb NEMU")
-	gdb -s $(BINARY) --args $(NEMU_EXEC) ./driver-app 6000
-	file ./driver-app
-	run	
-	CFLAGS += -D_DEBIG -O0 -G -DEBUG=1 -W1	 
+	gdb -s $(BINARY) --args $(NEMU_EXEC)  
 	
 
 clean-tools = $(dir $(shell find ./tools -maxdepth 2 -mindepth 2 -name "Makefile"))
