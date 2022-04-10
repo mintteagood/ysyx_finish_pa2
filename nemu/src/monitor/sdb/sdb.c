@@ -33,14 +33,10 @@ static int cmd_c(char *args) {
   return 0;
 }
 
-bool *bds;
 static int cmd_q(char *args) {
 return -1;
 }
-static int cmd_biaodashi(char *args) {
-printf("%ld",expr(args,bds));
-  return 0;
-}
+
 static int cmd_si(char *args);
 
 static int cmd_info(char *args);
@@ -140,9 +136,15 @@ static int cmd_x(char *args) {
   return 0;
 }
 
+
+static int cmd_biaodashi(char *args) {
+printf("12");
+  return 0;
+}
+
 static int cmd_w(char *args){
-/*WP* str=new_wp(args);
-printf("监视点序号%d   表达式%s 值0x%08x\n",str->NO , str->exp, str->value);*/
+WP* str=new_wp(args);
+printf("监视点序号%d   表达式%s 值0x%08x\n",str->NO , str->exp, str->value);
 return 0 ;
 }
 
