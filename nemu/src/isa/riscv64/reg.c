@@ -19,11 +19,20 @@ void isa_reg_display() {
 word_t isa_reg_str2val(const char *s, bool *success) {
    /*char *pin =strtok(s, "$");*/
  	int i=0;
-
+ 	int eq =0;
    for(i=0;i<32;i++){
-	if(strcmp(s,regs[i])==0)
-	printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
-	
+       if(*s != 0){
+	if(*s==*regs[i]){
+	    s=s+1;
+	    eq = 1;
+	    }
+	else
+	   eq = 0;
+	}
+      else {
+         if(eq==1)
+          printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
+      }
 	}
 
 return 0;
