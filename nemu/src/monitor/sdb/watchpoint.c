@@ -31,6 +31,7 @@ WP* new_wp(char * exp){
 	bool success = false;
 	strcpy(temp->exp, exp);
 	temp->value = 12;
+	success = true;
 	/*temp->value = expr(temp->exp, &success);*/
 	assert(success);
 
