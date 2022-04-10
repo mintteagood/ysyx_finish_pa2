@@ -149,8 +149,8 @@ return 0 ;
 }
 
 static int cmd_d(char *args){
-int no = atoi(args);
-free_wp(no);
+/*int no = atoi(args);
+free_wp(no);*/
 return 0;
 }
 
