@@ -227,11 +227,17 @@ int eval(Token *p,Token *q){
 
 
 word_t expr(char *e, bool *success) {
+
   if (!make_token(e)) {
     *success = false;
     return 0;
   }
    else{
+   for (int i = 0; i < nr_token; i ++) {
+  if (tokens[i].type == '*' && (i == 0 || tokens[i - 1].type == '*') ) {
+    tokens[i].type = DEREF;
+  }
+  }
   /* Token *p1 = NULL;
    p1 = tokens;
    Token *q1 = NULL;
