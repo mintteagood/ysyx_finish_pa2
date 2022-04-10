@@ -26,11 +26,11 @@ WP* new_wp(char * exp){
 	free_ = free_->next;
 	temp->next = NULL;
 
-	bool *success2 = false;
+	bool *wsuccess = false;
 	strcpy(temp->exp, exp);
-	temp->value = expr(temp->exp, success2);
-	
-	/*assert(*success2);*/
+	temp->value = expr(temp->exp, wsuccess);
+	printf("bool return %d",*wsuccess);
+	/*assert(*wsuccess);*/
 
 	if(head==NULL)
 		head = temp;

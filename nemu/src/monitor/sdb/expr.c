@@ -247,7 +247,7 @@ word_t expr(char *e, bool *success) {
   for (unsigned int i = 0; i < cal; i++){
   	for(int j=0;j<32;j++)
               tokens[i] .str[j]= '\0' ;   }*/
-   *success = true;
+
    return eval(tokens,tokens+cal-1);
    for (unsigned int i = 0; i < cal; i++){
   	for(int j=0;j<32;j++)
