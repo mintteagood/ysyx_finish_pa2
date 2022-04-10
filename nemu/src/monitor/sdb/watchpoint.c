@@ -29,7 +29,7 @@ WP* new_wp(char * exp){
 	bool *wsuccess = false;
 	strcpy(temp->exp, exp);
 	temp->value = expr(temp->exp, wsuccess);
-	printf("bool return %d",*wsuccess);
+	
 	/*assert(*wsuccess);*/
 
 	if(head==NULL)
