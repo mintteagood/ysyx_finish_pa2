@@ -26,8 +26,10 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	    
 	    eq = 1;
 	    }
-	else
+	else{
 	   eq = 0;
+	   return 0;
+	   }
 	}
       else {
          if(eq==1)
