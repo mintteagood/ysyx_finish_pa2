@@ -35,10 +35,12 @@ static int cmd_c(char *args) {
 
 bool *bds;
 static int cmd_q(char *args) {
+return -1;
+}
+static int cmd_biaodashi(char *args) {
 printf("%ld",expr(args,bds));
   return 0;
 }
-
 static int cmd_si(char *args);
 
 static int cmd_info(char *args);
@@ -51,6 +53,7 @@ static int cmd_w(char *args);
 
 static int cmd_d(char *args);
 
+static int cmd_biaodashi(char *args);
 static int cmd_help(char *args);
 
 static struct {
@@ -64,7 +67,7 @@ static struct {
   { "si", "Excecute NEMU", cmd_si },
   { "info", "Print", cmd_info },
   { "x", "扫描", cmd_x },
-  {"q","表达式求值",cmd_q},
+  {"q","表达式求值",cmd_biaodashi},
   {"w","添加监视点",cmd_w},
   {"d","删除监视点",cmd_d},
   /* TODO: Add more commands */
