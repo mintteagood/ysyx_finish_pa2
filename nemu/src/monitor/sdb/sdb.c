@@ -116,8 +116,8 @@ static int cmd_info(char *args) {
   else {
     if (strcmp(arg,"r") == 0)
      isa_reg_display();
-   /* if (strcmp(arg,"w") == 0)
-     print_wp();*/
+    if (strcmp(arg,"w") == 0)
+     print_wp();
     }
   return 0;
 }
@@ -150,8 +150,8 @@ return 0 ;
 }
 
 static int cmd_d(char *args){
-/*int no = atoi(args);
-free_wp(no);*/
+int no = atoi(args);
+free_wp(no);
 return 0;
 }
 
