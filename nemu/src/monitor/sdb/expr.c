@@ -168,19 +168,19 @@ word_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
- /*  else{
-   Token *p = NULL;
-   p = tokens;
-   Token *q = NULL;
-   q = tokens+cal-1;
+   else{
+   Token *p1 = NULL;
+   p1 = tokens;
+   Token *q1 = NULL;
+   q1 = tokens+cal-1;
    *success = true;
-   return  eval(p,q);
+   return  eval(p1,q1);
   for (unsigned int i = 0; i < cal; i++){
   	for(int j=0;j<32;j++)
               tokens[i] .str[j]= '\0' ;   }
    
-   return printf("%d",position);
+  /* return printf("%d",position);*/
    
-  }*/
-  return 0;
+  }
+  
   }
