@@ -124,11 +124,6 @@ static bool make_token(char *e) {
 	cal=nr_token;
   return true;
 }
-	
-
-
-
-
 
 bool check_parentheses(Token *p,Token *q){
 	int count = 0;
