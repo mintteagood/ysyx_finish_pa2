@@ -24,7 +24,9 @@ run: run-env
 
 gdb: run-env
 	$(call git_commit, "gdb NEMU")
-	gdb -s $(BINARY) --args $(NEMU_EXEC)
+	gdb -s $(BINARY) --args $(NEMU_EXEC) ./driver-app 6000
+	file ./driver-app
+	run	
 	CFLAGS += -D_DEBIG -O0 -G -DEBUG=1 -W1	 
 	
 
