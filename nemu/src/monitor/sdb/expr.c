@@ -232,21 +232,23 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
    else{
-   for (int i = 0; i < nr_token; i ++) {
-  if (tokens[i].type == '*' && (i == 0 || tokens[i - 1].type == '*') ) {
-    tokens[i].type = DEREF;
-  }
-}
-   
+  /* Token *p1 = NULL;
+   p1 = tokens;
+   Token *q1 = NULL;
+   q1 = tokens+cal-1;
    *success = true;
-   return  eval(tokens,tokens+cal-1);
+   return  eval(p1,q1);
   for (unsigned int i = 0; i < cal; i++){
   	for(int j=0;j<32;j++)
-              tokens[i] .str[j]= '\0' ;   }
+              tokens[i] .str[j]= '\0' ;   }*/
    
- /*  return printf("%d",position);*/
+   return eval(tokens,tokens+cal-1);
+   for (unsigned int i = 0; i < cal; i++){
+  	for(int j=0;j<32;j++)
+              tokens[i] .str[j]= '\0' ; }
    
   }
+  
   }
 
   /* TODO: Insert codes to evaluate the expression. */
