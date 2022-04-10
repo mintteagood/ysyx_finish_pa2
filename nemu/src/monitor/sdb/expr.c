@@ -44,7 +44,7 @@ typedef struct token {
     char str[32];
 } Token;
 
-Token tokens[10000];
+Token tokens[20000];
 int nr_token;
 int cal;
 static bool make_token(char *e) {
@@ -173,9 +173,9 @@ word_t expr(char *e, bool *success) {
    q = tokens+cal-1;
    *success = true;
    return  eval(p,q);
-  for (unsigned int i = 0; i < cal; i++){
+  /*for (unsigned int i = 0; i < cal; i++){
   	for(int j=0;j<32;j++)
-              tokens[i] .str[j]= '\0' ;   }
+              tokens[i] .str[j]= '\0' ;   }*/
    
  /*  return printf("%d",position);*/
    
