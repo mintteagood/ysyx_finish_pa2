@@ -180,6 +180,9 @@ word_t expr(char *e, bool *success) {
               tokens[i] .str[j]= '\0' ;   }*/
    
    return printf("%s",tokens->str);
+   for (unsigned int i = 0; i < cal; i++){
+  	for(int j=0;j<32;j++)
+              tokens[i] .str[j]= '\0' ; }
    
   }
   
