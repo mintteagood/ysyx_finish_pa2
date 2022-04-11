@@ -25,7 +25,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
      if(s[position[i]] == '\0'){
 	if(s[position[i]]==regs[i][position[i]]){
 	    eq[i] = 1;
-	    position[i]=position[i]+1;
+	  
 	    printf("\nok and eq[i]=%d position[i]=%d",eq[i],position[i]);
 	    }
 	else {
@@ -33,9 +33,11 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	   printf("\n buok and eq[i]=%d and regs[i]=%s",eq[i],regs[i]);
 	   }
 	}
-      else if(s[position[i]] != '\0')
+	else 
+	position[i]=position[i]+1;
+ /*     else if(s[position[i]] != '\0')
       printf("\nkeyiok");
-      printf("\nok and eq[i]=%d position[i]=%d",eq[i],position[i]);
+      printf("\nok and eq[i]=%d position[i]=%d",eq[i],position[i]);*/
           /*printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);*/    
 	}
 	
