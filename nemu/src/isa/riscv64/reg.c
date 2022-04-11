@@ -40,7 +40,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	int i=0;
 	 for(i=0;i<32;i++){
 	if(*s==*regs[i])
-          printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
+          printf("\nregsi=%s and i=%d and s=%s and cpu=%08lx\n",regs[i],i,s,cpu.gpr[i]);
           }
 
 return 0;
