@@ -21,7 +21,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
  	int i = 0;
  	int eq[32]={0};
  	int position[32] = {0};
-   for(i=0;i<2;i++){
+   for(i=0;i<32;i++){
      if(s[position[i]] == '\0'){
 	if(eq[i]==1)
 	printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
