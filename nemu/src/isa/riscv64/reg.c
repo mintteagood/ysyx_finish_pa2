@@ -28,7 +28,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	}
     else{
     	position[i] =position[i] +1;
-        
+        printf("\nyizhi%d",position[i]);
     }
  }
 	
