@@ -26,11 +26,11 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	if(s[position]==regs[i][position]){
 	    eq[i] = 1;
 	    position=position+1;
-	    printf("ok and eq[i]=%d",eq[i]);
+	    printf("\nok and eq[i]=%d",eq[i]);
 	    }
 	else
 	    eq[i] = 0;
-	   printf("ok and eq[i]=%d and regs[i]=%s",eq[i],regs[i]);
+	   printf("\n buok and eq[i]=%d and regs[i]=%s",eq[i],regs[i]);
 	}
       else {
          if(eq[i]==1)
