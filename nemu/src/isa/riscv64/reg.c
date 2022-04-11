@@ -22,7 +22,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
  	int eq[32]={0};
  	int position = 0;
    for(i=0;i<1;i++){
-     if(s[position] != '\0'){
+     if(s[position] == '\0'){
 	if(s[position]==regs[i][position]){
 	    eq[i] = 1;
 	    position=position+1;
