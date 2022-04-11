@@ -34,7 +34,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	   }
 	}
       else if(s[position] == '\0')
-      printf("ok");
+      printf("keyiok");
           /*printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);*/    
 	}
 	
