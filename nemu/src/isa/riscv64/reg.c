@@ -33,9 +33,9 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	   printf("\n buok and eq[i]=%d and regs[i]=%s",eq[i],regs[i]);
 	   }
 	}
-      else {
+      else 
           printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
-      }
+      
 	}
 	
 	
