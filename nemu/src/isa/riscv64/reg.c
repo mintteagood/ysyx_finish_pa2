@@ -22,13 +22,13 @@ word_t isa_reg_str2val(const char *s, bool *success) {
  	int eq[32]={0};
  	int position = 0;
    for(i=0;i<1;i++){
-       if(s[position] != '\0'){
+     if(s[position] != '\0'){
 	if(s[position]==regs[i][position]){
 	    eq[i] = 1;
 	    position=position+1;
 	    printf("\nok and eq[i]=%d",eq[i]);
 	    }
-	else if(s[position]!=regs[i][position]){
+	else {
 	    eq[i] = 0;
 	   printf("\n buok and eq[i]=%d and regs[i]=%s",eq[i],regs[i]);
 	   }
