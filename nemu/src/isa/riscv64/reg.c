@@ -28,9 +28,10 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 	    position=position+1;
 	    printf("\nok and eq[i]=%d",eq[i]);
 	    }
-	else
+	else if(s[position]!=regs[i][position]){
 	    eq[i] = 0;
 	   printf("\n buok and eq[i]=%d and regs[i]=%s",eq[i],regs[i]);
+	   }
 	}
       else {
          if(eq[i]==1)
