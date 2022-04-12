@@ -32,6 +32,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
    	        else{
    	        eq = eq -1;
    	        printf("ok");
+   	        position[i]=position[i] +1;
    	         }
    		}
    	if(eq==1)
