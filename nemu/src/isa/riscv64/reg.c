@@ -28,8 +28,10 @@ word_t isa_reg_str2val(const char *s, bool *success) {
    		position=position +1;
    		eq = 1;
    		}
-   	        else
+   	        else{
    	        eq = eq -1;
+   	        printf("ok");
+   	         }
    		}
    	if(eq==1)
    	printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
