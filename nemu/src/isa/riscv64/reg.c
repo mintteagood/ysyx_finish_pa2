@@ -30,7 +30,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
  
    		}
    	        else{
-   	        eq = eq -1;
+   	        eq = eq +16;
    	        
    	        position[i]=position[i] +1;
    	         }
