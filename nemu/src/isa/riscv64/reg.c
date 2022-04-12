@@ -24,7 +24,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
    for(i=0;i<3;i++){
    	while(s[position] != '\0' && regs[i][position] != '\0'){
    		eq = 0;
-   		if(s[position == regs[i][position]]){
+   		if(s[position] == regs[i][position]){
    		position=position +1;
    		eq = 1;
    		}
