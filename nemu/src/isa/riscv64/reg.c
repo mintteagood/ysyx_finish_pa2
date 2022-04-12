@@ -27,6 +27,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
    		if(s[position] == regs[i][position]){
    		position=position +1;
    		eq = 1;
+   		printf("\n regs[i]=%d s[position]=%d",regs[i][position],s[position]);
    		}
    	        else{
    	        eq = eq -1;
