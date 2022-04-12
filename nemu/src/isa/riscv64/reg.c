@@ -20,14 +20,14 @@ word_t isa_reg_str2val(const char *s, bool *success) {
    /*char *pin =strtok(s, "$");*/
  	int i = 0;
  	int eq = 0;
- 	int position = 0;
-   for(i=0;i<3;i++){
-   	while(s[position] != '\0' && regs[i][position] != '\0'){
+ 	int position[32] = {0};
+   for(i=0;i<2;i++){
+   	while(s[position[i]] != '\0' && regs[i][position[i]] != '\0'){
    		eq = 0;
-   		if(s[position] == regs[i][position]){
-   		position=position +1;
+   		if(s[position[i]] == regs[i][position[i]]){
+   		position[i]=position[i] +1;
    		eq = 1;
-   		printf("\n regs[i]=%d s[position]=%d",regs[i][position],s[position]);
+   		printf("\n regs[i]=%d s[position]=%d",regs[i][position[i]],s[position[i]]);
    		}
    	        else{
    	        eq = eq -1;
