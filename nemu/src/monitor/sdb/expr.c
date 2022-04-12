@@ -105,7 +105,6 @@ static bool make_token(char *e) {
 		tokens[nr_token].type = rules[i].token_type;
 		strncpy(tokens[nr_token].str,substr_start,substr_len);
 		tokens[nr_token++].str[substr_len] = '\0';
-		printf("ok");
 		break;
 		}
 		case TK_NOTYPE:
@@ -121,7 +120,6 @@ static bool make_token(char *e) {
     }
     }
   }
-  printf("token_str=%s",tokens[nr_token-1].str);
 	cal=nr_token;
   return true;
 }
