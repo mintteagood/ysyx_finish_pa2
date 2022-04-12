@@ -27,24 +27,17 @@ word_t isa_reg_str2val(const char *s, bool *success) {
    		if(s[position[i]] == regs[i][position[i]]){
    		position[i]=position[i] +1;
    		eq = 1;
-   		printf("\n regs[i]=%d s[position]=%d",regs[i][position[i]],s[position[i]]);
+ 
    		}
    	        else{
    	        eq = eq -1;
-   	        printf("ok");
+   	        
    	        position[i]=position[i] +1;
    	         }
    		}
    	if(eq==1)
    	printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
  }
-	
-/*	int i=0;
-	 for(i=0;i<32;i++){
-	if(*s==*regs[i])
-          printf("\nregsi=%s and i=%d and s=%d and cpu=%08lx\n",regs[i],i,*s,cpu.gpr[i]);
-          }
-       */
 
 return 0;
 }
