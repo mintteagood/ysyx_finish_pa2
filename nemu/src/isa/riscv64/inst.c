@@ -23,7 +23,7 @@ enum {
 static word_t immI(uint32_t i) { return SEXT(BITS(i, 31, 20), 12); }
 static word_t immU(uint32_t i) { return SEXT(BITS(i, 31, 12), 20) << 12; }
 //static word_t immS(uint32_t i) { return (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); }
-static word_t immJ(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 19) |BITS(i, 19, 12) << 12|BITS(i, 20, 20) << 11| BITS(i,30,21); }
+static word_t immJ(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 19) |BITS(i, 19, 12) << 12|BITS(i, 20, 20) << 11| BITS(i,30,21)<<1; }
 
 static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, int type) {
   uint32_t i = s->isa.inst.val;
@@ -55,7 +55,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("000000? ????? ????? 001 ????? 00100 11", slli   , I, R(dest) = src1 <<src2,printf("slliok\n"));
   //INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal    , U, R(dest) = 4 + s->pc , s->dnpc = s->pc+(SEXT(BITS(src1, 31, 31), 1) << 19 |BITS(src1, 19, 12) << 12|BITS(src1, 20, 20) << 11| BITS(src1,30,21)),printf("ok is %lx\n",s->dnpc));
   
-  INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal,     J, s->dnpc = s->dnpc + src1,R(dest) = s->pc + 4,printf("next dnpc is:%lx\n",s->dnpc),printf("next snpc is:%lx\n",s->snpc)); // uncentern
+  INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal,     J, R(dest) = s->pc + 4, s->dnpc = s->dnpc + src1,printf("next dnpc is:%lx\n",s->dnpc),printf("next snpc is:%lx\n",s->snpc)); // uncentern
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(dest) = src1 + s->pc,printf("auipcok\n"));
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, R(dest) = Mr(src1 + src2, 8));
   INSTPAT("??????? ????? ????? 011 ????? 01000 11", sd     , S, Mw(src1 + dest, 8, src2));
