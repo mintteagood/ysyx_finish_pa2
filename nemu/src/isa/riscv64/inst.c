@@ -37,7 +37,7 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
     case TYPE_U: src1I(immU(i)); break;
     case TYPE_S: src1R(rs1); src2R(rs2); break;
     case TYPE_J: src1I(immJ(i)); break;
-    case TYPE_B: src1R(rs1); src2R(rs2); destI(immB(i)); break;
+    case TYPE_B: src1R(rs1); src2I(immB(i)); destI(rs2); break;
   }
 }
 
@@ -61,7 +61,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add  ,   S, R(dest) = src1 + src2,printf("addok\n"));
   INSTPAT("0100000 ????? ????? 000 ????? 01100 11", sub  ,   S, R(dest) = src1 - src2,printf("subok\n"));
   INSTPAT("??????? ????? ????? 011 ????? 00100 11", sltiu,   I, R(dest) = src1 < ((unsigned int) src2 << 1) ? 1:0,printf("sltiu is:%lx\n",R(dest)));
-  INSTPAT("??????? ????? ????? 000 ????? 11000 11", beq  ,   B, s->dnpc = (src1==src2) ? s->pc+R(dest) :  s->pc ,printf("beq next s->dnpc is:%lx\n",s->dnpc),printf("beq next s->snpc is:%lx\n",s->snpc),printf("beq R(DEST) is:%lx\n",R(dest)));
+  INSTPAT("??????? ????? ????? 000 ????? 11000 11", beq  ,   B, s->dnpc = (src1==src2) ? s->pc+R(dest) :  s->pc+src2 ,printf("beq next s->dnpc is:%lx\n",s->dnpc),printf("beq next s->snpc is:%lx\n",s->snpc),printf("beqsrc2 is:%lx\n",src2));
 
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, R(dest) = Mr(src1 + src2, 8));
   INSTPAT("??????? ????? ????? 011 ????? 01000 11", sd     , S, Mw(src1 + dest, 8, src2));
