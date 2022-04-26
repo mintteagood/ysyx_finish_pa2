@@ -9,7 +9,7 @@
 
 enum {
   TYPE_I, TYPE_U, TYPE_S,
-  TYPE_N, TYPE_J, TYPE_B // none
+  TYPE_N, TYPE_J, TYPE_B// none
 };
 
 #define src1R(n) do { *src1 = R(n); } while (0)
@@ -65,7 +65,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 001 ????? 11000 11", bne  ,   B, s->dnpc = (src1!=src2) ? s->pc + dest :  s->pc+4  ,printf("bne next s->dnpc is:%lx\n",s->dnpc),printf("bnesrc1 is:%lx\n",src1),printf("bnesrc2 is:%lx\n",src2));
   INSTPAT("??????? ????? ????? 000 ????? 00110 11", addiw  , I, R(dest) = SEXT(BITS((src1 + src2), 31, 0), 32),printf("addiw R(dest) is:%lx\n",R(dest)));
   INSTPAT("??????? ????? ????? 010 ????? 00000 11", lw    ,  I, R(dest) = SEXT(BITS((unsigned int)Mr(src1 + src2, 4),31,0),32));
-
+  INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw  ,  S, R(dest) = SEXT(BITS(src1 + src2,31,0),32),printf("addwok\n ,jieguo is:%lx\n",R(dest)));
 
 
 
