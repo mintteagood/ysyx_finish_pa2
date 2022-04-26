@@ -65,9 +65,8 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 000 ????? 00110 11", addiw  , I, R(dest) = SEXT(BITS((src1 + src2), 31, 0), 32),printf("current pc is %lx ",s->pc),printf("addiw R(dest) is:%lx\n",R(dest)));
   INSTPAT("??????? ????? ????? 010 ????? 00000 11", lw    ,  I, R(dest) = SEXT(BITS(Mr(src1 + src2, 4),31,0),32),printf("current pc is %lx ",s->pc),printf("lw R(dest) is:%lx\n",R(dest)));
   INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw  ,  RR, R(dest) = SEXT(BITS((src1 + src2),31,0),32),printf("current pc is %lx ",s->pc),printf("addwok\n ,jieguo is:%lx\n",R(dest)));
-
-
   INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add  ,  RR, R(dest) = src1 + src2,printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)));
+
 
 
 
