@@ -59,7 +59,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal,     J, R(dest) = s->pc + 4, s->dnpc = s->pc + src1,printf("current pc is %lx ",s->pc),printf("jal next dnpc is:%lx\n",s->dnpc)); 
   INSTPAT("??????? ????? ????? 000 ????? 11001 11", jalr  ,  I, s->dnpc = (src1 +src2) & ~1, R(dest) = s->pc + 4,printf("current pc is %lx ",s->pc),printf("auipc next dnpc is:%lx\n",s->dnpc));
   //INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add  ,   S, R(dest) = src1 + src2,printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)));
-  INSTPAT("0100000 ????? ????? 000 ????? 01100 11", sub  ,   S, R(dest) = src1 - src2,printf("current pc is %lx ",s->pc),printf("subok\n ,jieguo is:%lx\n",R(dest)));
+  INSTPAT("0100000 ????? ????? 000 ????? 01100 11", sub  ,   RR, R(dest) = src1 - src2,printf("current pc is %lx ",s->pc),printf("subok\n ,jieguo is:%lx\n",R(dest)));
   INSTPAT("??????? ????? ????? 011 ????? 00100 11", sltiu,   I, R(dest) = src1 < ( src2) ? 1:0,printf("current pc is %lx ",s->pc),printf("sltiu is:%lx\n",R(dest)),printf("bijiaoshu is:%x\n",(unsigned int) src2 )); //buqueding
   INSTPAT("??????? ????? ????? 000 ????? 11000 11", beq  ,   B, s->dnpc = (src1==src2) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("beq next s->dnpc is:%lx\n",s->dnpc),printf("beqsrc1 is:%lx\n",src1),printf("beqsrc2 is:%lx\n",src2));
   INSTPAT("??????? ????? ????? 001 ????? 11000 11", bne  ,   B, s->dnpc = (src1==src2) ? s->pc+4 :  s->pc + dest  ,printf("current pc is %lx ",s->pc),printf("bne next s->dnpc is:%lx\n",s->dnpc),printf("bnesrc1 is:%lx\n",src1),printf("bnesrc2 is:%lx\n",src2));
