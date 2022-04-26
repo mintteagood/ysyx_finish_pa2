@@ -58,7 +58,6 @@ static int decode_exec(Decode *s) {
   INSTPAT("000000? ????? ????? 001 ????? 00100 11", slli   , I, R(dest) = src1 <<src2,printf("current pc is %lx ",s->pc),printf("slliok\n"));
   INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal,     J, R(dest) = s->pc + 4, s->dnpc = s->pc + src1,printf("current pc is %lx ",s->pc),printf("jal next dnpc is:%lx\n",s->dnpc)); 
   INSTPAT("??????? ????? ????? 000 ????? 11001 11", jalr  ,  I, s->dnpc = (src1 +src2) & ~1, R(dest) = s->pc + 4,printf("current pc is %lx ",s->pc),printf("auipc next dnpc is:%lx\n",s->dnpc));
-  //INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add  ,   S, R(dest) = src1 + src2,printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)));
   INSTPAT("0100000 ????? ????? 000 ????? 01100 11", sub  ,   RR, R(dest) = src1 - src2,printf("current pc is %lx ",s->pc),printf("subok\n ,jieguo is:%lx\n",R(dest)));
   INSTPAT("??????? ????? ????? 011 ????? 00100 11", sltiu,   I, R(dest) = src1 < ( src2) ? 1:0,printf("current pc is %lx ",s->pc),printf("sltiu is:%lx\n",R(dest)),printf("bijiaoshu is:%x\n",(unsigned int) src2 )); //buqueding
   INSTPAT("??????? ????? ????? 000 ????? 11000 11", beq  ,   B, s->dnpc = (src1==src2) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("beq next s->dnpc is:%lx\n",s->dnpc),printf("beqsrc1 is:%lx\n",src1),printf("beqsrc2 is:%lx\n",src2));
@@ -66,7 +65,9 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 000 ????? 00110 11", addiw  , I, R(dest) = SEXT(BITS((src1 + src2), 31, 0), 32),printf("current pc is %lx ",s->pc),printf("addiw R(dest) is:%lx\n",R(dest)));
   INSTPAT("??????? ????? ????? 010 ????? 00000 11", lw    ,  I, R(dest) = SEXT(BITS(Mr(src1 + src2, 4),31,0),32),printf("current pc is %lx ",s->pc),printf("lw R(dest) is:%lx\n",R(dest)));
   INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw  ,  RR, R(dest) = SEXT(BITS((src1 + src2),31,0),32),printf("current pc is %lx ",s->pc),printf("addwok\n ,jieguo is:%lx\n",R(dest)));
-  //INSTPAT("??????? ????? ????? 000 ????? 00110 11", addiw ,  I, R(dest) = SEXT(BITS(src1 + src2,31,0),32),printf("current pc is %lx ",s->pc),printf("addiwok\n ,jieguo is:%lx\n",R(dest)));
+
+
+  INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add  ,  RR, R(dest) = src1 + src2,printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)));
 
 
 
