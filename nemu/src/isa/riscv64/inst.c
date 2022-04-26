@@ -19,7 +19,6 @@ enum {
 #define src2I(i) do { *src2 = i; } while (0)
 #define destI(i) do { *dest = i; } while (0)
 
-
 static word_t immI(uint32_t i) { return SEXT(BITS(i, 31, 20), 12); }
 static word_t immU(uint32_t i) { return SEXT(BITS(i, 31, 12), 20) << 12; }
 static word_t immS(uint32_t i) { return (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); }
@@ -33,7 +32,7 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
   int rs2 = BITS(i, 24, 20);
   destR(rd);
   switch (type) {
-    case TYPE_I: src1R(rs1);     src2I(immI(i)); break;
+    case TYPE_I: src1R(rs1); src2I(immI(i)); break;
     case TYPE_U: src1I(immU(i)); break;
     case TYPE_S: src1R(rs1); src2R(rs2); destI(immS(i));break;
     case TYPE_J: src1I(immJ(i)); break;
@@ -66,8 +65,10 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 010 ????? 00000 11", lw    ,  I, R(dest) = SEXT(BITS(Mr(src1 + src2, 4),31,0),32),printf("current pc is %lx ",s->pc),printf("lw R(dest) is:%lx\n",R(dest)));
   INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw  ,  RR, R(dest) = SEXT(BITS((src1 + src2),31,0),32),printf("current pc is %lx ",s->pc),printf("addwok\n ,jieguo is:%lx\n",R(dest)));
   INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add  ,   RR, R(dest) = src1 + src2,printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)));
+ 
+ 
   INSTPAT("??????? ????? ????? 001 ????? 01000 11", sh    ,  S, Mw(src1 + dest, 8, BITS(src2,15,0)),printf("current pc is %lx ",s->pc));
-
+  INSTPAT("010000? ????? ????? 101 ????? 00100 11", srai ,   I, R(dest) = src1 >> src2 ,printf("current pc is %lx ",s->pc));
 
 
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(dest) = src1 + s->pc,printf("current pc is %lx ",s->pc),printf("auipcok\n"));
