@@ -74,7 +74,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw ,   RR, R(dest) = SEXT(BITS((src1 << src2), 31, 0), 32), printf("current pc is %lx ",s->pc),printf("lw R(dest) is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000000 ????? ????? 111 ????? 01100 11", and ,    RR, R(dest) = src1 & src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("??????? ????? ????? 011 ????? 01100 11", sltu,    RR, R(dest) = src1 < ( src2) ? 1:0,printf("current pc is %lx ",s->pc),printf("sltu is:%lx\n",R(dest)),printf("bijiaoshu is:%x\n",(unsigned int) src2 ),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("0000000 ????? ????? 100 ????? 00100 11", xori ,   I,  R(dest) = src1 ^ SEXT(BITS(src2,4,0),5) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("0000000 ????? ????? 100 ????? 00100 11", xori ,   I,  R(dest) = src1 ^ src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
   INSTPAT("0000000 ????? ????? 110 ????? 01100 11", or ,     RR,  R(dest) = src1 | src2 , printf("current pc is %lx ",s->pc),printf("or R(dest) is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("??????? ????? ????? 000 ????? 01000 11", sb    ,  S, Mw(src1 + dest, 1, BITS(src2,7,0)),printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
