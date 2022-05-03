@@ -66,15 +66,15 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw  ,  RR, R(dest) = SEXT(BITS((src1 + src2),31,0),32),printf("current pc is %lx ",s->pc),printf("addwok\n ,jieguo is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add  ,   RR, R(dest) = src1 + src2,printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
 
-  INSTPAT("??????? ????? ????? 001 ????? 01000 11", sh    ,  S, Mw(src1 + dest, 2, BITS(src2,15,0)),printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("010000? ????? ????? 101 ????? 00100 11", srai ,   I, R(dest) = src1 >> src2 ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu ,    I, R(dest) = SEXT((unsigned int)BITS(Mr(src1 + src2, 1),31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("??????? ????? ????? 001 ????? 01000 11", sh    ,  S, Mw(src1 + dest, 2, BITS(src2,15,0)),printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("010000? ????? ????? 101 ????? 00100 11", srai ,   I, R(dest) = src1 >> src2 ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu ,    I, R(dest) = SEXT((unsigned int)BITS(Mr(src1 + src2, 1),31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
-  INSTPAT("??????? ????? ????? 111 ????? 00100 11", andi ,   I,  R(dest) = src1 & src2 ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw ,   RR, SEXT(BITS((src1 << BITS(src2,4,0)),31,0),32), printf("current pc is %lx ",s->pc),printf("lw R(dest) is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("0000000 ????? ????? 111 ????? 01100 11", and ,    RR, R(dest) = src1 & src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("??????? ????? ????? 011 ????? 01100 11", sltu,    RR, R(dest) = src1 < ( src2) ? 1:0,printf("current pc is %lx ",s->pc),printf("sltu is:%lx\n",R(dest)),printf("bijiaoshu is:%x\n",(unsigned int) src2 ),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("0000000 ????? ????? 100 ????? 00100 11", xori ,   I,  R(dest) = src1 ^ src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("??????? ????? ????? 111 ????? 00100 11", andi ,   I,  R(dest) = src1 & src2 ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw ,   RR, SEXT(BITS((src1 << BITS(src2,4,0)),31,0),32), printf("current pc is %lx ",s->pc),printf("lw R(dest) is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("0000000 ????? ????? 111 ????? 01100 11", and ,    RR, R(dest) = src1 & src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("??????? ????? ????? 011 ????? 01100 11", sltu,    RR, R(dest) = src1 < ( src2) ? 1:0,printf("current pc is %lx ",s->pc),printf("sltu is:%lx\n",R(dest)),printf("bijiaoshu is:%x\n",(unsigned int) src2 ),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("0000000 ????? ????? 100 ????? 00100 11", xori ,   I,  R(dest) = src1 ^ src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
 
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(dest) = src1 + s->pc,printf("current pc is %lx ",s->pc),printf("auipcok\n"),printf("R(10) is:%lx\n",R(10)));
