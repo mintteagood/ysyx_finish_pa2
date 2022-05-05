@@ -96,13 +96,13 @@ static int decode_exec(Decode *s) {
   INSTPAT("0100000 ????? ????? 000 ????? 01110 11", subw ,   RR, R(dest) = SEXT(BITS(src1 - src2,31,0),32) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 //movsx
   INSTPAT("000000? ????? ????? 001 ????? 00110 11", slliw ,  I,  R(dest) = SEXT(BITS(src1<<src2,31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("010000? ????? ????? 101 ????? 00110 11", sraiw ,  I,  R(dest) = SEXT(BITS(SEXT(src1,32)>>src2,31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("010000? ????? ????? 101 ????? 00110 11", sraiw ,  I,  R(dest) = SEXT(BITS(src1,31,0),32)>>src2 ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 //mul-longlong  SEXT(BITS(src1>>src2,31,0),32)
   INSTPAT("0000001 ????? ????? 000 ????? 01100 11", mul ,    RR, R(dest) = src1 * src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
 //recursion有问题
 //shift
-  INSTPAT("000000? ????? ????? 101 ????? 00110 11", srliw ,   I, R(dest) = SEXT(BITS(src1 >> src2,31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("000000? ????? ????? 101 ????? 00110 11", srliw ,  I, R(dest) = SEXT(BITS(src1 >> src2,31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(dest) = src1 + s->pc,printf("current pc is %lx ",s->pc),printf("auipcok\n"),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, R(dest) = Mr(src1 + src2, 8),printf("R(10) is:%lx\n",R(10)));
