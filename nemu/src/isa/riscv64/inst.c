@@ -87,7 +87,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw  ,  RR, R(dest) = SEXT(BITS(src1 * src2,31,0),32),printf("current pc is %lx ",s->pc),printf("mulwok\n ,jieguo is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000001 ????? ????? 100 ????? 01110 11", divw  ,  RR, R(dest) = SEXT((BITS(src1 ,31,0)/BITS(src2,31,0)),32),printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
 
-  INSTPAT("0000001 ????? ????? 110 ????? 01110 11", remw  ,  RR, R(dest) = SEXT((BITS(src1 ,31,0)%BITS(src2,31,0)),32),printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("0000001 ????? ????? 110 ????? 01110 11", remw  ,  RR, R(dest) = SEXT((BITS(src1 ,31,0)%BITS(src2,31,0)),64),printf("current pc is %lx ",s->pc),printf("addok\n ,jieguo is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("??????? ????? ????? 100 ????? 11000 11", blt  ,   B, s->dnpc = (src1<src2) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("blt next s->dnpc is:%lx\n",s->dnpc),printf("bltsrc1 is:%lx\n",src1),printf("bltsrc2 is:%lx\n",src2),printf("R(10) is:%lx\n",R(10)));
 
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(dest) = src1 + s->pc,printf("current pc is %lx ",s->pc),printf("auipcok\n"),printf("R(10) is:%lx\n",R(10)));
