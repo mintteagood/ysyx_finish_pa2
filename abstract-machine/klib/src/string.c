@@ -38,11 +38,12 @@ void *memmove(void *dst, const void *src, size_t n) {
 
 void *memcpy(void *out, const void *in, size_t n) {
   //panic("Not implemented");
-  char *tmp = out;
-  const char *s = in;
- 
-  while (n--)
-    *tmp++ = *s++ ;
+  char *addr_out = (char *)out;
+  const char *addr_in = (const char *)in;
+  for (int i = 0; i < n; ++i)
+  {
+    addr_out[i] = addr_in[i];
+  }
   
   return out;
 }
