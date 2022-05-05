@@ -102,7 +102,7 @@ static int decode_exec(Decode *s) {
 
 //recursion有问题
 //shift有问题
-   INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw ,   RR, R(dest) = SEXT(BITS(BITS(src1,31,0) >> BITS(src2,4,0),31,0),32) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw ,   RR, R(dest) = SEXT(BITS(BITS(src1,31,0) >> src2,31,0),32) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("000000? ????? ????? 101 ????? 00110 11", srliw ,  I, R(dest) = SEXT(BITS(src1 >> src2,31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0100000 ????? ????? 101 ????? 01110 11", sraw ,   RR, R(dest) = SEXT(BITS(SEXT(src1,32) >> BITS(src2,4,0),31,0),32) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
  
