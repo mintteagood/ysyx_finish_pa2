@@ -101,8 +101,12 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000001 ????? ????? 000 ????? 01100 11", mul ,    RR, R(dest) = src1 * src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
 //recursion有问题
-//shift
+//shift有问题
   INSTPAT("000000? ????? ????? 101 ????? 00110 11", srliw ,  I, R(dest) = SEXT(BITS(src1 >> src2,31,0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+
+//to-lower-case
+  INSTPAT("??????? ????? ????? 110 ????? 11000 11", bltu  ,  B, s->dnpc = (src1< src2) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("blt next s->dnpc is:%lx\n",s->dnpc),printf("bltsrc1 is:%lx\n",src1),printf("bltsrc2 is:%lx\n",src2),printf("R(10) is:%lx\n",R(10)));
+
 
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(dest) = src1 + s->pc,printf("current pc is %lx ",s->pc),printf("auipcok\n"),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, R(dest) = Mr(src1 + src2, 8),printf("R(10) is:%lx\n",R(10)));
