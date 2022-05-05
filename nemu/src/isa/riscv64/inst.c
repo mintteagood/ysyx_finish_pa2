@@ -81,7 +81,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 100 ????? 01100 11", xor ,    RR,  R(dest) = src1 ^ src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
   INSTPAT("000000? ????? ????? 101 ????? 00100 11", srli ,   I, R(dest) = src1 >> src2 ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("??????? ????? ????? 101 ????? 11000 11", bge  ,   B, s->dnpc = (SEXT(src1,5) >= SEXT(src2,5)) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("bge next s->dnpc is:%lx\n",s->dnpc),printf("bnesrc1 is:%lx\n",src1),printf("bnesrc2 is:%lx\n",src2),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("??????? ????? ????? 101 ????? 11000 11", bge  ,   B, s->dnpc = (SEXT(src1,32) >= SEXT(src2,32)) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("bge next s->dnpc is:%lx\n",s->dnpc),printf("bnesrc1 is:%lx\n",src1),printf("bnesrc2 is:%lx\n",src2),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("??????? ????? ????? 010 ????? 01000 11", sw    ,  S, Mw(src1 + dest, 4, BITS(src2,31,0)),printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
   //INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw  ,  RR, R(dest) = SEXT(BITS(src1 * src2,31,0),32),printf("current pc is %lx ",s->pc),printf("mulwok\n ,jieguo is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)));
