@@ -108,6 +108,8 @@ static int decode_exec(Decode *s) {
  
 //to-lower-case
   INSTPAT("??????? ????? ????? 110 ????? 11000 11", bltu  ,  B, s->dnpc = (src1< src2) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("blt next s->dnpc is:%lx\n",s->dnpc),printf("bltsrc1 is:%lx\n",src1),printf("bltsrc2 is:%lx\n",src2),printf("R(10) is:%lx\n",R(10)));
+//string
+  INSTPAT("??????? ????? ????? 111 ????? 11000 11", bgeu  ,  B, s->dnpc = (src1 >= src2) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("bgeu next s->dnpc is:%lx\n",s->dnpc),printf("bltsrc1 is:%lx\n",src1),printf("bltsrc2 is:%lx\n",src2),printf("R(10) is:%lx\n",R(10)));
 
 
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(dest) = src1 + s->pc,printf("current pc is %lx ",s->pc),printf("auipcok\n"),printf("R(10) is:%lx\n",R(10)));
