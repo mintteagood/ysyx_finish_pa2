@@ -21,7 +21,24 @@ char *strcat(char *dst, const char *src) {
 }
 
 int strcmp(const char *s1, const char *s2) {
-  panic("Not implemented");
+  //panic("Not implemented");
+  while((*s1) && (*s1 == *s2))
+  {
+    s1++;
+    s2++;
+  }
+  if(*(unsigned char*)s1 > *(unsigned char*)s2)
+  {
+    return 1;
+  }
+  else if(*(unsigned char*)s1 < *(unsigned char*)s2)
+  {
+    return -1;
+  }
+  else
+  {
+    return 0;
+  }
 }
 
 int strncmp(const char *s1, const char *s2, size_t n) {
@@ -37,8 +54,14 @@ void *memmove(void *dst, const void *src, size_t n) {
 }
 
 void *memcpy(void *out, const void *in, size_t n) {
-  panic("Not implemented");
+  //panic("Not implemented");
+  char *tmp = out;
+  const char *s = in;
+ 
+  while (n--)
+    *tmp++ = *s++ ;
   
+  return out;
 }
 
 int memcmp(const void *s1, const void *s2, size_t n) {
