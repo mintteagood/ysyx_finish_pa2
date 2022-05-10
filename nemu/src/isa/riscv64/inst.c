@@ -113,6 +113,7 @@ static int decode_exec(Decode *s) {
 //hello-str
   INSTPAT("??????? ????? ????? 110 ????? 00100 11", ori ,    RR, R(dest) = src1 |SEXT(src2,32)  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000001 ????? ????? 111 ????? 01100 11", remu ,   RR, R(dest) = src1 % (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("0000001 ????? ????? 101 ????? 01100 11", divu ,   RR, R(dest) = src1 / (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
 
 
