@@ -24,6 +24,7 @@ static word_t immU(uint32_t i) { return SEXT(BITS(i, 31, 12), 20) << 12; }
 static word_t immS(uint32_t i) { return (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); }
 static word_t immJ(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 19) |BITS(i, 19, 12) << 12|BITS(i, 20, 20) << 11| BITS(i,30,21)<<1; }
 static word_t immB(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 11) |BITS(i, 7, 7) << 11|BITS(i, 30,25)<<5| BITS(i,11,8)<<1; }
+static word_t immR(uint32_t i) { return SEXT(BITS(i, 31, 20), 12); }
 
 static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, int type) {
   uint32_t i = s->isa.inst.val;
@@ -37,7 +38,7 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
     case TYPE_S: src1R(rs1); src2R(rs2); destI(immS(i));break;
     case TYPE_J: src1I(immJ(i)); break;
     case TYPE_B: src1R(rs1); src2R(rs2); destI(immB(i)); break;
-    case TYPE_RR:  src1R(rs1); src2R(rs2);break;
+    case TYPE_RR:  src1R(rs1); src2R(rs2);destI(immR(i));break;
   }
 }
 
@@ -112,7 +113,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 111 ????? 11000 11", bgeu  ,  B, s->dnpc = (src1 >= src2) ? s->pc + dest :  s->pc+4  ,printf("current pc is %lx ",s->pc),printf("bgeu next s->dnpc is:%lx\n",s->dnpc),printf("bltsrc1 is:%lx\n",src1),printf("bltsrc2 is:%lx\n",src2),printf("R(10) is:%lx\n",R(10)));
 //hello-str
   //INSTPAT("??????? ????? ????? 110 ????? 00100 11", ori ,    RR, R(dest) = SEXT(BITS(src1|src2,31,0),32)  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("??????? ????? ????? 110 ????? 00100 11", ori ,    RR, R(dest) = src1|SEXT(BITS(src2,11,0),12)  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("??????? ????? ????? 110 ????? 00100 11", ori ,    RR, R(dest) = src1|SEXT(BITS(dest,11,0),12)  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000001 ????? ????? 111 ????? 01100 11", remu ,   RR, R(dest) = src1 % (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000001 ????? ????? 101 ????? 01100 11", divu ,   RR, R(dest) = src1 / (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
