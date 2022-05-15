@@ -141,7 +141,7 @@ $(ARCHIVE): $(OBJS)
 ## 6. Miscellaneous
 
 ### Build order control
-image: image-dep-b
+image: image-dep
 archive: $(ARCHIVE)
 image-dep: $(OBJS) am $(LIBS)
 	@echo \# Creating image [$(ARCH)]
