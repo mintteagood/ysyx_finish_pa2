@@ -6,7 +6,7 @@ sim:
 	@echo "Write this Makefile by your self."
 	@$(clean)
 	verilator -Wno-lint --trace -cc $(wildcard ./vsrc/*.v) --exe ./csrc/main.cpp -LDFLAGS -ldl --top top
-	make -C obj_dir -j -f Vtop.mk Vtop
+	make -C obj_dir -j -f Vysyx_2204175_top.mk Vysyx_2204175_top
 	./obj_dir/Vtop $(IMG)
 	gtkwave ./obj_dir/Vysyx_2204175.vcd
 #.PHONY:clean sim
