@@ -32,7 +32,7 @@ void Vtop___024root___initial__TOP__1(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___initial__TOP__1\n"); );
     // Body
-    VL_READMEM_N(true, 8, 32, 0, VL_CVT_PACK_STR_NW(8, Vtop__ConstPool__CONST_833087f8_0)
+    VL_READMEM_N(false, 8, 32, 0, VL_CVT_PACK_STR_NW(8, Vtop__ConstPool__CONST_833087f8_0)
                  ,  &(vlSelf->top__DOT__instr_mem_cpu__DOT__instr_mem)
                  , 0, ~0ULL);
     vlSelf->top__DOT__addr = 0U;
