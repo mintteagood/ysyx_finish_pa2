@@ -1,5 +1,5 @@
 //top.v
-module  ysyx_22010175_top(
+module  ysyx_22040175_top(
 	input clk,
 	input rst
 );
