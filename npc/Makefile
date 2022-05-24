@@ -7,7 +7,7 @@ sim:
 	@$(clean)
 	verilator -Wno-lint --trace -cc $(wildcard ./vsrc/*.v) --exe ./csrc/main.cpp -LDFLAGS -ldl --top ysyx_22040175_top
 	make -C obj_dir -j -f Vysyx_2204175_top.mk Vysyx_2204175_top
-	./obj_dir/Vysyx_2204175_top $(IMG)
+	./obj_dir/Vysyx_22040175_top $(IMG)
 	gtkwave ./obj_dir/Vysyx_2204175.vcd
 #.PHONY:clean sim
 clean:
