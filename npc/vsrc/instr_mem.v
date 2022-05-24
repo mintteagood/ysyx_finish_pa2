@@ -6,7 +6,7 @@ module instr_mem(
 
 	reg [7:0]instr_mem[0:31];
 	
-	initial $readmemh("ysyx-workbench/npc/vsrc/cpu.txt",instr_mem);
+	initial $readmemb("ysyx-workbench/npc/vsrc/cpu.txt",instr_mem);
 	
 	always@(addr)begin
 		instr[7:0] = instr_mem[addr+3];
