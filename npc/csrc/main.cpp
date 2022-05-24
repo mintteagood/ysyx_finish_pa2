@@ -19,7 +19,7 @@ int main(int argc, char **argv, char **env) {
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
   top->trace (tfp, 99);
-  tfp->open ("wave2.vcd");
+  tfp->open ("Vysyx_22040175.vcd");
   // initialize simulation inputs
   top->clk = 1;
   top->rst = 1;
