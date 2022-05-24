@@ -3,7 +3,6 @@
 #include "verilated_vcd_c.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "Vysyx_2204175_top.h"
 #include "assert.h"
 
 Vtop *top;
