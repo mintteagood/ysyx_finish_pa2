@@ -6,7 +6,7 @@
 #include "Vtop.h"
 #include "assert.h"
 
-Vysyx_2204175_top *top;
+Vtop *top;
 
  
 int main(int argc, char **argv, char **env) {
@@ -14,7 +14,7 @@ int main(int argc, char **argv, char **env) {
   int clk;
   Verilated::commandArgs(argc, argv);
   // init top verilog instance
-  Vtop* top = new Vtop;
+  Vtop* top = new Vysyx_22040175_top;
   // init trace dump
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
