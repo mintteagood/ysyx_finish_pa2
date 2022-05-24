@@ -29,14 +29,8 @@ void Vtop___024root___initial__TOP__1(Vtop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___initial__TOP__1\n"); );
-    // Variables
-    VlWide<4>/*127:0*/ __Vtemp1;
     // Body
-    __Vtemp1[0U] = 0x2e747874U;
-    __Vtemp1[1U] = 0x2f637075U;
-    __Vtemp1[2U] = 0x76737263U;
-    __Vtemp1[3U] = 0x6e70632fU;
-    VL_READMEM_N(false, 8, 32, 0, VL_CVT_PACK_STR_NW(4, __Vtemp1)
+    VL_READMEM_N(false, 8, 32, 0, std::string("cpu.txt")
                  ,  &(vlSelf->top__DOT__instr_mem_cpu__DOT__instr_mem)
                  , 0, ~0ULL);
     vlSelf->top__DOT__addr = 0U;
