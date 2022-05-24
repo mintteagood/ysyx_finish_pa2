@@ -30,12 +30,16 @@ void Vtop___024root___initial__TOP__1(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___initial__TOP__1\n"); );
     // Variables
-    VlWide<3>/*95:0*/ __Vtemp1;
+    VlWide<7>/*223:0*/ __Vtemp1;
     // Body
     __Vtemp1[0U] = 0x2e747874U;
     __Vtemp1[1U] = 0x2f637075U;
-    __Vtemp1[2U] = 0x6e7063U;
-    VL_READMEM_N(true, 8, 32, 0, VL_CVT_PACK_STR_NW(3, __Vtemp1)
+    __Vtemp1[2U] = 0x2f6e7063U;
+    __Vtemp1[3U] = 0x656e6368U;
+    __Vtemp1[4U] = 0x6f726b62U;
+    __Vtemp1[5U] = 0x79782d77U;
+    __Vtemp1[6U] = 0x7973U;
+    VL_READMEM_N(true, 8, 32, 0, VL_CVT_PACK_STR_NW(7, __Vtemp1)
                  ,  &(vlSelf->top__DOT__instr_mem_cpu__DOT__instr_mem)
                  , 0, ~0ULL);
     vlSelf->top__DOT__addr = 0U;
