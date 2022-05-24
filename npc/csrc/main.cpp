@@ -6,7 +6,7 @@
 #include "Vysyx_22040175_top.h"
 #include "assert.h"
 
-Vtop *top;
+Vysyx_22040175_top *top;
 
  
 int main(int argc, char **argv, char **env) {
