@@ -1,11 +1,13 @@
 //top.v
 module  ysyx_22040175_top(
 	input clk,
-	input rst
+	input rst,
+	input [31:0]instr,
+	output [31:0]addr
 );
 
-	wire [31:0]addr;
-	wire [31:0]instr;
+	//wire [31:0]addr;
+	//wire [31:0]instr;
 	wire [31:0]ext_imm;
 	wire [31:0]data1;
 	wire [31:0]data2;
