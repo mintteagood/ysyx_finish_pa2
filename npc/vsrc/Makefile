@@ -23,6 +23,7 @@ $(shell mkdir -p $(BUILD_DIR))
 # project source
 VSRCS = $(shell find $(npc ./vsrc) -name "*.v")
 CSRCS = $(shell find $(npc ./csrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
+HSRCS = $(shell find $(npc ./csrc) -name "*.h")
 #CSRCS += $(SRC_AUTO_BIND)
 
 # rules for NVBoard
@@ -33,7 +34,7 @@ INCFLAGS = $(addprefix -I, $(INC_PATH))
 CFLAGS += $(INCFLAGS) -DTOP_NAME="\"V$(TOPNAME)\"" 
 LDFLAGS += -lSDL2 -lSDL2_image
 
-$(BIN): $(VSRCS) $(CSRCS) $(NVBOARD_ARCHIVE)
+$(BIN): $(VSRCS) $(CSRCS) $(HSRCS) $(NVBOARD_ARCHIVE)
 	@rm -rf $(OBJ_DIR)
 	$(VERILATOR) $(VERILATOR_CFLAGS) \
 		-top $(TOPNAME) $^ \
