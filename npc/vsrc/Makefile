@@ -8,8 +8,9 @@ VERILATOR_CFLAGS += -MMD --build -cc  \
 
 BUILD_DIR = ./build
 #OBJ_DIR = $(BUILD_DIR)/obj_dir
+#BIN = $(BUILD_DIR)/$(TOPNAME)
 OBJ_DIR = ./obj_dir
-BIN = $(BUILD_DIR)/$(TOPNAME)
+BIN = $(TOPNAME)
 
 default: $(BIN)
 
