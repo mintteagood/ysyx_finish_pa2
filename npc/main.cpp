@@ -3,10 +3,10 @@
 #include "verilated_vcd_c.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "Vysyx_22040175_top.h"
+#include "Vtop.h"
 #include "assert.h"
 
-Vysyx_22040175_top *top;
+Vtop *top;
 
  
 int main(int argc, char **argv, char **env) {
@@ -14,12 +14,12 @@ int main(int argc, char **argv, char **env) {
   int clk;
   Verilated::commandArgs(argc, argv);
   // init top verilog instance
-  Vysyx_22040175_top* top = new Vysyx_22040175_top;
+  Vtop* top = new Vtop;
   // init trace dump
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
   top->trace (tfp, 99);
-  tfp->open ("Vysyx_22040175.vcd");
+  tfp->open ("wave2.vcd");
   // initialize simulation inputs
   top->clk = 1;
   top->rst = 1;
@@ -30,7 +30,6 @@ int main(int argc, char **argv, char **env) {
     for (clk=0; clk<2; clk++) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
-      top->instr = pmem_read(top->addr)
       top->eval ();
     }
     
@@ -39,8 +38,3 @@ int main(int argc, char **argv, char **env) {
   tfp->close();
   exit(0);
 }
-
-/*static word_t pmem_read(paddr_t addr, int len) {
-  word_t ret = host_read(guest_to_host(addr), len);
-  return ret;
-}*/
