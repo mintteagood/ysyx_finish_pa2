@@ -9,7 +9,8 @@ sim:
 	make -C obj_dir -j -f Vysyx_22040175_top.mk Vysyx_22040175_top
 	./obj_dir/Vysyx_22040175_top $(IMG)
 	gtkwave ./obj_dir/Vysyx_22040175.vcd
-#.PHONY:clean sim
+#PHONY:clean sim
 clean:
 	rm -rf .obj_dir
 include ../Makefile
+#include ./vsrc/Makefile
