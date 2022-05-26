@@ -1,6 +1,6 @@
 TOPNAME = ysyx_22040175_top
 #NXDC_FILES = constr/top.nxdc
-INC_PATH ?= 
+INC_PATH ?= npc/crsc
 
 VERILATOR = verilator
 VERILATOR_CFLAGS += -MMD --build -cc  \
@@ -10,6 +10,7 @@ BUILD_DIR = ./build
 OBJ_DIR = $(BUILD_DIR)/obj_dir
 BIN = $(BUILD_DIR)/$(TOPNAME)
 
+
 default: $(BIN)
 
 $(shell mkdir -p $(BUILD_DIR))
@@ -17,7 +18,7 @@ $(shell mkdir -p $(BUILD_DIR))
 # constraint file
 #SRC_AUTO_BIND = $(abspath $(BUILD_DIR)/auto_bind.cpp)
 #$(SRC_AUTO_BIND): $(NXDC_FILES)
-#	python $(NVBOARD_HOME)/scripts/auto_pin_bind.py $^ $@
+    #python $(NVBOARD_HOME)/scripts/auto_pin_bind.py $^ $@ 
 
 # project source
 VSRCS = $(shell find $(npc ./vsrc) -name "*.v")
@@ -37,7 +38,7 @@ $(BIN): $(VSRCS) $(CSRCS) $(NVBOARD_ARCHIVE)
 	$(VERILATOR) $(VERILATOR_CFLAGS) \
 		-top $(TOPNAME) $^ \
 		$(addprefix -CFLAGS , $(CFLAGS)) $(addprefix -LDFLAGS , $(LDFLAGS)) \
-		--Mdir $(OBJ_DIR) --exe -o $(npc $(BIN))
+		--Mdir $(OBJ_DIR) --exe -o $(shell find $(npc) $(BIN))
 
 run: $(BIN)
 	@$^
