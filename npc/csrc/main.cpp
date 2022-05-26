@@ -39,3 +39,8 @@ int main(int argc, char **argv, char **env) {
   tfp->close();
   exit(0);
 }
+
+static word_t pmem_read(paddr_t addr, int len) {
+  word_t ret = host_read(guest_to_host(addr), len);
+  return ret;
+}
