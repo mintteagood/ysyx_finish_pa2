@@ -1,4 +1,7 @@
 #include "../csrc/paddr.h"
+#include "../csrc/host.h"
+//#include <device/mmio.h>
+//#include <isa.h>
 #define panic(format, ...) Assert(0, format, ## __VA_ARGS__)
 
 #if   defined(CONFIG_PMEM_MALLOC)
@@ -23,4 +26,18 @@ word_t pmem_read(paddr_t addr, int len) {
   word_t ret = host_read(guest_to_host(addr), len);
   return ret;
 }
-
+void init_mem() {
+#if   defined(CONFIG_PMEM_MALLOC)
+  pmem = malloc(CONFIG_MSIZE);
+  assert(pmem);
+#endif
+#ifdef CONFIG_MEM_RANDOM
+  uint32_t *p = (uint32_t *)pmem;
+  int i;
+  for (i = 0; i < (int) (CONFIG_MSIZE / sizeof(p[0])); i ++) {
+    p[i] = rand();
+  }
+#endif
+ /* Log("physical memory area [" FMT_PADDR ", " FMT_PADDR "]",
+      (paddr_t)CONFIG_MBASE, (paddr_t)CONFIG_MBASE + CONFIG_MSIZE);*/
+}
