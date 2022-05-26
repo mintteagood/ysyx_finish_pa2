@@ -21,8 +21,8 @@ $(shell mkdir -p $(BUILD_DIR))
     #python $(NVBOARD_HOME)/scripts/auto_pin_bind.py $^ $@ 
 
 # project source
-VSRCS = $(shell find $(npc ./vsrc) -name "*.v")
-CSRCS = $(shell find $(npc ./csrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
+VSRCS = $(shell find $(NEW_NPC ./vsrc) -name "*.v")
+CSRCS = $(shell find $(NEW_NPC ./csrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
 #CSRCS += $(SRC_AUTO_BIND)
 
 # rules for NVBoard
