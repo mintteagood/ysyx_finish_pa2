@@ -1,7 +1,18 @@
 #ifndef __MEMORY_PADDR_H__
 #define __MEMORY_PADDR_H__
 
-#include <common.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
+
+#include <generated/autoconf.h>
+#include <macro.h>
+#ifdef CONFIG_TARGET_AM
+#include <klib.h>
+#else
+#include <assert.h>
+#include <stdlib.h>
+#endif
 
 
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
