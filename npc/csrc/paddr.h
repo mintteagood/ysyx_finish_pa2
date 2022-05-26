@@ -5,14 +5,14 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stddef.h>
-
-
-#ifdef CONFIG_TARGET_AM
-#include <klib.h>
-#else
 #include <assert.h>
 #include <stdlib.h>
-#endif
+typedef MUXDEF(CONFIG_ISA64, uint64_t, uint32_t) word_t;
+typedef MUXDEF(CONFIG_ISA64, int64_t, int32_t)  sword_t;
+typedef word_t vaddr_t;
+typedef MUXDEF(PMEM64, uint64_t, uint32_t) paddr_t;
+typedef uint16_t ioaddr_t;
+
 
 
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
