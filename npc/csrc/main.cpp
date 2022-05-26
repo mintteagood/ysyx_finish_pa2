@@ -7,6 +7,13 @@
 #include "assert.h"
 #include "../csrc/paddr.h"
 
+word_t paddr_read(paddr_t addr, int len) {
+  if (likely(in_pmem(addr))) return pmem_read(addr, len);
+  IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
+  out_of_bound(addr);
+  return 0;
+}
+
 Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
   int i;
@@ -38,4 +45,6 @@ int main(int argc, char **argv, char **env) {
   tfp->close();
   exit(0);
 }
+
+
 
