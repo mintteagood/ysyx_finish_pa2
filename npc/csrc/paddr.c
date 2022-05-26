@@ -1,6 +1,10 @@
 #include "../csrc/paddr.h"
 #define panic(format, ...) Assert(0, format, ## __VA_ARGS__)
-
+#define _Log(...) \
+  do { \
+    printf(__VA_ARGS__); \
+    log_write(__VA_ARGS__); \
+  } while (0)
 #if   defined(CONFIG_PMEM_MALLOC)
 static uint8_t *pmem = NULL;
 #else // CONFIG_PMEM_GARRAY
