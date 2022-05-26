@@ -22,10 +22,10 @@ $(shell mkdir -p $(BUILD_DIR))
 # project source
 VSRCS = $(shell find $(npc ./vsrc) -name "*.v")
 CSRCS = $(shell find $(npc ./csrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
-CSRCS += $(SRC_AUTO_BIND)
+#CSRCS += $(SRC_AUTO_BIND)
 
 # rules for NVBoard
-include $(NVBOARD_HOME)/scripts/nvboard.mk
+#include $(NVBOARD_HOME)/scripts/nvboard.mk
 
 # rules for verilator
 INCFLAGS = $(addprefix -I, $(INC_PATH))
