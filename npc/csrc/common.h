@@ -5,8 +5,8 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include <generated/autoconf.h>
-#include <macro.h>
+#include "../csrc/autoconf.h"
+#include "../csrc/macro.h"
 
 #ifdef CONFIG_TARGET_AM
 #include <klib.h>
