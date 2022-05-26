@@ -25,7 +25,7 @@ VSRCS = $(shell find $(npc ./vsrc) -name "*.v")
 CSRCS = $(shell find $(npc ./csrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
 HSRCS = $(shell find $(npc ./csrc) -name "*.h")
 #CSRCS += $(SRC_AUTO_BIND)
-
+DIRS-$(CONFIG_MODE_SYSTEM) += csrc/paddr
 # rules for NVBoard
 #include $(NVBOARD_HOME)/scripts/nvboard.mk
 
