@@ -38,7 +38,7 @@ $(BIN): $(VSRCS) $(CSRCS) $(NVBOARD_ARCHIVE)
 	$(VERILATOR) $(VERILATOR_CFLAGS) \
 		-top $(TOPNAME) $^ \
 		$(addprefix -CFLAGS , $(CFLAGS)) $(addprefix -LDFLAGS , $(LDFLAGS)) \
-		--Mdir $(OBJ_DIR) --exe -o $(shell find $(npc) $(BIN))
+		--Mdir $(OBJ_DIR) --exe -o $(shell find $(npc) $(BIN)) ./crsc/paddr.c
 
 run: $(BIN)
 	@$^
