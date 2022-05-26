@@ -1,52 +1,7 @@
 #ifndef __MEMORY_PADDR_H__
 #define __MEMORY_PADDR_H__
 
-#define CONFIG_ISA_riscv64 1
-#define CONFIG_DIFFTEST_REF_NAME "none"
-#define CONFIG_ENGINE "interpreter"
-#define CONFIG_PC_RESET_OFFSET 0x0
-#define CONFIG_TARGET_NATIVE_ELF 1
-#define CONFIG_MSIZE 0x8000000
-#define CONFIG_CC_O2 1
-#define CONFIG_MODE_SYSTEM 1
-#define CONFIG_MEM_RANDOM 1
-#define CONFIG_ITRACE 1
-#define CONFIG_TRACE_END 10000
-#define CONFIG_MBASE 0x80000000
-#define CONFIG_TIMER_GETTIMEOFDAY 1
-#define CONFIG_ENGINE_INTERPRETER 1
-#define CONFIG_CC_OPT "-O2"
-#define CONFIG_RT_CHECK 1
-#define CONFIG_ISA64 1
-#define CONFIG_ITRACE_COND "true"
-#define CONFIG_CC "gcc"
-#define CONFIG_DIFFTEST_REF_PATH "none"
-#define CONFIG_CC_DEBUG 1
-#define CONFIG_TRACE_START 0
-#define CONFIG_CC_GCC 1
-#define CONFIG_TRACE 1
-#define CONFIG_ISA "riscv64"
-#define CONFIG_PMEM_GARRAY 1
-#define MUX_MACRO_PROPERTY(p, macro, a, b) MUX_WITH_COMMA(concat(p, macro), a, b)
-#define MUXDEF(macro, X, Y)  MUX_MACRO_PROPERTY(__P_DEF_, macro, X, Y)
-#define MUXNDEF(macro, X, Y) MUX_MACRO_PROPERTY(__P_DEF_, macro, Y, X)
-#define MUXONE(macro, X, Y)  MUX_MACRO_PROPERTY(__P_ONE_, macro, X, Y)
-#define MUXZERO(macro, X, Y) MUX_MACRO_PROPERTY(__P_ZERO_,macro, X, Y)
-#if CONFIG_MBASE + CONFIG_MSIZE > 0x100000000ul
-#define PMEM64 1
-#endif
-
-typedef MUXDEF(CONFIG_ISA64, uint64_t, uint32_t) word_t;
-typedef MUXDEF(CONFIG_ISA64, int64_t, int32_t)  sword_t;
-#define FMT_WORD MUXDEF(CONFIG_ISA64, "0x%016lx", "0x%08x")
-
-typedef word_t vaddr_t;
-typedef MUXDEF(PMEM64, uint64_t, uint32_t) paddr_t;
-#define FMT_PADDR MUXDEF(PMEM64, "0x%016lx", "0x%08x")
-typedef uint16_t ioaddr_t;
-
-
-
+#include "../csrc/common.h"
 
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
 
