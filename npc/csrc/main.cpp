@@ -5,8 +5,10 @@
 #include <stdlib.h>
 #include "Vysyx_22040175_top.h"
 #include "assert.h"
-#include "memory/paddr.h"
-
+#include <memory/host.h>
+#include <memory/paddr.h>
+#include <device/mmio.h>
+#include <isa.h>
 Vysyx_22040175_top *top;
 
  
