@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "Vysyx_22040175_top.h"
 #include "assert.h"
-#include "paddr.h"
+#include "../csrc/paddr.h"
 
 Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
