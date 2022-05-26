@@ -19,7 +19,7 @@ static inline word_t host_read(void *addr, int len) {
     default: MUXDEF(CONFIG_RT_CHECK, assert(0), return 0);
   }
 }
-static word_t pmem_read(paddr_t addr, int len) {
+word_t pmem_read(paddr_t addr, int len) {
   word_t ret = host_read(guest_to_host(addr), len);
   return ret;
 }
