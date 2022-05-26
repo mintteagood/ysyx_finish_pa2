@@ -1,7 +1,7 @@
 #ifndef __MEMORY_PADDR_H__
 #define __MEMORY_PADDR_H__
 
-#include "../csrc/common.h"
+#include <common.h>
 
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
 
@@ -16,7 +16,5 @@ static inline bool in_pmem(paddr_t addr) {
 
 word_t paddr_read(paddr_t addr, int len);
 void paddr_write(paddr_t addr, int len, word_t data);
-word_t host_read(void *addr, int len);
 
-word_t pmem_read(paddr_t addr, int len);
 #endif
