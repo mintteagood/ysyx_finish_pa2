@@ -1,10 +1,5 @@
 #include "../csrc/paddr.h"
 #define panic(format, ...) Assert(0, format, ## __VA_ARGS__)
-#define Log(format, ...) \
-    _Log(ASNI_FMT("[%s:%d %s] " format, ASNI_FG_BLUE) "\n", \
-        __FILE__, __LINE__, __func__, ## __VA_ARGS__)
-
-
 
 #if   defined(CONFIG_PMEM_MALLOC)
 static uint8_t *pmem = NULL;
