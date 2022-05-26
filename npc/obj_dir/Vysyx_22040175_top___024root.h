@@ -21,12 +21,12 @@ VL_MODULE(Vysyx_22040175_top___024root) {
     // PORTS
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
+    VL_IN(instr,31,0);
+    VL_OUT(addr,31,0);
 
     // LOCAL SIGNALS
     CData/*0:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__sub_en;
     SData/*11:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__imm;
-    IData/*31:0*/ ysyx_22040175_top__DOT__addr;
-    IData/*31:0*/ ysyx_22040175_top__DOT__instr;
     IData/*31:0*/ ysyx_22040175_top__DOT__ext_imm;
     IData/*31:0*/ ysyx_22040175_top__DOT__data1;
     IData/*31:0*/ ysyx_22040175_top__DOT__data2;
@@ -36,7 +36,6 @@ VL_MODULE(Vysyx_22040175_top___024root) {
     IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__data_out;
     IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__pc_cpu__DOT__next_addr;
     IData/*31:0*/ ysyx_22040175_top__DOT__data_mem_cpu__DOT__addr;
-    VlUnpacked<CData/*7:0*/, 32> ysyx_22040175_top__DOT__instr_mem_cpu__DOT__instr_mem;
     VlUnpacked<IData/*31:0*/, 31> ysyx_22040175_top__DOT__cpu_cpu__DOT__register_cpu__DOT__register;
     VlUnpacked<CData/*7:0*/, 32> ysyx_22040175_top__DOT__data_mem_cpu__DOT__data;
 
@@ -44,8 +43,8 @@ VL_MODULE(Vysyx_22040175_top___024root) {
     CData/*0:0*/ __Vclklast__TOP__clk;
     CData/*0:0*/ __Vclklast__TOP__rst;
     IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__register_cpu__DOT____Vlvbound1;
-    IData/*31:0*/ __Vdly__ysyx_22040175_top__DOT__addr;
-    VlUnpacked<CData/*0:0*/, 4> __Vm_traceActivity;
+    IData/*31:0*/ __Vdly__addr;
+    VlUnpacked<CData/*0:0*/, 3> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
     Vysyx_22040175_top__Syms* vlSymsp;  // Symbol table

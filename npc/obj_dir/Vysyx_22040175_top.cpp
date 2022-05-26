@@ -12,6 +12,8 @@ Vysyx_22040175_top::Vysyx_22040175_top(VerilatedContext* _vcontextp__, const cha
     : vlSymsp{new Vysyx_22040175_top__Syms(_vcontextp__, _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rst{vlSymsp->TOP.rst}
+    , instr{vlSymsp->TOP.instr}
+    , addr{vlSymsp->TOP.addr}
     , rootp{&(vlSymsp->TOP)}
 {
 }

@@ -1,6 +1,6 @@
 //top.v
 module pc(
-input clk,
+	input clk,
 	input rst,
 	input jmp_en,
 	input jmpr_en,
