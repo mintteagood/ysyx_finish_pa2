@@ -10,7 +10,7 @@
 
 word_t paddr_read(paddr_t addr, int len) {
   if (likely(in_pmem(addr))) return pmem_read(addr, len);
-  
+  else return 0;
 }
 
 Vysyx_22040175_top *top; 
