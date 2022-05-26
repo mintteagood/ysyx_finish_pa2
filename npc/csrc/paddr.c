@@ -19,10 +19,7 @@ word_t host_read(void *addr, int len) {
     default: MUXDEF(CONFIG_RT_CHECK, assert(0), return 0);
   }
 }
-word_t pmem_read(paddr_t addr, int len) {
-  word_t ret = host_read(guest_to_host(addr), len);
-  return ret;
-}
+
 
 void init_mem() {
 #if   defined(CONFIG_PMEM_MALLOC)
