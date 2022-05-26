@@ -39,7 +39,7 @@ $(BIN): $(VSRCS) $(CSRCS) $(HSRCS) $(NVBOARD_ARCHIVE)
 	$(VERILATOR) $(VERILATOR_CFLAGS) \
 		-top $(TOPNAME) $^ \
 		$(addprefix -CFLAGS , $(CFLAGS)) $(addprefix -LDFLAGS , $(LDFLAGS)) \
-		--Mdir $(OBJ_DIR) --exe -o $(shell find $(npc) $(BIN)) $(shell find $(npc)./build/paddr) 
+		--Mdir $(OBJ_DIR) --exe -o $(shell find $(npc) $(BIN)) $(shell find $(npc) $(HSRCS)) 
 run: $(BIN)
 	@$^
 
