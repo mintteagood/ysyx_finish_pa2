@@ -18,8 +18,5 @@ word_t paddr_read(paddr_t addr, int len);
 void paddr_write(paddr_t addr, int len, word_t data);
 word_t host_read(void *addr, int len);
 
-static inline word_t pmem_read(paddr_t addr, int len) {
-  word_t ret = host_read(guest_to_host(addr), len);
-  return ret;
-}
+static inline word_t pmem_read(paddr_t addr, int len);
 #endif
