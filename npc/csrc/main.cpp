@@ -8,6 +8,18 @@
 #include "paddr.h"
 Vysyx_22040175_top *top;
 
+
+
+
+
+static word_t pmem_read(paddr_t addr, int len) {
+  word_t ret = host_read(guest_to_host(addr), len);
+  return ret;
+}
+
+
+
+
  
 int main(int argc, char **argv, char **env) {
   int i;
