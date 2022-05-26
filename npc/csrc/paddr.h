@@ -1,6 +1,9 @@
 #ifndef __MEMORY_PADDR_H__
 #define __MEMORY_PADDR_H__
-
+#include <memory/host.h>
+#include <memory/paddr.h>
+#include <device/mmio.h>
+#include <isa.h>
 
 
 
