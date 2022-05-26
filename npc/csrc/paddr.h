@@ -1,6 +1,10 @@
 #ifndef __MEMORY_PADDR_H__
 #define __MEMORY_PADDR_H__
 
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
 //#include <common.h>
 
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
