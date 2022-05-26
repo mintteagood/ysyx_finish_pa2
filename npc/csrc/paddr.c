@@ -5,7 +5,7 @@
         __FILE__, __LINE__, __func__, ## __VA_ARGS__)
 
 
-        
+
 #if   defined(CONFIG_PMEM_MALLOC)
 static uint8_t *pmem = NULL;
 #else // CONFIG_PMEM_GARRAY
@@ -27,13 +27,6 @@ static inline word_t host_read(void *addr, int len) {
 static word_t pmem_read(paddr_t addr, int len) {
   word_t ret = host_read(guest_to_host(addr), len);
   return ret;
-}
-
-
-
-static void out_of_bound(paddr_t addr) {
-  panic("address = " FMT_PADDR " is out of bound of pmem [" FMT_PADDR ", " FMT_PADDR ") at pc = " FMT_WORD,
-      addr, CONFIG_MBASE, CONFIG_MBASE + CONFIG_MSIZE, cpu.pc);
 }
 
 void init_mem() {
