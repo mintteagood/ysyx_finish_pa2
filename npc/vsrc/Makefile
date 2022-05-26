@@ -21,7 +21,7 @@ $(shell mkdir -p $(BUILD_DIR))
 
 # project source
 VSRCS = $(shell find $(npc ./vsrc) -name "*.v")
-CSRCS = $(shell find $(../) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
+CSRCS = $(shell find $(npc ./vsrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
 #CSRCS += $(SRC_AUTO_BIND)
 
 # rules for NVBoard
