@@ -31,7 +31,7 @@ int main(int argc, char **argv, char **env) {
     for (clk=0; clk<2; clk++) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
-      top->instr = pmem_read(top->addr,4);
+      top->instr = pmem_read(top->addr,8);
       top->eval ();
     }
     
