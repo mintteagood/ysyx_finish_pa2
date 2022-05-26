@@ -26,13 +26,15 @@ int main(int argc, char **argv, char **env) {
   top->rst = 1;
   // run simulation for 100 clock periods
   init_mem();
+  uint8_t *pc;
   for (i=0; i<20; i++) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<2; clk++) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
-      top->instr = pmem_read(top->addr,8);
+      pc = top->addr;
+      top->instr = pmem_read(pc,8);
       top->eval ();
     }
     
