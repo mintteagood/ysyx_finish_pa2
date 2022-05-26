@@ -1,6 +1,6 @@
 TOPNAME = ysyx_22040175_top
 #NXDC_FILES = constr/top.nxdc
-INC_PATH ?= 
+INC_PATH ?= npc
 
 VERILATOR = verilator
 VERILATOR_CFLAGS += -MMD --build -cc  \

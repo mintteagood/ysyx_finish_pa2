@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Vysyx_22040175_top.h"
-//#include "assert.h"
+#include "assert.h"
 
 Vysyx_22040175_top *top;
 
