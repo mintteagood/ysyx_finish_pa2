@@ -6,7 +6,7 @@
 #include <string.h>
 
 
-#include <macro.h>
+
 #ifdef CONFIG_TARGET_AM
 #include <klib.h>
 #else
