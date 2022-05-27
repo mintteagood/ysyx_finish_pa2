@@ -61,7 +61,7 @@ VPATH += $(VM_USER_DIR)
 
 main.o: ./csrc/main.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-paddr.o: ./csrc/paddr.c
+paddr.o: ./csrc/paddr.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)
