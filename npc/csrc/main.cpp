@@ -12,9 +12,9 @@ Vysyx_22040175_top *top;
 int main(int argc, char **argv, char **env) {
   int i;
   int clk;
-  Verilated::commandArgs(argc, argv);
+  //Verilated::commandArgs(argc, argv);
   // init top verilog instance
-  Vysyx_22040175_top* top = new Vysyx_22040175_top;
+  //Vysyx_22040175_top* top = new Vysyx_22040175_top;
   // init trace dump
  // Verilated::traceEverOn(true);
   //VerilatedVcdC* tfp = new VerilatedVcdC;
@@ -38,7 +38,7 @@ int main(int argc, char **argv, char **env) {
       top->eval ();
     }
     
-    if (Verilated::gotFinish())  exit(0);
+    //if (Verilated::gotFinish())  exit(0);
   }
   //tfp->close();
   exit(0);
