@@ -32,6 +32,7 @@ word_t pmem_read(paddr_t addr, int len) {
    //printf(" guest_to_host okpmem%hhn\n", guest_to_host(addr));
    word_t ret = *(pimem +  0x80000044 - CONFIG_MBASE);
    printf("addr: %x",addr);
+    printf("addr: %lx",ret);
   //word_t ret = 0x80000000;
   return ret;
 }
