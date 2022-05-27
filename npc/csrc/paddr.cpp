@@ -37,7 +37,7 @@ word_t pmem_read(paddr_t addr, int len) {
    //printf("次数: %x\n ",a);
    a=a+1;
     //printf("addr: %lx",ret);
-   word_t ret = 0x80000004;
+   word_t ret = 0x80000008;
    return ret;
 }
 
