@@ -31,8 +31,8 @@ word_t pmem_read(paddr_t addr, int len) {
    printf(" pmem_readok1\n");
    //printf(" guest_to_host okpmem%hhn\n", guest_to_host(addr));
    //word_t ret =* guest_to_host(addr);
-   printf("addr: %x",addr);
-   printf("ret: %x", * guest_to_host(addr));
+   printf("addr: %x\n",addr);
+   //printf("ret: %x", * guest_to_host(addr));
     //printf("addr: %lx",ret);
   word_t ret = 0x80000000;
   return ret;
