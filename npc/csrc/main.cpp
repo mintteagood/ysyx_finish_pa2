@@ -18,7 +18,7 @@ int main(int argc, char **argv, char **env) {
   // init trace dump
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
-  top->trace (tfp, 10);
+  top->trace (tfp, 99);
   tfp->open ("Vysyx_22040175.vcd");
   // initialize simulation inputs
   top->clk = 1;
@@ -31,7 +31,7 @@ int main(int argc, char **argv, char **env) {
     top->rst = (i < 1);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<10; clk++) {
-      tfp->dump (2*i+clk);
+      //tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
       top->instr = pmem_read(pc,4);
