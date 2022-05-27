@@ -8,7 +8,6 @@
 #include "../csrc/paddr.h"
 
 
-
 Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
   int i;
@@ -25,7 +24,9 @@ int main(int argc, char **argv, char **env) {
   top->clk = 1;
   top->rst = 1;
   // run simulation for 100 clock periods
+  char* img_file = *(argv + 1);
   init_imem();
+  long img_size = long_img(img_file);
   for (i=0; i<20; i++) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock

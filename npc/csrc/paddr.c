@@ -1,6 +1,6 @@
 #include "../csrc/paddr.h"
-//#include <device/mmio.h>
-//#include <isa.h>
+#include <stdio.h>
+
 #define panic(format, ...) Assert(0, format, ## __VA_ARGS__)
 
 static uint8_t *pimem = NULL;
@@ -28,3 +28,20 @@ word_t pmem_read(paddr_t addr, int len) {
   return ret;
 }
 
+static long load_img(char *img_file){
+  if(img_file == NULL){
+    printf("Error: No image is giveb !\n");
+    assert(0);
+    return 1024;
+  }
+  FILE *fp = fopen(img_file, "rb"); //以二进制的格式将.bin文件读入到file节后体中        
+  assert(fp);  //判断是否成功读入
+  fseek(fp, 0, SEEK_END);
+  long size = ftell(fp); //获取.bin文件总长度
+  printf("The image is %s, size = %ld\n",img_file, size);
+  fseek(fp, 0, SEEK_SET);
+  int ret = fread(guest_to_host(CONFIG_MBASE),size, 1, fp); //将.bin文件忠的指令放入开辟的存储空间中
+  assert(ret == 1);
+  fclose(fp);
+  return size;
+}
