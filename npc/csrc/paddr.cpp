@@ -14,7 +14,7 @@ void init_imem() {
 uint8_t* guest_to_host(paddr_t paddr) { 
   uint8_t* tmp1;
   tmp1 = pimem + paddr - CONFIG_MBASE;
-  return pimem + paddr - CONFIG_MBASE;
+  return  tmp1;
   printf(" guest_to_host ok%hhn\n",tmp1);
    }
 paddr_t host_to_guest(uint8_t *haddr) { return haddr - pimem + CONFIG_MBASE; }
@@ -30,7 +30,7 @@ word_t host_read(void *addr, int len) {
 }
 paddr_t pmem_read(paddr_t addr, int len) {
    printf(" pmem_read ok1\n");
-  paddr_t ret = host_read(guest_to_host(addr), len);
+  paddr_t ret = (guest_to_host(addr));
   return ret;
   printf(" pmem_read ok\n");
 }
