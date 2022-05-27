@@ -36,7 +36,7 @@ int main(int argc, char **argv, char **env) {
       uint32_t pc = top->addr;
       top->eval ();
   }
-     if(top->clk==0){
+     if(top->clk==1){
       top->instr = pmem_read(top->addr,3);
      }
   }
