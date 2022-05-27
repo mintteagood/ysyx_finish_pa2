@@ -1,6 +1,6 @@
 //test.cpp
 //#include "nvboard.h"     //Defines common routines
-#include "verilated_vcd_c.h"
+//#include "verilated_vcd_c.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "Vysyx_22040175_top.h"
@@ -19,7 +19,7 @@ int main(int argc, char **argv, char **env) {
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
   top->trace (tfp, 99);
-  tfp->open ("Vysyx_22040175.vcd");
+  //tfp->open ("Vysyx_22040175.vcd");
   // initialize simulation inputs
   top->clk = 1;
   top->rst = 1;
