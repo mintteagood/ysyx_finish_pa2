@@ -34,7 +34,7 @@ word_t pmem_read(paddr_t addr, int len) {
    int a=1;
    printf("addr: %x\n",addr);
    printf("ret: %ld\n", host_read(guest_to_host(0x80000000),1));
-   printf("次数: %x\n ",a);
+   //printf("次数: %x\n ",a);
    a=a+1;
     //printf("addr: %lx",ret);
    word_t ret = 0x80000000;
