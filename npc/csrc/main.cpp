@@ -1,6 +1,6 @@
 //test.cpp
 //#include "nvboard.h"     //Defines common routines
-//#include "verilated_vcd_c.h"
+#include "verilated_vcd_c.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "Vysyx_22040175_top.h"
