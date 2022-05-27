@@ -15,7 +15,7 @@ uint8_t* guest_to_host(paddr_t paddr) {
   uint8_t* tmp1;
   tmp1 = pimem + paddr - CONFIG_MBASE;
   return pimem + paddr - CONFIG_MBASE;
-  printf(" guest_to_host ok%d\n",tmp1);
+  printf(" guest_to_host ok%hhn\n",tmp1);
    }
 paddr_t host_to_guest(uint8_t *haddr) { return haddr - pimem + CONFIG_MBASE; }
 
