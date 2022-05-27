@@ -31,7 +31,7 @@ int main(int argc, char **argv, char **env) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<2; clk++) {
-      tfp->dump (2*i+clk);
+      //tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
       top->instr = pmem_read(pc,4);
@@ -40,7 +40,7 @@ int main(int argc, char **argv, char **env) {
     
     if (Verilated::gotFinish())  exit(0);
   }
-  tfp->close();
+  //tfp->close();
   exit(0);
 }
 
