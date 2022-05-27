@@ -27,9 +27,10 @@ int main(int argc, char **argv, char **env) {
   char* img_file = *(argv + 1);
   init_imem();
   long img_size = load_img(img_file);
- 
+  for (i=0; i<3; i++) {
+    top->rst = (i < 1);
     // dump variables into VCD file and toggle clock
-    for (clk=0; clk<30; clk++) {
+    for (clk=0; clk<1; clk++) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
@@ -39,7 +40,7 @@ int main(int argc, char **argv, char **env) {
     }
     
     if (Verilated::gotFinish())  exit(0);
-  
+  }
   //tfp->close();
   exit(0);
 }
