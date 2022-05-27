@@ -28,7 +28,7 @@ word_t pmem_read(paddr_t addr, int len) {
   return ret;
 }
 
-long load_img(char *img_file){
+load_img(char *img_file){
   if(img_file == NULL){
     printf("Error: No image is giveb !\n");
     assert(0);
