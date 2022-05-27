@@ -30,7 +30,7 @@ int main(int argc, char **argv, char **env) {
   for (i=0; i<20; i++) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
-    for (clk=0; clk<100; clk++) {
+    for (clk=0; clk<10; clk++) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
