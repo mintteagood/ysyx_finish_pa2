@@ -17,9 +17,8 @@ uint8_t* guest_to_host(paddr_t paddr) {
   return  tmp1;
   printf(" guest_to_host ok%hhn\n",tmp1);
    }
-paddr_t host_to_guest(uint8_t *haddr) { return haddr - pimem + CONFIG_MBASE; }
 
-word_t host_read(void *addr, int len) {
+paddr_t host_read(void *addr, int len) {
   switch (len) {
     case 1: return *(uint8_t  *)addr;
     case 2: return *(uint16_t *)addr;
@@ -30,7 +29,7 @@ word_t host_read(void *addr, int len) {
 }
 paddr_t pmem_read(paddr_t addr, int len) {
    printf(" pmem_read ok1\n");
-  paddr_t ret = *(guest_to_host(addr));
+  paddr_t ret = host_read(guest_to_host(addr), len);
   return ret;
   printf(" pmem_read ok\n");
 }
