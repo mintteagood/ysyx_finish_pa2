@@ -12,14 +12,14 @@ Vysyx_22040175_top *top;
 int main(int argc, char **argv, char **env) {
   int i;
   int clk;
-  //Verilated::commandArgs(argc, argv);
+  Verilated::commandArgs(argc, argv);
   // init top verilog instance
   Vysyx_22040175_top* top = new Vysyx_22040175_top;
   // init trace dump
- // Verilated::traceEverOn(true);
-  //VerilatedVcdC* tfp = new VerilatedVcdC;
-  //top->trace (tfp, 99);
-  //tfp->open ("Vysyx_22040175.vcd");
+  Verilated::traceEverOn(true);
+  VerilatedVcdC* tfp = new VerilatedVcdC;
+  top->trace (tfp, 99);
+  tfp->open ("Vysyx_22040175.vcd");
   // initialize simulation inputs
   top->clk = 1;
   top->rst = 1;
@@ -31,14 +31,14 @@ int main(int argc, char **argv, char **env) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<100; clk++) {
-      //tfp->dump (2*i+clk);
+      tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
       top->instr = pmem_read(pc,4);
       top->eval ();
     }
     
-    //if (Verilated::gotFinish())  exit(0);
+    if (Verilated::gotFinish())  exit(0);
   }
   //tfp->close();
   exit(0);
