@@ -34,11 +34,11 @@ int main(int argc, char **argv, char **env) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
-      top->instr = pmem_read(pc,1);
-      top->eval ();
+      
       
     }
-    
+    top->instr = pmem_read(pc,1);
+      top->eval ();
     if (Verilated::gotFinish())  exit(0);
   }
   //tfp->close();
