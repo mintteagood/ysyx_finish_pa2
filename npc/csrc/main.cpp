@@ -34,7 +34,9 @@ int main(int argc, char **argv, char **env) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
-      top->instr = pmem_read(pc,4);
+      if(clk ==0 ){
+        top->instr = pmem_read(pc,4);
+      }
       top->eval ();
     }
     
