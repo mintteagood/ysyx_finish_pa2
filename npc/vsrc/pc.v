@@ -9,7 +9,7 @@ module pc(
 	output reg [31:0]addr
 );
 
-	reg [31:0]next_addr;
+	reg [31:0]next_addr =32'h80000000;
 
 	initial begin addr = 32'h80000000; next_addr = 32'h80000000; end
 	
