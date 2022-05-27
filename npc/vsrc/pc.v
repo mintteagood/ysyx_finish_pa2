@@ -11,7 +11,7 @@ module pc(
 
 	reg [31:0]next_addr;
 
-	//initial begin addr = 32'h80000000; next_addr = 32'd0; end
+	initial begin addr = 32'h80000000; next_addr = 32'h80000000; end
 	
 	always@(negedge clk or posedge rst)
 		if(rst) next_addr <= 32'h80000000;
