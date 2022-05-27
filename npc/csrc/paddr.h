@@ -18,5 +18,5 @@ word_t paddr_read(paddr_t addr, int len);
 void paddr_write(paddr_t addr, int len, word_t data);
 word_t pmem_read(paddr_t addr, int len);
 void init_imem();
-static long load_img(char *img_file);
+long load_img(char *img_file);
 #endif
