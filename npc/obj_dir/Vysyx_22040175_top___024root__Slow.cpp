@@ -287,7 +287,7 @@ void Vysyx_22040175_top___024root___initial__TOP__6(Vysyx_22040175_top___024root
     Vysyx_22040175_top__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_22040175_top___024root___initial__TOP__6\n"); );
     // Body
-    vlSelf->addr = 0U;
+    vlSelf->addr = 0x80000000U;
     vlSelf->ysyx_22040175_top__DOT__cpu_cpu__DOT__pc_cpu__DOT__next_addr = 0U;
 }
 
