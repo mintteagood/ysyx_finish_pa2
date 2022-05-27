@@ -14,14 +14,14 @@ module pc(
 	initial begin addr = 32'h80000000; next_addr = 32'd0; end
 	
 	always@(negedge clk or posedge rst)
-		if(rst) next_addr <= 32'd0;
+		if(rst) next_addr <= 32'h80000000;
 		else if(jmp_en) next_addr <= addr + (offset << 1);
 		else if(jmpr_en) next_addr <= offset;
 		else if(jmpb_en) next_addr <= addr + (offset << 1);
 		else next_addr <= addr + 4;
 	
 	always@(posedge clk or posedge rst)
-		if(rst) addr <= 32'd0;
+		if(rst) addr <= 32'h80000000;
 		else addr <= next_addr;
 
 endmodule 
