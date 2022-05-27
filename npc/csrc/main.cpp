@@ -27,17 +27,15 @@ int main(int argc, char **argv, char **env) {
   char* img_file = *(argv + 1);
   init_imem();
   long img_size = load_img(img_file);
-  for (i=0; i<2; i++) {
-    top->rst = (i < 0);
+  for (i=0; i<1; i++) {
+    top->rst = (i < 1);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<10; clk++) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
       uint32_t pc = top->addr;
-      if( top->clk==1){
       top->instr = pmem_read(top->addr,4);
       top->eval ();
-      }
       
     }
     
