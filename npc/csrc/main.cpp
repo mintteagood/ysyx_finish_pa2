@@ -18,7 +18,7 @@ int main(int argc, char **argv, char **env) {
   // init trace dump
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
-  top->trace (tfp, 99);
+  top->trace (tfp, 10);
   tfp->open ("Vysyx_22040175.vcd");
   // initialize simulation inputs
   top->clk = 1;
@@ -28,7 +28,7 @@ int main(int argc, char **argv, char **env) {
   init_imem();
   long img_size = load_img(img_file);
   for (i=0; i<2; i++) {
-    top->rst = (i < 0);
+    top->rst = (i < 1);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<10; clk++) {
       tfp->dump (2*i+clk);
