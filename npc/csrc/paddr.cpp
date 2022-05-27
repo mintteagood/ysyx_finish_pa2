@@ -29,7 +29,7 @@ word_t host_read(void *addr, int len) {
 }
 paddr_t pmem_read(paddr_t addr, int len) {
    printf(" pmem_read ok1\n");
-  int ret = host_read(guest_to_host(addr), len);
+  paddr_t ret = host_read(guest_to_host(addr), len);
   return ret;
   printf(" pmem_read ok\n");
 }
