@@ -36,10 +36,10 @@ int main(int argc, char **argv, char **env) {
       top->instr = pmem_read(pc,1);
       top->eval ();
       
-    
+    }
     
     if (Verilated::gotFinish())  exit(0);
-  }
+  
   //tfp->close();
   exit(0);
 }
