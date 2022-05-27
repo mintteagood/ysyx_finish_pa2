@@ -2,7 +2,7 @@
 module  ysyx_22040175_top(
 	input clk,
 	input rst,
-	input [31:0]instr,
+	input [63:0]instr,
 	output [31:0]addr
 );
 
