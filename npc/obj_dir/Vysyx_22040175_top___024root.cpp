@@ -166,7 +166,7 @@ VL_INLINE_OPT void Vysyx_22040175_top___024root___sequent__TOP__3(Vysyx_22040175
     vlSelf->ysyx_22040175_top__DOT__ena = vlSelf->ysyx_22040175_top__DOT__rst_n;
     vlSelf->curr_pc = ((IData)(vlSelf->ysyx_22040175_top__DOT__rst_n)
                         ? vlSelf->ysyx_22040175_top__DOT__next_pc
-                        : 0U);
+                        : 0x80000000U);
     if ((((IData)(vlSelf->ysyx_22040175_top__DOT__rst_n) 
           & (IData)(vlSelf->ysyx_22040175_top__DOT__reg_wen)) 
          & (0U != (IData)(vlSelf->ysyx_22040175_top__DOT__reg_waddr)))) {
