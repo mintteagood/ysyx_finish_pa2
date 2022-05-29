@@ -35,7 +35,7 @@ int main(int argc, char **argv, char **env) {
       top->clk = !top->clk;
       top->eval ();
   }
-     if(top->clk==0){
+     if(top->clk==1){
       top->inst = pmem_read(top->curr_pc,3);
      }
   }
