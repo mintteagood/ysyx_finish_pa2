@@ -23,12 +23,12 @@ int main(int argc, char **argv, char **env) {
   // initialize simulation inputs
   top->clk = 1;
   top->rst = 1;
-   top->rst = 0;
   // run simulation for 100 clock periods
   char* img_file = *(argv + 1);
   init_imem();
   long img_size = load_img(img_file);
   for (i=0; i<20; i++) {
+    top->rst = (i < 1);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<2; clk++) {
       tfp->dump (2*i+clk);
