@@ -28,7 +28,7 @@ int main(int argc, char **argv, char **env) {
   init_imem();
   long img_size = load_img(img_file);
   for (i=0; i<20; i++) {
-    top->rst = 1;
+    top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
     for (clk=0; clk<2; clk++) {
       tfp->dump (2*i+clk);
