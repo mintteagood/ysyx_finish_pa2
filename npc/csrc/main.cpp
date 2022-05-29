@@ -18,7 +18,7 @@ int main(int argc, char **argv, char **env) {
   // init trace dump
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
-  top->trace (tfp, 99);
+  top->trace (tfp, 199);
   tfp->open ("Vysyx_22040175.vcd");
   // initialize simulation inputs
   top->clk = 1;
