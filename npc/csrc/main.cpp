@@ -33,11 +33,10 @@ int main(int argc, char **argv, char **env) {
     for (clk=0; clk<2; clk++) {
       tfp->dump (2*i+clk);
       top->clk = !top->clk;
-      uint32_t pc = top->addr;
       top->eval ();
   }
      if(top->clk==1){
-      top->instr = pmem_read(top->addr,3);
+      top->inst = pmem_read(top->curr_pc,3);
      }
   }
   if (Verilated::gotFinish())  exit(0);
