@@ -1,4 +1,4 @@
-`include "rvseed_defines.v"
+`include "../vsrc/rvseed_defines.v"
 
 module imm_gen (
     input      [`CPU_WIDTH-1:0]        inst,       // instruction input
