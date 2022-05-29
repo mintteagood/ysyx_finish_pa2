@@ -20,11 +20,12 @@ VL_MODULE(Vysyx_22040175_top___024root) {
 
     // PORTS
     VL_IN8(clk,0,0);
-    VL_IN8(rst_n,0,0);
+    VL_IN8(rst,0,0);
     VL_IN(inst,31,0);
     VL_OUT(curr_pc,31,0);
 
     // LOCAL SIGNALS
+    CData/*0:0*/ ysyx_22040175_top__DOT__rst_n;
     CData/*0:0*/ ysyx_22040175_top__DOT__ena;
     CData/*0:0*/ ysyx_22040175_top__DOT__branch;
     CData/*0:0*/ ysyx_22040175_top__DOT__zero;
@@ -45,8 +46,10 @@ VL_MODULE(Vysyx_22040175_top___024root) {
     VlUnpacked<IData/*31:0*/, 32> ysyx_22040175_top__DOT__u_reg_file_0__DOT__reg_f;
 
     // LOCAL VARIABLES
+    CData/*0:0*/ __VinpClk__TOP__ysyx_22040175_top__DOT__rst_n;
     CData/*0:0*/ __Vclklast__TOP__clk;
-    CData/*0:0*/ __Vclklast__TOP__rst_n;
+    CData/*0:0*/ __Vclklast__TOP____VinpClk__TOP__ysyx_22040175_top__DOT__rst_n;
+    CData/*0:0*/ __Vchglast__TOP__ysyx_22040175_top__DOT__rst_n;
     VlUnpacked<CData/*0:0*/, 3> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
