@@ -1,5 +1,5 @@
 //top.v
-`include "rvseed_defines.v"
+`include "../vsrc/rvseed_defines.v"
 module  ysyx_22040175_top(
 	input                         clk,
     input                         rst_n,
