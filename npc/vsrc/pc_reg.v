@@ -17,7 +17,7 @@ end
 
 always @ (posedge clk or negedge rst_n) begin
     if(~rst_n)
-        curr_pc <= `CPU_WIDTH'b0;
+        curr_pc <= 32'h8000_0000;
     else
         curr_pc <= next_pc;
 end    
