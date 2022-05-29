@@ -2,11 +2,12 @@
 `include "../vsrc/rvseed_defines.v"
 module  ysyx_22040175_top(
 	input                         clk,
-    input                         rst_n,
+    input                         rst,
 	input [31:0] inst,
 	output[`CPU_WIDTH-1:0]        curr_pc
 );
-
+wire rst_n;
+assign rst_n = !rst;
 wire                         ena;
 //wire [`CPU_WIDTH-1:0]        curr_pc;    // current pc addr
 wire [`CPU_WIDTH-1:0]        next_pc;    // next pc addr

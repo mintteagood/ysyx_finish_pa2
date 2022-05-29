@@ -20,30 +20,33 @@ VL_MODULE(Vysyx_22040175_top___024root) {
 
     // PORTS
     VL_IN8(clk,0,0);
-    VL_IN8(rst,0,0);
-    VL_OUT(addr,31,0);
-    VL_IN64(instr,63,0);
+    VL_IN8(rst_n,0,0);
+    VL_IN(inst,31,0);
+    VL_OUT(curr_pc,31,0);
 
     // LOCAL SIGNALS
-    CData/*0:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__sub_en;
-    SData/*11:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__imm;
-    IData/*31:0*/ ysyx_22040175_top__DOT__ext_imm;
-    IData/*31:0*/ ysyx_22040175_top__DOT__data1;
-    IData/*31:0*/ ysyx_22040175_top__DOT__data2;
-    IData/*31:0*/ ysyx_22040175_top__DOT__data_mem;
-    IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__offset;
-    IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__data_in2;
-    IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__data_out;
-    IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__pc_cpu__DOT__next_addr;
-    IData/*31:0*/ ysyx_22040175_top__DOT__data_mem_cpu__DOT__addr;
-    VlUnpacked<IData/*31:0*/, 31> ysyx_22040175_top__DOT__cpu_cpu__DOT__register_cpu__DOT__register;
-    VlUnpacked<CData/*7:0*/, 32> ysyx_22040175_top__DOT__data_mem_cpu__DOT__data;
+    CData/*0:0*/ ysyx_22040175_top__DOT__ena;
+    CData/*0:0*/ ysyx_22040175_top__DOT__branch;
+    CData/*0:0*/ ysyx_22040175_top__DOT__zero;
+    CData/*0:0*/ ysyx_22040175_top__DOT__jump;
+    CData/*0:0*/ ysyx_22040175_top__DOT__reg_wen;
+    CData/*4:0*/ ysyx_22040175_top__DOT__reg_waddr;
+    CData/*4:0*/ ysyx_22040175_top__DOT__reg1_raddr;
+    CData/*4:0*/ ysyx_22040175_top__DOT__reg2_raddr;
+    CData/*2:0*/ ysyx_22040175_top__DOT__imm_gen_op;
+    CData/*3:0*/ ysyx_22040175_top__DOT__alu_op;
+    CData/*1:0*/ ysyx_22040175_top__DOT__alu_src_sel;
+    IData/*31:0*/ ysyx_22040175_top__DOT__next_pc;
+    IData/*31:0*/ ysyx_22040175_top__DOT__reg2_rdata;
+    IData/*31:0*/ ysyx_22040175_top__DOT__imm;
+    IData/*31:0*/ ysyx_22040175_top__DOT__alu_src1;
+    IData/*31:0*/ ysyx_22040175_top__DOT__alu_src2;
+    IData/*31:0*/ ysyx_22040175_top__DOT__alu_res;
+    VlUnpacked<IData/*31:0*/, 32> ysyx_22040175_top__DOT__u_reg_file_0__DOT__reg_f;
 
     // LOCAL VARIABLES
     CData/*0:0*/ __Vclklast__TOP__clk;
-    CData/*0:0*/ __Vclklast__TOP__rst;
-    IData/*31:0*/ ysyx_22040175_top__DOT__cpu_cpu__DOT__register_cpu__DOT____Vlvbound1;
-    IData/*31:0*/ __Vdly__addr;
+    CData/*0:0*/ __Vclklast__TOP__rst_n;
     VlUnpacked<CData/*0:0*/, 3> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
