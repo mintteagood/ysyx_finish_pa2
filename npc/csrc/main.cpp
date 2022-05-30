@@ -39,7 +39,7 @@ int main(int argc, char **argv, char **env) {
   }
      if(top->clk==1){
       top->inst = pmem_read(top->curr_pc,3);
-      difftest_step(top->curr_pc,top->next_pc);
+     //difftest_step(top->curr_pc,top->next_pc);
      }
   }
   if (Verilated::gotFinish())  exit(0);
