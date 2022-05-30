@@ -66,8 +66,8 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   //ref_difftest_raise_intr = dlsym(handle, "difftest_raise_intr");
   //assert(ref_difftest_raise_intr);
 
-  //void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
-  //assert(ref_difftest_init);
+  void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
+  assert(ref_difftest_init);
 
   //Log("Differential testing: %s", ASNI_FMT("ON", ASNI_FG_GREEN));
  // Log("The result of every instruction will be compared with %s. "
@@ -93,13 +93,13 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   return true;
 
 }
-/*static void checkregs(CPU_state *ref, vaddr_t pc) {
+static void checkregs(CPU_state *ref, vaddr_t pc) {
   if (!isa_difftest_checkregs(ref, pc)) {
     nemu_state.state = NEMU_ABORT;
     nemu_state.halt_pc = pc;
     isa_reg_display();
   }
-}*/
+}
 
 void difftest_step(vaddr_t pc, vaddr_t npc) {
   CPU_state ref_r;
