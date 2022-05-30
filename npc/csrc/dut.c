@@ -69,8 +69,8 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   //ref_difftest_raise_intr = dlsym(handle, "difftest_raise_intr");
   //assert(ref_difftest_raise_intr);
 
-  void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
-  assert(ref_difftest_init);
+  //svoid (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
+  //assert(ref_difftest_init);
 
   //Log("Differential testing: %s", ASNI_FMT("ON", ASNI_FG_GREEN));
  // Log("The result of every instruction will be compared with %s. "
