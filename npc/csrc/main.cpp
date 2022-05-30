@@ -8,7 +8,7 @@
 #include "../csrc/paddr.h"
 #include "../csrc/difftest.h"
 
-int port = 5;
+int port = 2;
 Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
   int i;
@@ -28,7 +28,7 @@ int main(int argc, char **argv, char **env) {
   char* img_file = *(argv + 1);
   init_imem();
   long img_size = load_img(img_file);
-  //init_difftest(img_file,img_size,port);
+  init_difftest(img_file,img_size,port);
   for (i=0; i<20; i++) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
