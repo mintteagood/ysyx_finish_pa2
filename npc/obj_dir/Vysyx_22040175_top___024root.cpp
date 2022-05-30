@@ -165,8 +165,7 @@ VL_INLINE_OPT void Vysyx_22040175_top___024root___sequent__TOP__3(Vysyx_22040175
     __Vdlyvset__ysyx_22040175_top__DOT__u_reg_file_0__DOT__reg_f__v0 = 0U;
     vlSelf->ysyx_22040175_top__DOT__ena = vlSelf->ysyx_22040175_top__DOT__rst_n;
     vlSelf->curr_pc = ((IData)(vlSelf->ysyx_22040175_top__DOT__rst_n)
-                        ? vlSelf->ysyx_22040175_top__DOT__next_pc
-                        : 0x80000000U);
+                        ? vlSelf->next_pc : 0x80000000U);
     if ((((IData)(vlSelf->ysyx_22040175_top__DOT__rst_n) 
           & (IData)(vlSelf->ysyx_22040175_top__DOT__reg_wen)) 
          & (0U != (IData)(vlSelf->ysyx_22040175_top__DOT__reg_waddr)))) {
@@ -253,22 +252,15 @@ VL_INLINE_OPT void Vysyx_22040175_top___024root___combo__TOP__4(Vysyx_22040175_t
         vlSelf->ysyx_22040175_top__DOT__zero = (0U 
                                                 == vlSelf->ysyx_22040175_top__DOT__alu_res);
     }
-    vlSelf->ysyx_22040175_top__DOT__next_pc = ((IData)(vlSelf->ysyx_22040175_top__DOT__ena)
-                                                ? (
-                                                   ((IData)(vlSelf->ysyx_22040175_top__DOT__branch) 
-                                                    & (~ (IData)(vlSelf->ysyx_22040175_top__DOT__zero)))
-                                                    ? 
-                                                   (vlSelf->curr_pc 
-                                                    + vlSelf->ysyx_22040175_top__DOT__imm)
-                                                    : 
-                                                   ((IData)(vlSelf->ysyx_22040175_top__DOT__jump)
-                                                     ? 
-                                                    (vlSelf->curr_pc 
-                                                     + vlSelf->ysyx_22040175_top__DOT__imm)
-                                                     : 
-                                                    ((IData)(4U) 
-                                                     + vlSelf->curr_pc)))
-                                                : vlSelf->curr_pc);
+    vlSelf->next_pc = ((IData)(vlSelf->ysyx_22040175_top__DOT__ena)
+                        ? (((IData)(vlSelf->ysyx_22040175_top__DOT__branch) 
+                            & (~ (IData)(vlSelf->ysyx_22040175_top__DOT__zero)))
+                            ? (vlSelf->curr_pc + vlSelf->ysyx_22040175_top__DOT__imm)
+                            : ((IData)(vlSelf->ysyx_22040175_top__DOT__jump)
+                                ? (vlSelf->curr_pc 
+                                   + vlSelf->ysyx_22040175_top__DOT__imm)
+                                : ((IData)(4U) + vlSelf->curr_pc)))
+                        : vlSelf->curr_pc);
 }
 
 void Vysyx_22040175_top___024root___eval(Vysyx_22040175_top___024root* vlSelf) {
@@ -311,7 +303,7 @@ VL_INLINE_OPT QData Vysyx_22040175_top___024root___change_request_1(Vysyx_220401
     // Change detection
     QData __req = false;  // Logically a bool
     __req |= ((vlSelf->ysyx_22040175_top__DOT__rst_n ^ vlSelf->__Vchglast__TOP__ysyx_22040175_top__DOT__rst_n));
-    VL_DEBUG_IF( if(__req && ((vlSelf->ysyx_22040175_top__DOT__rst_n ^ vlSelf->__Vchglast__TOP__ysyx_22040175_top__DOT__rst_n))) VL_DBG_MSGF("        CHANGE: vsrc/top.v:9: ysyx_22040175_top.rst_n\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSelf->ysyx_22040175_top__DOT__rst_n ^ vlSelf->__Vchglast__TOP__ysyx_22040175_top__DOT__rst_n))) VL_DBG_MSGF("        CHANGE: vsrc/top.v:10: ysyx_22040175_top.rst_n\n"); );
     // Final
     vlSelf->__Vchglast__TOP__ysyx_22040175_top__DOT__rst_n 
         = vlSelf->ysyx_22040175_top__DOT__rst_n;
