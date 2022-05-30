@@ -8,7 +8,7 @@
 #include "../csrc/paddr.h"
 #include "../csrc/difftest.h"
 
-
+int port = 5;
 Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
   int i;
@@ -39,7 +39,7 @@ int main(int argc, char **argv, char **env) {
   }
      if(top->clk==1){
       top->inst = pmem_read(top->curr_pc,3);
-      difftest_step(top->curr_pc);
+      difftest_step(top->curr_pc,top->next_pc);
      }
   }
   if (Verilated::gotFinish())  exit(0);
