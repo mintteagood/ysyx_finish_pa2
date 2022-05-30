@@ -46,6 +46,16 @@ void difftest_skip_dut(int nr_ref, int nr_dut) {
     ref_difftest_exec(1);
   }
 }*/
+void init_isa() {
+  /* Load built-in image. */
+  memcpy(guest_to_host(RESET_VECTOR), img, sizeof(img));
+
+  /* Initialize this virtual computer system. */
+  restart();
+}
+
+
+
 
 void init_difftest(char *ref_so_file, long img_size, int port) {
   assert(ref_so_file != NULL);
@@ -66,7 +76,7 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   //ref_difftest_raise_intr = dlsym(handle, "difftest_raise_intr");
   //assert(ref_difftest_raise_intr);
 
-  void (*ref_difftest_init) = dlsym(handle, "difftest_init");
+  void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
   assert(ref_difftest_init);
 
   //Log("Differential testing: %s", ASNI_FMT("ON", ASNI_FG_GREEN));
