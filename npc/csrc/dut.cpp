@@ -9,8 +9,8 @@ void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void (*ref_difftest_exec)(uint64_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 typedef struct CPU_state {
-  vaddr_t pc[32];
   word_t gpr[32];
+  vaddr_t pc;
 } CPU_state;
 CPU_state cpu;
 
