@@ -8,7 +8,7 @@
 #include "../csrc/paddr.h"
 #include "../csrc/difftest.h"
 
-int port = 2;
+int port = 1;
 Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
   int i;
