@@ -3,7 +3,7 @@
 
 #include "../csrc/common.h"
 #include "../csrc/difftest-def.h"
-
+void init_difftest(char *ref_so_file, long img_size, int port);
 #ifdef CONFIG_DIFFTEST
 void difftest_skip_ref();
 void difftest_skip_dut(int nr_ref, int nr_dut);
@@ -36,4 +36,3 @@ static inline bool difftest_check_reg(const char *name, vaddr_t pc, word_t ref, 
 }
 
 #endif
-void init_difftest(char *ref_so_file, long img_size, int port);
