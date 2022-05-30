@@ -28,7 +28,6 @@ int main(int argc, char **argv, char **env) {
   char* img_file = *(argv + 1);
   init_imem();
   long img_size = load_img(img_file);
-// init_difftest(img_file,img_size,port);
   for (i=0; i<20; i++) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
@@ -39,7 +38,6 @@ int main(int argc, char **argv, char **env) {
   }
      if(top->clk==1){
       top->inst = pmem_read(top->curr_pc,3);
-     /*difftest_step(top->curr_pc,top->next_pc);*/
      }
   }
   if (Verilated::gotFinish())  exit(0);
