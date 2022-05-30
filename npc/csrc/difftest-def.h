@@ -19,3 +19,12 @@ enum { DIFFTEST_TO_DUT, DIFFTEST_TO_REF };
 #endif
 
 #endif
+
+
+
+static inline int check_reg_idx(int idx) {
+  IFDEF(CONFIG_RT_CHECK, assert(idx >= 0 && idx < 32));
+  return idx;
+}
+
+#define gpr(idx) (cpu.gpr[check_reg_idx(idx)])
