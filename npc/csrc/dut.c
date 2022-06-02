@@ -20,10 +20,6 @@ void difftest_raise_intr(word_t NO) {
   assert(0);
 }
 
-void difftest_init() {
-  /* Perform ISA dependent initialization. */
-  init_isa();
-}
 
 
 void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction) = NULL;
