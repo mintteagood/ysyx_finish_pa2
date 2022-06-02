@@ -4,6 +4,7 @@
 #include "../csrc/difftest-def.h"
 #include <dlfcn.h>
 #include <stdio.h>
+typedef  void (*functiontype)  ( void*);
 void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction) {
   assert(0);
 }
@@ -68,7 +69,7 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   handle = dlopen(ref_so_file, RTLD_LAZY | MUXNDEF(CONFIG_CC_ASAN, RTLD_DEEPBIND, 0));
   assert(handle);
 
-  ref_difftest_memcpy = dlsym(handle, "difftest_memcpy");
+  ref_difftest_memcpy = (functiontype)dlsym(handle, "difftest_memcpy");
   assert(*ref_difftest_memcpy);
 
   ref_difftest_regcpy = dlsym(handle, "difftest_regcpy");
