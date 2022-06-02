@@ -1,7 +1,7 @@
 
 #include "../csrc/paddr.h"
 #include "../csrc/utils.h"
-#include "../csrc/difftest-def.h"
+#include "../csrc/difftest.h"
 #include <dlfcn.h>
 #include <stdio.h>
 #define gpr(idx) (cpu.gpr[check_reg_idx(idx)]);
