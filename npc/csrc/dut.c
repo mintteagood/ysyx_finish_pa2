@@ -5,7 +5,15 @@
 #include <dlfcn.h>
 #include <stdio.h>
 typedef  void (*functiontype1) (paddr_t addr, void *buf, size_t n, bool direction);
+typedef  void(*functiontype2)(void *dut, bool direction);
+typedef  void(*functiontype3)(uint64_t n);
 
+typedef struct {
+  word_t gpr[32];
+  vaddr_t pc;
+} CPU_state;
+
+CPU_state cpu;
 void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction) {
   assert(0);
 }
@@ -73,13 +81,13 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   ref_difftest_memcpy = (functiontype1)dlsym(handle, "difftest_memcpy");
   assert(*ref_difftest_memcpy);
 
-  ref_difftest_regcpy = dlsym(handle, "difftest_regcpy");
+  ref_difftest_regcpy = (functiontype2) dlsym(handle, "difftest_regcpy");
   assert(ref_difftest_regcpy);
 
-  ref_difftest_exec = dlsym(handle, "difftest_exec");
+  ref_difftest_exec = (functiontype3)dlsym(handle, "difftest_exec");
   assert(ref_difftest_exec);
 
-  ref_difftest_raise_intr = dlsym(handle, "difftest_raise_intr");
+  ref_difftest_raise_intr = (functiontype3)dlsym(handle, "difftest_raise_intr");
   assert(ref_difftest_raise_intr);
 
   void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
