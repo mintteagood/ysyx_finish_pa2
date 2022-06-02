@@ -30,7 +30,20 @@ void difftest_exec(uint64_t n) {
 void difftest_raise_intr(word_t NO) {
   assert(0);
 }
+#define gpr(idx) (cpu.gpr[check_reg_idx(idx)]);
+bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
+  int i;
+  for (i = 0; i < 32; i++) {
+    if (ref_r->gpr[i] != gpr(i)) {
+      isa_reg_display(ref_r, pc);
+      return false;
+    }
+  }
+  //if (ref_r->pc != pc) return false;
 
+  return true;
+
+}
 
 
 void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction) = NULL;
