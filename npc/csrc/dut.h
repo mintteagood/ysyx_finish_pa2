@@ -4,11 +4,7 @@
 #include "../csrc/difftest.h"
 #include <dlfcn.h>
 #include <stdio.h>
-#define gpr(idx) (cpu.gpr[check_reg_idx(idx)]);
-static inline int check_reg_idx(int idx) {
-  IFDEF(CONFIG_RT_CHECK, assert(idx >= 0 && idx < 32));
-  return idx;
-}
+
 typedef struct {
   word_t gpr[32];
   vaddr_t pc;
