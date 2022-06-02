@@ -42,11 +42,12 @@ void isa_reg_display() {
   }
 }
 
+
 bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   int i;
   for (i = 0; i < 32; i++) {
     if (ref_r->gpr[i] != gpr(i)) {
-      isa_reg_display(ref_r, pc);
+      printf("%s %08lx %08lx \n", regs[i], ref_r->gpr[i],pc);
       return false;
     }
   }
