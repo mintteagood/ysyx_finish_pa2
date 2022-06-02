@@ -7,6 +7,7 @@
 typedef  void (*functiontype1) (paddr_t addr, void *buf, size_t n, bool direction);
 typedef  void(*functiontype2)(void *dut, bool direction);
 typedef  void(*functiontype3)(uint64_t n);
+typedef  void(*functiontype4)(int);
 
 typedef struct {
   word_t gpr[32];
@@ -90,7 +91,7 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   ref_difftest_raise_intr = (functiontype3)dlsym(handle, "difftest_raise_intr");
   assert(ref_difftest_raise_intr);
 
-  void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
+  void (*ref_difftest_init)(int) = (functiontype4)dlsym(handle, "difftest_init");
   assert(ref_difftest_init);
 
   Log("Differential testing: %s", ASNI_FMT("ON", ASNI_FG_GREEN));

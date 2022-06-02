@@ -29,5 +29,13 @@ typedef MUXDEF(PMEM64, uint64_t, uint32_t) paddr_t;
 typedef uint16_t ioaddr_t;
 
 //#include "../csrc/debug.h"
+#define _Log(...) \
+  do { \
+    printf(__VA_ARGS__); \
+    log_write(__VA_ARGS__); \
+  } while (0)
 
+#define Log(format, ...) \
+    _Log(ASNI_FMT("[%s:%d %s] " format, ASNI_FG_BLUE) "\n", \
+        __FILE__, __LINE__, __func__, ## __VA_ARGS__)
 #endif
