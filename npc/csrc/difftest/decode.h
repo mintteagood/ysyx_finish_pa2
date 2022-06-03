@@ -35,8 +35,8 @@ static inline void pattern_decode(const char *str, int len,
 #define macro16(i) macro8(i);  macro8((i) + 8)
 #define macro32(i) macro16(i); macro16((i) + 16)
 #define macro64(i) macro32(i); macro32((i) + 32)
-  //macro64(0);
-  //panic("pattern too long");
+  macro64(0);
+  panic("pattern too long");
 #undef macro
 finish:
   *key = __key >> __shift;
