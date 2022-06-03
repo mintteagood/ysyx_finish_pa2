@@ -1,6 +1,7 @@
 #include "../csrc/difftest/npc.h"
 #include "../csrc/difftest//decode.h"
 #include "../csrc/difftest/difftest.h"
+#include "../csrc/debug.h"
 #include <locale.h>
 #include <dlfcn.h>
 #include <stdio.h>
