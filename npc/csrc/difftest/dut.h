@@ -1,5 +1,5 @@
 
-#include "../csrc/paddr.h"
+#include "../csrc/memory/paddr.h"
 #include "../csrc/utils.h"
 #include "../csrc/difftest/difftest.h"
 #include <dlfcn.h>
