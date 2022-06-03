@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "Vysyx_22040175_top.h"
 #include "assert.h"
-#include "../csrc/paddr.h"
+#include "../csrc/memory/paddr.h"
 #include "../csrc/difftest/difftest.h"
 
 int port = 1;

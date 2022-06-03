@@ -1,4 +1,4 @@
-#include "../csrc/paddr.h"
+#include "../csrc/memory/paddr.h"
 #include <stdio.h>
 
 #define panic(format, ...) Assert(0, format, ## __VA_ARGS__)
