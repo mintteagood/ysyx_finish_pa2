@@ -2,7 +2,7 @@
 #define __ISA_H__
 
 // Located at src/isa/$(GUEST_ISA)/include/isa-def.h
-#include <isa-def.h>
+#include "../csrc/isa-def.h"
 
 // The macro `__GUEST_ISA__` is defined in $(CFLAGS).
 // It will be expanded as "x86" or "mips32" ...
