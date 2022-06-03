@@ -1,8 +1,8 @@
 
-#include "../csrc/paddr.h"
+#include "../csrc/memory/paddr.h"
 #include "../csrc/utils.h"
-#include "../csrc/difftest.h"
-#include "../csrc/dut.h"
+#include "../csrc/difftest/difftest.h"
+#include "../csrc/difftest/dut.h"
 #include <dlfcn.h>
 #include <stdio.h>
 typedef  void (*functiontype1) (paddr_t addr, void *buf, size_t n, bool direction);
