@@ -2,7 +2,7 @@
 #define __CPU_DECODE_H__
 
 #include "../csrc/isa.h"
-#include <assert.h>
+
 #define CONFIG_ITRACE 1
 typedef struct Decode {
   vaddr_t pc;
