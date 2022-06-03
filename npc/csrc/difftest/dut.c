@@ -1,6 +1,7 @@
 
 #include "../csrc/memory/paddr.h"
 #include "../csrc/utils.h"
+#include "../csrc/debug.h"
 #include "../csrc/difftest/difftest.h"
 #include "../csrc/difftest/dut.h"
 #include <dlfcn.h>
