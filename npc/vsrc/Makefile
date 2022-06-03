@@ -28,7 +28,15 @@ HSRCS = $(shell find $(npc ./csrc) -name "*.h")
 DIRS-$(CONFIG_MODE_SYSTEM) += csrc/paddr
 # rules for NVBoard
 #include $(NVBOARD_HOME)/scripts/nvboard.mk
-
+# Extract compiler and options from menuconfig
+CC = $(call remove_quote,$(CONFIG_CC))
+CFLAGS_BUILD += $(call remove_quote,$(CONFIG_CC_OPT))
+CFLAGS_BUILD += $(if $(CONFIG_CC_LTO),-flto,)
+CFLAGS_BUILD += $(if $(CONFIG_CC_DEBUG),-Og -ggdb3,)
+CFLAGS_BUILD += $(if $(CONFIG_CC_ASAN),-fsanitize=address,)
+CFLAGS_TRACE += -DITRACE_COND=$(if $(CONFIG_ITRACE_COND),$(call remove_quote,$(CONFIG_ITRACE_COND)),true)
+CFLAGS  += $(CFLAGS_BUILD) $(CFLAGS_TRACE) -D__GUEST_ISA__=$(GUEST_ISA)
+LDFLAGS += $(CFLAGS_BUILD)
 # rules for verilator
 INCFLAGS = $(addprefix -I, $(INC_PATH))
 CFLAGS += $(INCFLAGS) -DTOP_NAME="\"V$(TOPNAME)\"" 

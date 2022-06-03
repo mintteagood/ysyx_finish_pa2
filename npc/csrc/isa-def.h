@@ -13,7 +13,7 @@ typedef struct {
   union {
     uint32_t val;
   } inst;
-} DecodeInfo;
+} ISADecodeInfo;
 
 #define isa_mmu_check(vaddr, len, type) (MMU_DIRECT)
 
