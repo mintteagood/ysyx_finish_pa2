@@ -8,6 +8,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
     if (ref_r->gpr[i] != gpr(i)) {
       isa_reg_display(ref_r, pc);
       printf("this is the wrong reg:%ld\n",gpr(i));
+      printf("this is the wrong ref reg:%ld\n",ref_r->gpr[i]);
       return false;
     }
   }
