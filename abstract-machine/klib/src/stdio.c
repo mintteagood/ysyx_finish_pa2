@@ -3,6 +3,10 @@
 #include <klib-macros.h>
 #include <stdarg.h>
 #include <math.h>
+
+
+
+
 //xinjia
 #define ZEROPAD 1               // Pad with zero
 #define SIGN    2               // Unsigned/signed long
@@ -12,8 +16,10 @@
 #define SPECIAL 32              // 0x
 #define LARGE   64              // Use 'ABCDEF' instead of 'abcdef'
 #define is_digit(c) ((c) >= '0' && (c) <= '9')
-static char * digits = "0123456789abcdefghijklmnopqrstuvwxyz";
-static char * upper_digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+static char * digits = "0123456789abcdefghijklmnopqrstuvwxyz";     //注释掉
+static char * upper_digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";   //注释掉
+
+
 //extern XJ_HANDLE hDebugPort;
 
 #if !defined(__ISA_NATIVE__) || defined(__NATIVE_USE_KLIB__)
@@ -38,7 +44,7 @@ int printf(const char *fmt, ...) {
     return printed;
 }
 //xinjia
-static size_t strnlen( const char * s, size_t count )
+size_t strnlen( const char * s, size_t count )
 {
     const char * sc;
     for ( sc = s; * sc != '\0' && count --; ++ sc );
@@ -517,5 +523,7 @@ int snprintf(char *out, size_t n, const char *fmt, ...) {
 int vsnprintf(char *out, size_t n, const char *fmt, va_list ap) {
   panic("Not implemented");
 }
-
 #endif
+
+
+
