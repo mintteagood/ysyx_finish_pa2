@@ -39,8 +39,11 @@ int printf(const char *fmt, ...) {
     va_start(args, fmt);                               //初始化args的函数，使其指向可变参数的第一个参数，fmt是可变参数的前一个参数
 
     printed = vsprintf(printf_buf, fmt, args);
-    va_end(args);                                                             //结束可变参数的获取
-    //puts(printf_buf);
+    va_end(args);   
+    for(int i=0;printf_buf[i] != '\0'; i++)  {
+        putch(printf_buf[i]);
+    }                                                        //结束可变参数的获取
+    
     return printed;
 }
 //xinjia
