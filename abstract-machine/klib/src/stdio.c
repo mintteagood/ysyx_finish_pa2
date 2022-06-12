@@ -16,8 +16,8 @@
 #define SPECIAL 32              // 0x
 #define LARGE   64              // Use 'ABCDEF' instead of 'abcdef'
 #define is_digit(c) ((c) >= '0' && (c) <= '9')
-static char * digits = "0123456789abcdefghijklmnopqrstuvwxyz";     //注释掉
-static char * upper_digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";   //注释掉
+static char * digits = "0123456789abcdefghijklmnopqrstuvwxyz";     
+static char * upper_digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";   
 
 
 //extern XJ_HANDLE hDebugPort;
