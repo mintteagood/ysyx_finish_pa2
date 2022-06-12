@@ -44,7 +44,7 @@ int printf(const char *fmt, ...) {
     return printed;
 }
 //xinjia
-size_t strnlen( const char * s, size_t count )
+static size_t strnlen( const char * s, size_t count )
 {
     const char * sc;
     for ( sc = s; * sc != '\0' && count --; ++ sc );
