@@ -68,7 +68,7 @@ INSTPAT_START();
 
   INSTPAT("??????? ????? ????? 001 ????? 01000 11", sh    ,  S, Mw(src1 + dest, 2, BITS(src2,15,0)),printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)),printf("R(1) is:%lx\n",R(1)));
   INSTPAT("010000? ????? ????? 101 ????? 00100 11", srai ,   I, R(dest) = SEXT(BITS((SEXT(src1,32) >> src2), 31, 0),32) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)),printf("R(1) is:%lx\n",R(1)));
-  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu ,    I, R(dest) = BITS(Mr(src1 + src2, 1),7,0) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)),printf("R(1) is:%lx\n",R(1)));
+  INSTPAT("??????? ????? ????? 100 ????? 00000 11", lbu ,    I, R(dest) = BITS(Mr(src1 + SEXT(src2,32), 1),7,0) ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)),printf("R(1) is:%lx\n",R(1)));
 
   INSTPAT("??????? ????? ????? 111 ????? 00100 11", andi ,   I,  R(dest) = src1 & src2 ,printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)),printf("R(1) is:%lx\n",R(1)));
   INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw ,   RR, R(dest) = SEXT(BITS((src1 << src2), 31, 0), 32), printf("current pc is %lx ",s->pc),printf("lw R(dest) is:%lx\n",R(dest)),printf("R(10) is:%lx\n",R(10)),printf("R(1) is:%lx\n",R(1)));
