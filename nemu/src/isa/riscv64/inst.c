@@ -116,7 +116,7 @@ INSTPAT_START();
   INSTPAT("0000001 ????? ????? 111 ????? 01100 11", remu ,   RR, R(dest) = src1 % (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000001 ????? ????? 101 ????? 01100 11", divu ,   RR, R(dest) = src1 / (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 //coremark  
-  INSTPAT("0000001 ????? ????? 101 ????? 01110 11", divuw ,  RR, R(dest) = SEXT(BITS(BITS(src1,31,0) /(unsigned int)BITS(src2,31,0),31,0),32) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  //INSTPAT("0000001 ????? ????? 101 ????? 01110 11", divuw ,  RR, R(dest) = SEXT(BITS(BITS(src1,31,0) /(unsigned int)BITS(src2,31,0),31,0),32) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("??????? ????? ????? 000 ????? 00000 11", lb ,    I, R(dest) = SEXT(BITS(Mr(src1 + src2, 1),7,0),8 ) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
 
