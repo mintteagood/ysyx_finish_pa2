@@ -73,7 +73,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000001 ????? ????? 101 ????? 01100 11", divu ,   R, R(dest) = src1 / (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000000 ????? ????? 100 ????? 01100 11", xor ,    R,  R(dest) = src1 ^ src2 , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
   INSTPAT("0000001 ????? ????? 101 ????? 01110 11", divuw ,  R, R(dest) = SEXT(BITS(BITS(src1,31,0) /BITS(src2,31,0),31,0),32) , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
-  INSTPAT("0000001 ????? ????? 111 ????? 01100 11", remu ,   R, R(dest) = src1 % (unsigned int)src2  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
+  INSTPAT("0000001 ????? ????? 111 ????? 01110 11", remuw ,   R, R(dest) = SEXT(BITS(src1 % (unsigned int)src2,31,0),32)  , printf("current pc is %lx ",s->pc),printf("R(10) is:%lx\n",R(10)));
 
   INSTPAT("??????? ????? ????? 000 ????? 00100 11", addi   , I, R(dest) = src1 + src2 );
   INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw  , I, R(dest) = SEXT((src1 << src2),32));
