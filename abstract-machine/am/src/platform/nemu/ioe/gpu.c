@@ -22,7 +22,7 @@ void __am_gpu_config(AM_GPU_CONFIG_T *cfg) {
 
 void __am_gpu_fbdraw(AM_GPU_FBDRAW_T *ctl) {
   //自己加
- /* int x = ctl->x;
+  int x = ctl->x;
   int y = ctl->y;
   int w = ctl->w;
   int h = ctl->h;
@@ -35,7 +35,7 @@ void __am_gpu_fbdraw(AM_GPU_FBDRAW_T *ctl) {
       fbl[(y+j)*400+x+i] = *(pixels_addr + i);
     }
     pixels_addr = pixels_addr + cp_bytes;
-  }*/
+  }
   if (ctl->sync) {
     outl(SYNC_ADDR, 1);
   }
