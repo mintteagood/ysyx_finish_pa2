@@ -60,7 +60,7 @@ void vga_update_screen() {
   // then zero out the sync register
   //自己加
   if(vgactl_port_base[1]){
-    printf("vgactl_port_base[1] = %d\n",vgactl_port_base[1]);
+    //printf("vgactl_port_base[1] = %d\n",vgactl_port_base[1]);
     update_screen();
     *(vgactl_port_base) = 0;
 
