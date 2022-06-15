@@ -11,8 +11,8 @@
 #define CONFIG_MSIZE 0X2800000
 
 typedef  uint32_t paddr_t;
-typedef  word_t vaddr_t;
-typedef uint32_t paddr_t;
+//typedef  word_t vaddr_t;
+
 static uint8_t *pimem =NULL;
 void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
