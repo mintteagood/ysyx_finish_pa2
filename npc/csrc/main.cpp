@@ -18,7 +18,7 @@ static uint8_t *pimem =NULL;
 void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
   printf("pimem _ success");
-  //assert(pimem);
+  assert(pimem);
 }
 static long load_img(char*img_file){
   if(img_file == NULL){
@@ -81,6 +81,7 @@ int main(int argc, char **argv, char **env) {
   assert(ret == 1);
   fclose(fp);
   return size;
+  printf("开始imem初始化");
   init_imem();
   long img_size = load_img(img_file);
   //init_difftest(optarg,img_size,1234);
