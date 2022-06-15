@@ -26,6 +26,16 @@ static long load_img(char*img_file){
     assert(0);
     return 4096;
   }
+  FILE *fp = fopen(img_file,"rb");
+  assert(fp);
+  fseek(fp, 0, SEEK_END);
+  long size = ftell(fp);
+  printf("The image is %s, size = %ld\n", img_file,size);
+  fseek(fp, 0, SEEK_SET);
+  int ret = fread(guest_to_host(CONFIG_MBASE), size, 1,fp);
+  assert(ret == 1);
+  fclose(fp);
+  return size;
 }
 uint8_t *guest_to_host(paddr_t paddr){
   uint8_t *tmpl = pimem + paddr -CONFIG_MBASE;
@@ -71,16 +81,7 @@ int main(int argc, char **argv, char **env) {
   top->rst = 1;
   // run simulation for 100 clock periods
   char* img_file = *(argv + 1);
-  FILE *fp = fopen(img_file,"rb");
-  assert(fp);
-  fseek(fp, 0, SEEK_END);
-  long size = ftell(fp);
-  printf("The image is %s, size = %ld\n", img_file,size);
-  fseek(fp, 0, SEEK_SET);
-  int ret = fread(guest_to_host(CONFIG_MBASE), size, 1,fp);
-  assert(ret == 1);
-  fclose(fp);
-  return size;
+  
   printf("开始imem初始化");
   init_imem();
   long img_size = load_img(img_file);
