@@ -6,7 +6,7 @@
 #include "Vysyx_22040175_top.h"
 #include "assert.h"
 
-
+//加run和target
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_MSIZE 0X2800000
 
@@ -59,12 +59,50 @@ static long load_img(char*img_file){
   fclose(fp);
   return size;
 }
+//加difftest
+void init_difftest(char *ref_so_file, long img_size, int port) {
+  assert(ref_so_file != NULL);
+
+  void *handle;
+  handle = dlopen(ref_so_file, RTLD_LAZY | MUXNDEF(CONFIG_CC_ASAN, RTLD_DEEPBIND, 0));
+  assert(handle);
+
+  ref_difftest_memcpy = dlsym(handle, "difftest_memcpy");
+  assert(ref_difftest_memcpy);
+
+  ref_difftest_regcpy = dlsym(handle, "difftest_regcpy");
+  assert(ref_difftest_regcpy);
+
+  ref_difftest_exec = dlsym(handle, "difftest_exec");
+  assert(ref_difftest_exec);
+
+  ref_difftest_raise_intr = dlsym(handle, "difftest_raise_intr");
+  assert(ref_difftest_raise_intr);
+
+  void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
+  assert(ref_difftest_init);
+
+  Log("Differential testing: %s", ASNI_FMT("ON", ASNI_FG_GREEN));
+  Log("The result of every instruction will be compared with %s. "
+      "This will help you a lot for debugging, but also significantly reduce the performance. "
+      "If it is not necessary, you can turn it off in menuconfig.", ref_so_file);
+
+  ref_difftest_init(port);
+  ref_difftest_memcpy(RESET_VECTOR, guest_to_host(RESET_VECTOR), img_size, DIFFTEST_TO_REF);
+  ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
+}
 
 
 
 
 
-int port = 4;
+
+
+
+
+
+
+int port = 1234;
 Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
   int i;
@@ -86,7 +124,7 @@ int main(int argc, char **argv, char **env) {
   printf("开始imem初始化\n");
   init_imem();
   long img_size = load_img(img_file);
-  //init_difftest(optarg,img_size,1234);
+  init_difftest(img_size,port);
   for (i=0; i<200; i++) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
@@ -101,7 +139,7 @@ int main(int argc, char **argv, char **env) {
       a= a+1;
      }
      if (a>2){
-       //difftest_step(top->curr_pc,top->next_pc);
+       difftest_step(top->curr_pc,top->next_pc);
      }
 
   }
