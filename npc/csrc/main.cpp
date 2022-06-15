@@ -33,7 +33,7 @@ uint8_t *guest_to_host(paddr_t paddr){
   return tmpl;
 }
 static inline word_t host_read(void *addr, int len) {
-   printf("pmem_read success addr");
+   printf("host_read success addr");
   switch (len) {
     case 1: return *(uint8_t  *)addr;
     case 2: return *(uint16_t *)addr;
