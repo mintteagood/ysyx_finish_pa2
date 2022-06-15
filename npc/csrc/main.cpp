@@ -11,6 +11,8 @@
 #define CONFIG_MSIZE 0X2800000
 
 typedef  uint32_t paddr_t;
+typedef  word_t vaddr_t;
+typedef uint32_t paddr_t;
 static uint8_t *pimem =NULL;
 void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
@@ -29,8 +31,10 @@ uint8_t *guest_to_host(paddr_t paddr){
   printf("guest to host success addr = %hhn\n",tmpl);
   return tmpl;
 }
-
-
+static word_t pmem_read(paddr_t addr, int len) {
+  word_t ret = host_read(guest_to_host(addr), len);
+  return ret;
+}
 
 
 
