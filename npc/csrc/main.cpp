@@ -12,7 +12,7 @@
 
 typedef  uint64_t paddr_t;
 static uint8_t *pimem =NULL;
-void init_mem(){
+void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
   //printf("pimem = %hhn\n",pimem);
   assert(pimem);
