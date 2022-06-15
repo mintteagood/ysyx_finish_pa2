@@ -23,11 +23,11 @@ void init_imem(){
 
 uint8_t *guest_to_host(paddr_t paddr){
   uint8_t *tmpl = pimem + paddr -CONFIG_MBASE;
-  printf("guest to host success addr = %hhn\n",tmpl);
+  //printf("guest to host success addr = %hhn\n",tmpl);
   return tmpl;
 }
 static inline word_t host_read(void *addr, int len) {
-   printf("host_read success addr");
+   //printf("host_read success addr");
   switch (len) {
     case 1: return *(uint8_t  *)addr;
     case 2: return *(uint16_t *)addr;
@@ -38,7 +38,7 @@ static inline word_t host_read(void *addr, int len) {
 }
 static word_t pmem_read(paddr_t addr, int len) {
   word_t ret = host_read(guest_to_host(addr), len);
-   printf("pmem_read success addr");
+   //printf("pmem_read success addr");
   return ret;
 }
 
