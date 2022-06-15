@@ -60,6 +60,7 @@ static long load_img(char*img_file){
   return size;
 }
 //加difftest
+#include <getopt.h>
 static int parse_args(int argc, char *argv[]) {
   const struct option table[] = {
     {"batch"    , no_argument      , NULL, 'b'},
