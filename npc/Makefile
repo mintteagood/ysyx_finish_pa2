@@ -1,5 +1,4 @@
-all:
-	@echo "Write this Makefile by your self."
+#加入spike
 ifdef CONFIG_DIFFTEST
 DIFF_REF_PATH = $(NEMU_HOME)/$(call remove_quote,$(CONFIG_DIFFTEST_REF_PATH))
 DIFF_REF_SO = $(DIFF_REF_PATH)/build/$(GUEST_ISA)-$(call remove_quote,$(CONFIG_DIFFTEST_REF_NAME))-so
@@ -13,7 +12,12 @@ endif
 
 .PHONY: $(DIFF_REF_SO)
 endif
- 
+
+
+
+
+all:
+	@echo "Write this Makefile by your self."
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@echo "Write this Makefile by your self."
