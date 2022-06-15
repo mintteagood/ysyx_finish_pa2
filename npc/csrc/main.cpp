@@ -11,7 +11,7 @@
 #define CONFIG_MSIZE 0X2800000
 static uint8_t *pimem =NULL;
 void init_mem(){
-  pimem = (uint8_t *) mallloc(CONFIG_MSIZE);
+  pimem = (uint8_t *) malloc(CONFIG_MSIZE);
   printf("pimem = %llx\n",pimem);
   assert(pimem);
 }
