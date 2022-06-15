@@ -20,23 +20,7 @@ void init_imem(){
   printf("pimem _ success");
   assert(pimem);
 }
-static long load_img(char*img_file){
-  if(img_file == NULL){
-    printf("Error: No image is given !\n");
-    assert(0);
-    return 4096;
-  }
-  FILE *fp = fopen(img_file,"rb");
-  assert(fp);
-  fseek(fp, 0, SEEK_END);
-  long size = ftell(fp);
-  printf("The image is %s, size = %ld\n", img_file,size);
-  fseek(fp, 0, SEEK_SET);
-  int ret = fread(guest_to_host(CONFIG_MBASE), size, 1,fp);
-  assert(ret == 1);
-  fclose(fp);
-  return size;
-}
+
 uint8_t *guest_to_host(paddr_t paddr){
   uint8_t *tmpl = pimem + paddr -CONFIG_MBASE;
   printf("guest to host success addr = %hhn\n",tmpl);
@@ -58,6 +42,23 @@ static word_t pmem_read(paddr_t addr, int len) {
   return ret;
 }
 
+static long load_img(char*img_file){
+  if(img_file == NULL){
+    printf("Error: No image is given !\n");
+    assert(0);
+    return 4096;
+  }
+  FILE *fp = fopen(img_file,"rb");
+  assert(fp);
+  fseek(fp, 0, SEEK_END);
+  long size = ftell(fp);
+  printf("The image is %s, size = %ld\n", img_file,size);
+  fseek(fp, 0, SEEK_SET);
+  int ret = fread(guest_to_host(CONFIG_MBASE), size, 1,fp);
+  assert(ret == 1);
+  fclose(fp);
+  return size;
+}
 
 
 
