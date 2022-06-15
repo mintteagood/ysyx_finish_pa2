@@ -17,7 +17,7 @@ typedef  word_t vaddr_t;
 static uint8_t *pimem =NULL;
 void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
-  //printf("pimem = %hhn\n",pimem);
+  printf("pimem = %hhn\n",pimem);
   assert(pimem);
 }
 static long load_img(char*img_file){
