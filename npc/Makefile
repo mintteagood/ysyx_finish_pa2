@@ -14,7 +14,7 @@ LINKAGE   = $(OBJS) \
   $(addsuffix -$(ARCH).a, $(join \
     $(addsuffix /build/, $(addprefix $(AM_HOME)/, $(LIBS))), \
     $(LIBS) ))
-$(IMAGE).elf: $(OBJS) am $(LIBS)
+$(IMG).elf: $(OBJS) am $(LIBS)
 	@echo + LD "->" $(IMAGE_REL).elf
 	@$(LD) $(LDFLAGS)  -o $(IMAGE).elf --start-group $(LINKAGE) --end-group 
 sim:
