@@ -33,16 +33,7 @@ uint8_t *guest_to_host(paddr_t paddr){
 
 
 
-FILE *fp = fopen(img_file,"rb");
-assert(fp);
-fseek(fp, 0, SEEK_END);
-long size = ftell(fp);
-printf("The image is %s, size = %ld\n", img_file,size);
-fseek(fp, 0, SEEK_SET);
-int ret = fread(guest_to_host(CONFIG_MBASE), size, 1,fp);
-assert(ret == 1);
-fclose(fp);
-return size;
+
 
 
 
@@ -64,6 +55,16 @@ int main(int argc, char **argv, char **env) {
   top->rst = 1;
   // run simulation for 100 clock periods
   char* img_file = *(argv + 1);
+  FILE *fp = fopen(img_file,"rb");
+  assert(fp);
+  fseek(fp, 0, SEEK_END);
+  long size = ftell(fp);
+  printf("The image is %s, size = %ld\n", img_file,size);
+  fseek(fp, 0, SEEK_SET);
+  int ret = fread(guest_to_host(CONFIG_MBASE), size, 1,fp);
+  assert(ret == 1);
+  fclose(fp);
+  return size;
   init_imem();
   long img_size = load_img(img_file);
   //init_difftest(optarg,img_size,1234);
