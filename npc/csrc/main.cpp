@@ -83,7 +83,7 @@ int main(int argc, char **argv, char **env) {
   // run simulation for 100 clock periods
   char* img_file = *(argv + 1);
   
-  printf("开始imem初始化");
+  printf("开始imem初始化\n");
   init_imem();
   long img_size = load_img(img_file);
   //init_difftest(optarg,img_size,1234);
