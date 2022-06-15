@@ -10,7 +10,7 @@
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_MSIZE 0X2800000
 
-typedef  uint64_t paddr_t;
+typedef  uint32_t paddr_t;
 static uint8_t *pimem =NULL;
 void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
