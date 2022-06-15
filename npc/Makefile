@@ -1,13 +1,19 @@
 #加入spike
 
-include $(NEMU_HOME)/tools/difftest.mk
-NAME = $(GUEST_ISA)-spike-so
-BINARY = $(BUILD_DIR)/$(NAME)
-SRCS = csrc/main.cc
+DIFF_REF_PATH = $(NEMU_HOME)/$(call remove_quote,$(CONFIG_DIFFTEST_REF_PATH))
+DIFF_REF_SO = $(DIFF_REF_PATH)/build/$(GUEST_ISA)-$(call remove_quote,$(CONFIG_DIFFTEST_REF_NAME))-so
+MKFLAGS = GUEST_ISA=$(GUEST_ISA) SHARE=1 ENGINE=interpreter
+ARGS_DIFF = --diff=$(DIFF_REF_SO)
 
-$(BINARY): $(SPIKE) $(SRCS)
-	g++ -O2 -shared -fPIC $(INC_PATH) $(SRCS) $(INC_LIBS) -o $@
-	
+ifndef CONFIG_DIFFTEST_REF_NEMU
+$(DIFF_REF_SO):
+	$(MAKE) -s -C $(DIFF_REF_PATH) $(MKFLAGS)
+endif
+
+.PHONY: $(DIFF_REF_SO)
+
+
+
 all:
 	@echo "Write this Makefile by your self."
 sim:
