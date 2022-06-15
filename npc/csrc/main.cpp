@@ -18,7 +18,7 @@ static uint8_t *pimem =NULL;
 void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
   printf("pimem _ success");
-  assert(pimem);
+  //assert(pimem);
 }
 static long load_img(char*img_file){
   if(img_file == NULL){
