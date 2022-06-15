@@ -9,8 +9,8 @@
 
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_MSIZE 0X2800000
-#define MUXDEF(macro, X, Y)  MUX_MACRO_PROPERTY(__P_DEF_, macro, X, Y)
-typedef MUXDEF(PMEM64, uint64_t, uint32_t) paddr_t;
+
+typedef  uint64_t paddr_t;
 static uint8_t *pimem =NULL;
 void init_mem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
