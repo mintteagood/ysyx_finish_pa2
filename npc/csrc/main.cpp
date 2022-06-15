@@ -17,7 +17,7 @@ typedef  word_t vaddr_t;
 static uint8_t *pimem =NULL;
 void init_imem(){
   pimem = (uint8_t *) malloc(CONFIG_MSIZE);
-  printf("pimem _ success");
+  //printf("pimem _ success");
   assert(pimem);
 }
 
