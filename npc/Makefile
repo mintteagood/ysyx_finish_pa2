@@ -7,7 +7,7 @@ MKFLAGS = GUEST_ISA=$(GUEST_ISA) SHARE=1 ENGINE=interpreter
 ARGS_DIFF = --diff=$(DIFF_REF_SO)
 
 ifndef CONFIG_DIFFTEST_REF_NEMU
-$(DIFF_REF_SO):
+$(DIFF_REF_SO):sim
 	$(MAKE) -s -C $(DIFF_REF_PATH) $(MKFLAGS)
 endif
 
@@ -19,7 +19,7 @@ endif
 
 all:
 	@echo "Write this Makefile by your self."
-sim:$(DIFF_REF_SO)
+sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@echo "Write this Makefile by your self."
 	@$(clean)
