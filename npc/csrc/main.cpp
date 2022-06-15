@@ -26,7 +26,7 @@ static long load_img(char*img_file){
 }
 uint8_t *guest_to_host(paddr_t paddr){
   uint8_t *tmpl = pimem + paddr -CONFIG_MBASE;
-  printf("guest to host success addr = %lx\n",tmpl);
+  printf("guest to host success addr = %hhn\n",tmpl);
   return tmpl;
 }
 
