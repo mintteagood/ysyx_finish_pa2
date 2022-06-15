@@ -10,8 +10,9 @@
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_MSIZE 0X2800000
 
+typedef uint64_t word_t;
 typedef  uint32_t paddr_t;
-//typedef  word_t vaddr_t;
+typedef  word_t vaddr_t;
 
 static uint8_t *pimem =NULL;
 void init_imem(){
