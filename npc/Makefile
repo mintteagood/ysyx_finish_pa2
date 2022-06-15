@@ -1,7 +1,13 @@
 #加入spike
 
 include $(NEMU_HOME)/tools/difftest.mk
+NAME = $(GUEST_ISA)-spike-so
+BINARY = $(BUILD_DIR)/$(NAME)
+SRCS = csrc/main.cc
 
+$(BINARY): $(SPIKE) $(SRCS)
+	g++ -O2 -shared -fPIC $(INC_PATH) $(SRCS) $(INC_LIBS) -o $@
+	
 all:
 	@echo "Write this Makefile by your self."
 sim:
