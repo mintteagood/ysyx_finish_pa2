@@ -94,7 +94,7 @@ int main(int argc, char **argv, char **env) {
   printf("开始imem初始化\n");
   init_imem();
   long img_size = load_img(img_file);
-  init_difftest(img_size,port);
+  //init_difftest(img_size,port);
   for (i=0; i<200; i++) {
     top->rst = (i < 2);
     // dump variables into VCD file and toggle clock
@@ -109,7 +109,7 @@ int main(int argc, char **argv, char **env) {
       a= a+1;
      }
      if (a>2){
-       difftest_step(top->curr_pc,top->next_pc);
+       //difftest_step(top->curr_pc,top->next_pc);
      }
 
   }
