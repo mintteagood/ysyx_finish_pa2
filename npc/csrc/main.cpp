@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "Vysyx_22040175_top.h"
 #include "assert.h"
-
+#include <dlfcn.h>  //动态链接库相关函数
 //加run和target
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_MSIZE 0X2800000
@@ -60,36 +60,10 @@ static long load_img(char*img_file){
   return size;
 }
 //加difftest
-#include <getopt.h>
-static char *diff_so_file = NULL;
-static int parse_args(int argc, char *argv[]) {
-  const struct option table[] = {
-    {"batch"    , no_argument      , NULL, 'b'},
-    {"log"      , required_argument, NULL, 'l'},
-    {"diff"     , required_argument, NULL, 'd'},
-    {"port"     , required_argument, NULL, 'p'},
-    {"help"     , no_argument      , NULL, 'h'},
-    {0          , 0                , NULL,  0 },
-  };
-  int o;
-  while ( (o = getopt_long(argc, argv, "-bhl:d:p:", table, NULL)) != -1) {
-    switch (o) { 
-      case 'd': diff_so_file = optarg; break;
-      default:
-        printf("Usage: %s [OPTION...] IMAGE [args]\n\n", argv[0]);
-        printf("\t-b,--batch              run with batch mode\n");
-        printf("\t-l,--log=FILE           output log to FILE\n");
-        printf("\t-d,--diff=REF_SO        run DiffTest with reference REF_SO\n");
-        printf("\t-p,--port=PORT          run DiffTest with port PORT\n");
-        printf("\n");
-        exit(0);
-    }
-  }
-  return 0;
-}
-
-
-
+void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction) = NULL;
+void (*ref difftest_regcpy)(void *dut, bool direction) = NULL;
+void (*ref_difftest_exec)(uint64_t n) = NULL;
+void (*ref_difftest_raise_intr)(word_t NO) = NULL;
 
 
 
@@ -99,7 +73,7 @@ static int parse_args(int argc, char *argv[]) {
 
 
 int port = 1234;
-Vysyx_22040175_top *top; 
+//Vysyx_22040175_top *top; 
 int main(int argc, char **argv, char **env) {
   int i;
   int clk;
