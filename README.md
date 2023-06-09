@@ -9,3 +9,4 @@ bash init.sh subproject-name
 [lecture note]: https://docs.ysyx.org/schedule.html
 # githubtest
 # ysyx-finifhpa2
+#ysyx 第四期，完成pa2的记录总结
